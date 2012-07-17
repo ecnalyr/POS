@@ -22,7 +22,7 @@ namespace POS.Domain.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace POS.Domain.Properties {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("POS.Domain.Properties.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace POS.Domain.Properties {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace POS.Domain.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Only alpha-numeric characters and [.,_-;] are allowed.
         /// </summary>
-        internal static string InvalidInputCharacter {
+        public static string InvalidInputCharacter {
             get {
                 return ResourceManager.GetString("InvalidInputCharacter", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace POS.Domain.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Product Category.
         /// </summary>
-        internal static string ProductCategoryLabelText {
+        public static string ProductCategoryLabelText {
             get {
                 return ResourceManager.GetString("ProductCategoryLabelText", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace POS.Domain.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Product Category must be less than 40 characters.
         /// </summary>
-        internal static string ProductCategoryLengthError {
+        public static string ProductCategoryLengthError {
             get {
                 return ResourceManager.GetString("ProductCategoryLengthError", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace POS.Domain.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Product Category is required.
         /// </summary>
-        internal static string ProductCategoryRequired {
+        public static string ProductCategoryRequired {
             get {
                 return ResourceManager.GetString("ProductCategoryRequired", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace POS.Domain.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Product Description.
         /// </summary>
-        internal static string ProductDescriptionLabelText {
+        public static string ProductDescriptionLabelText {
             get {
                 return ResourceManager.GetString("ProductDescriptionLabelText", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace POS.Domain.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Description is required.
         /// </summary>
-        internal static string ProductDescriptionRequired {
+        public static string ProductDescriptionRequired {
             get {
                 return ResourceManager.GetString("ProductDescriptionRequired", resourceCulture);
             }
@@ -117,7 +117,7 @@ namespace POS.Domain.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Product Name.
         /// </summary>
-        internal static string ProductNameLebelText {
+        public static string ProductNameLebelText {
             get {
                 return ResourceManager.GetString("ProductNameLebelText", resourceCulture);
             }
@@ -126,7 +126,7 @@ namespace POS.Domain.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Name is required.
         /// </summary>
-        internal static string ProductNameRequired {
+        public static string ProductNameRequired {
             get {
                 return ResourceManager.GetString("ProductNameRequired", resourceCulture);
             }
@@ -135,7 +135,7 @@ namespace POS.Domain.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Product Price.
         /// </summary>
-        internal static string ProductPriceLabelText {
+        public static string ProductPriceLabelText {
             get {
                 return ResourceManager.GetString("ProductPriceLabelText", resourceCulture);
             }
@@ -144,7 +144,7 @@ namespace POS.Domain.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Price must be positive.
         /// </summary>
-        internal static string ProductPriceMustBePositiveError {
+        public static string ProductPriceMustBePositiveError {
             get {
                 return ResourceManager.GetString("ProductPriceMustBePositiveError", resourceCulture);
             }
@@ -153,7 +153,7 @@ namespace POS.Domain.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Product Price is required.
         /// </summary>
-        internal static string ProductPriceRequired {
+        public static string ProductPriceRequired {
             get {
                 return ResourceManager.GetString("ProductPriceRequired", resourceCulture);
             }
@@ -162,7 +162,7 @@ namespace POS.Domain.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Product Sub-Category.
         /// </summary>
-        internal static string ProductSubCategoryLabelText {
+        public static string ProductSubCategoryLabelText {
             get {
                 return ResourceManager.GetString("ProductSubCategoryLabelText", resourceCulture);
             }
@@ -171,7 +171,7 @@ namespace POS.Domain.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Product Sub-Category must be less than 40 characters.
         /// </summary>
-        internal static string ProductSubCategoryLengthError {
+        public static string ProductSubCategoryLengthError {
             get {
                 return ResourceManager.GetString("ProductSubCategoryLengthError", resourceCulture);
             }
@@ -180,7 +180,7 @@ namespace POS.Domain.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Product Sub-Category is required.
         /// </summary>
-        internal static string ProductSubCategoryRequired {
+        public static string ProductSubCategoryRequired {
             get {
                 return ResourceManager.GetString("ProductSubCategoryRequired", resourceCulture);
             }
@@ -189,7 +189,7 @@ namespace POS.Domain.Properties {
         /// <summary>
         ///   Looks up a localized string similar to ^(?!.*--)[A-Za-z0-9\.,&apos;_\-]*.
         /// </summary>
-        internal static string TextLineInputValidatorRegEx {
+        public static string TextLineInputValidatorRegEx {
             get {
                 return ResourceManager.GetString("TextLineInputValidatorRegEx", resourceCulture);
             }
