@@ -1,0 +1,11 @@
+﻿@model IEnumerable<POS.Domain.Entities.Category>
+
+@{
+    ViewBag.Title = "Categories";
+}
+
+@foreach (var p in Model) {
+    <div class="item">
+        @p.CategoryId
+        <h3>@p.Name</h3>
+    </div> }
