@@ -1,0 +1,9 @@
+﻿@model POS.Domain.Entities.Product
+           
+<div class = "item">
+    <h3>@Model.Name</h3>
+    @Model.Description
+    @Model.Category.Name
+    <h4>@Model.Price.ToString("c")</h4>
+</div>
+
