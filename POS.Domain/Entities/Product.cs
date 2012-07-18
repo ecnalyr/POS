@@ -55,12 +55,12 @@ namespace POS.Domain.Entities
 
 
         /// <summary>
-        /// Gets or sets the entity Id of the Category
+        /// Gets or sets the entity Id of the category
         /// </summary>
         public int CategoryId { get; set; }
 
         /// <summary>
-        /// Gets or sets the virtual 
+        /// Gets or sets the virtual category
         /// </summary>
         public virtual Category Category { get; set; }
 

@@ -150,7 +150,13 @@
     <Content Include="Views\Product\Categories.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Shared\ProductSummary.cshtml" />
+    <Content Include="Views\Product\_ProductSummary.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Product\_CategorySummary.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Product\ProductList.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
