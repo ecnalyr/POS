@@ -1,9 +1,13 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using POS.Models;
 using POS.Domain.Abstract;
+using POS.Domain.Entities;
+using System.Diagnostics;
 
 namespace POS.Controllers
 {
@@ -16,15 +20,20 @@ namespace POS.Controllers
             repository = productRepository;
         }
 
-        public ViewResult List()
+        public ViewResult List() // lists everything
         {
-            return View(repository.Products);
+            return View(repository.Categories.Distinct());
         }
 
-        public ViewResult Categories()
+        public ActionResult Categories()
         {
             return View(repository.Categories);
         }
 
+        public ActionResult ProductList(int category)
+        {
+            IEnumerable<Product> productList = repository.Products.Where(p => p.CategoryId == category);
+            return PartialView("ProductList", productList);
+        }
     }
 }

@@ -1,8 +1,29 @@
-﻿@model IEnumerable<POS.Domain.Entities.Product>
+﻿@using POS.Domain.Entities
+@model IQueryable<Category>
 
 @{
     ViewBag.Title = "List";
 }
 
-@foreach (var p in Model) {
-    Html.RenderPartial("ProductSummary", p);}
+@foreach (Category p in Model)
+{
+    Html.RenderPartial("_CategorySummary", p);
+}
+   
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        function getView(e) {
+            e.preventDefault();
+            var $category = $(this).closest(".category");
+            var categoryName = $category.attr("id");
+            $('.divResult', $category).load("@Url.Action("ProductList", "Product")", {
+                category: categoryName
+            });
+        }
+
+        $(function() {
+            $(".category").on("click", "a", getView);
+        });
+    });
+</script>
