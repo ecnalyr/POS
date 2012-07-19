@@ -7,5 +7,6 @@ namespace POS.Domain.Abstract
     {
         IQueryable<Product> Products { get; }
         IQueryable<Category> Categories { get; }
+        IQueryable<ParentCategory> ParentCategories { get; }
     }
 }
