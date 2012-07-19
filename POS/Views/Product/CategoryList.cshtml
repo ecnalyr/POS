@@ -1,0 +1,6 @@
+﻿@model IEnumerable<POS.Domain.Entities.Category>
+
+@foreach (var p in Model)
+{
+    Html.RenderPartial("_CategorySummary", p);
+}

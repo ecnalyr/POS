@@ -13,8 +13,9 @@
 <script type="text/javascript">
     $(document).ready(function () {
 
-        function getView(e) {
-            e.preventDefault();
+        function getProducts(f) {
+            f.preventDefault();
+            f.stopPropagation();
             var $category = $(this).closest(".category");
             var categoryName = $category.attr("id");
             $('.divResult', $category).load("@Url.Action("ProductList", "Product")", {
@@ -22,8 +23,6 @@
             });
         }
 
-        $(function() {
-            $(".category").on("click", "a", getView);
-        });
+        $(document).on("click", ".category", getProducts);
     });
 </script>

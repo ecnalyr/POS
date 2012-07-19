@@ -1,0 +1,40 @@
+﻿@using POS.Domain.Entities
+@model IQueryable<ParentCategory>
+
+@{
+    ViewBag.Title = "ParentCategories";
+}
+
+@foreach(ParentCategory p in Model)
+{
+    Html.RenderPartial("_ParentCategorySummary", p);
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        
+        function getCategories(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            var $parentCategory = $(this).closest(".parentCategory");
+            var parentCategoryName = $parentCategory.attr("id");
+            $('.divResult', $parentCategory).load("@Url.Action("CategoryList", "Product")", {
+                parentCategory: parentCategoryName
+            });
+        }
+
+        $(document).on("click", ".parentCategory", getCategories);
+
+        function getProducts(f) {
+            f.preventDefault();
+            f.stopPropagation();
+            var $category = $(this).closest(".category");
+            var categoryName = $category.attr("id");
+            $('.divResult', $category).load("@Url.Action("ProductList", "Product")", {
+                category: categoryName
+            });
+        }
+
+        $(document).on("click", ".category", getProducts);
+    });
+</script>

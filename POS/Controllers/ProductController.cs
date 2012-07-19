@@ -25,6 +25,11 @@ namespace POS.Controllers
             return View(repository.Categories.Distinct());
         }
 
+        public ActionResult ParentCategories()
+        {
+            return View(repository.ParentCategories.Distinct());
+        }
+
         public ActionResult Categories()
         {
             return PartialView(repository.Categories);
@@ -32,8 +37,18 @@ namespace POS.Controllers
 
         public ActionResult ProductList(int category)
         {
+            Debug.Write("productList ");
+            Debug.Write(category);
             IEnumerable<Product> productList = repository.Products.Where(p => p.CategoryId == category);
             return PartialView("ProductList", productList);
+        }
+
+        public ActionResult CategoryList(int parentCategory)
+        {
+            Debug.Write("categoryList ");
+            Debug.Write(parentCategory);
+            IEnumerable<Category> categoryList = repository.Categories.Where(p => p.ParentCategoryId == parentCategory);
+            return PartialView("CategoryList", categoryList);
         }
     }
 }

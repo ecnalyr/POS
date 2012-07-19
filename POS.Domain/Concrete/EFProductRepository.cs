@@ -20,5 +20,10 @@ namespace POS.Domain.Concrete
         {
             get { return context.Categories; }
         }
+
+        public IQueryable<ParentCategory> ParentCategories
+        {
+            get { return context.ParentCategories; }
+        }
     }
 }
