@@ -20,14 +20,14 @@ namespace POS.Controllers
             repository = productRepository;
         }
 
-        public ViewResult List() // lists everything
+        public ViewResult List() // lists everything (categories + products) for demo purposes
         {
             return View(repository.Categories.Distinct());
         }
 
         public ActionResult Categories()
         {
-            return View(repository.Categories);
+            return PartialView(repository.Categories);
         }
 
         public ActionResult ProductList(int category)

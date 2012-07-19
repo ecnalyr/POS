@@ -133,6 +133,33 @@ namespace POS.Domain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Product Parent-Category.
+        /// </summary>
+        public static string ProductParentCategoryLabelText {
+            get {
+                return ResourceManager.GetString("ProductParentCategoryLabelText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Product Parent-Category must be less than 40 characters.
+        /// </summary>
+        public static string ProductParentCategoryLengthError {
+            get {
+                return ResourceManager.GetString("ProductParentCategoryLengthError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Product Parent-Category is required.
+        /// </summary>
+        public static string ProductParentCategoryRequired {
+            get {
+                return ResourceManager.GetString("ProductParentCategoryRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Product Price.
         /// </summary>
         public static string ProductPriceLabelText {
@@ -156,33 +183,6 @@ namespace POS.Domain.Properties {
         public static string ProductPriceRequired {
             get {
                 return ResourceManager.GetString("ProductPriceRequired", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Product Sub-Category.
-        /// </summary>
-        public static string ProductSubCategoryLabelText {
-            get {
-                return ResourceManager.GetString("ProductSubCategoryLabelText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Product Sub-Category must be less than 40 characters.
-        /// </summary>
-        public static string ProductSubCategoryLengthError {
-            get {
-                return ResourceManager.GetString("ProductSubCategoryLengthError", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Product Sub-Category is required.
-        /// </summary>
-        public static string ProductSubCategoryRequired {
-            get {
-                return ResourceManager.GetString("ProductSubCategoryRequired", resourceCulture);
             }
         }
         
