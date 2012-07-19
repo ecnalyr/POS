@@ -141,6 +141,15 @@
   <data name="ProductNameRequired" xml:space="preserve">
     <value>Name is required</value>
   </data>
+  <data name="ProductParentCategoryLabelText" xml:space="preserve">
+    <value>Product Parent-Category</value>
+  </data>
+  <data name="ProductParentCategoryLengthError" xml:space="preserve">
+    <value>Product Parent-Category must be less than 40 characters</value>
+  </data>
+  <data name="ProductParentCategoryRequired" xml:space="preserve">
+    <value>Product Parent-Category is required</value>
+  </data>
   <data name="ProductPriceLabelText" xml:space="preserve">
     <value>Product Price</value>
   </data>
@@ -149,15 +158,6 @@
   </data>
   <data name="ProductPriceRequired" xml:space="preserve">
     <value>Product Price is required</value>
-  </data>
-  <data name="ProductSubCategoryLabelText" xml:space="preserve">
-    <value>Product Sub-Category</value>
-  </data>
-  <data name="ProductSubCategoryLengthError" xml:space="preserve">
-    <value>Product Sub-Category must be less than 40 characters</value>
-  </data>
-  <data name="ProductSubCategoryRequired" xml:space="preserve">
-    <value>Product Sub-Category is required</value>
   </data>
   <data name="TextLineInputValidatorRegEx" xml:space="preserve">
     <value>^(?!.*--)[A-Za-z0-9\.,'_\-]*</value>
