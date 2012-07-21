@@ -50,7 +50,10 @@ namespace POS.Tests
 
             mock.Setup(m => m.ParentCategories).Returns(new[]
                                                             {
-                                                                new ParentCategory {ParentCategoryId = 1, Name = "PC1"}
+                                                                new ParentCategory {ParentCategoryId = 1, Name = "PC1"},
+                                                                new ParentCategory {ParentCategoryId = 2, Name = "PC2"},
+                                                                new ParentCategory {ParentCategoryId = 3, Name = "PC2"},
+                                                                new ParentCategory {ParentCategoryId = 4, Name = "PC4"}
                                                             }.AsQueryable());
             _mockRepository = mock;
         }
@@ -93,6 +96,57 @@ namespace POS.Tests
             // Assert
             Assert.AreEqual(((IEnumerable<Category>) result.ViewData.Model).Count(), 3);
             Assert.IsTrue(((IEnumerable<Category>) result.ViewData.Model).Count(o => o.Name == "C4") == 1);
+        }
+
+        /// <summary>
+        /// Tests that the returned categories ViewResult IQueryable contains every category
+        ///</summary>
+        [TestMethod]
+        public void ListReturnsEveryCategory()
+        {
+            // Arrange - create a controller
+            var controller = new ProductController(_mockRepository.Object);
+
+            // Action
+            var result = controller.List();
+
+            // Assert
+            Assert.AreEqual(((IQueryable<Category>)result.ViewData.Model).Count(), 5);
+            Assert.IsTrue(((IQueryable<Category>)result.ViewData.Model).Count(o => o.Name == "C4") == 2);
+        }
+
+        /// <summary>
+        /// Tests that the returned parent categories ViewResult IQueryable contains every parent category
+        ///</summary>
+        [TestMethod]
+        public void ParentCategoriesReturnsEveryParentCategory()
+        {
+            // Arrange - create a controller
+            var controller = new ProductController(_mockRepository.Object);
+
+            // Action
+            var result = (ViewResult)controller.ParentCategories();
+
+            // Assert
+            Assert.AreEqual(((IQueryable<ParentCategory>)result.ViewData.Model).Count(), 4);
+            Assert.IsTrue(((IQueryable<ParentCategory>)result.ViewData.Model).Count(o => o.Name == "PC2") == 2);
+        }
+
+        /// <summary>
+        /// Tests that the returned categories PartialViewResult IQueryable contains every category
+        ///</summary>
+        [TestMethod]
+        public void CategoriesReturnsEveryCategory()
+        {
+            // Arrange - create a controller
+            var controller = new ProductController(_mockRepository.Object);
+
+            // Action
+            var result = (PartialViewResult)controller.Categories();
+
+            // Assert
+            Assert.AreEqual(((IQueryable<Category>)result.ViewData.Model).Count(), 5);
+            Assert.IsTrue(((IQueryable<Category>)result.ViewData.Model).Count(o => o.Name == "C4") == 2);
         }
 
         #region Additional test attributes
