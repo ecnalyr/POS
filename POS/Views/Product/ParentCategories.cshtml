@@ -13,6 +13,7 @@
 <script type="text/javascript">
     $(document).ready(function () {
         
+        /***********/
         function getCategories(e) {
             e.preventDefault();
             e.stopPropagation();
@@ -21,10 +22,32 @@
             $('.divResult', $parentCategory).load("@Url.Action("CategoryList", "Product")", {
                 parentCategory: parentCategoryName
             });
+            $(this).attr("class", "parentCategoryLoaded");
         }
 
         $(document).on("click", ".parentCategory", getCategories);
+        
+                /***********/
+        function hideCategories(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            $(this).children('.divResult').children().hide();
+            $(this).attr("class", "parentCategoryHidChildren");
+        }
 
+        $(document).on("click", ".parentCategoryLoaded", hideCategories);
+        
+        /***********/
+        function unHideCategories(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            $(this).find(('.divResult:first')).children().show();
+            $(this).attr("class", "parentCategoryLoaded");
+        }
+
+        $(document).on("click", ".parentCategoryHidChildren", unHideCategories);
+
+        /***********/
         function getProducts(f) {
             f.preventDefault();
             f.stopPropagation();
@@ -33,8 +56,31 @@
             $('.divResult', $category).load("@Url.Action("ProductList", "Product")", {
                 category: categoryName
             });
+            $(this).attr("class", "categoryLoaded")
         }
 
         $(document).on("click", ".category", getProducts);
+        
+                /***********/
+        function hideProducts(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            $(this).children('.divResult').children().hide();
+            $(this).attr("class", "categoryHidChildren");
+        }
+
+        $(document).on("click", ".categoryLoaded", hideProducts);
+        
+        /***********/
+        function unHideProducts(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            $(this).find(('.divResult:first')).children().show();
+            $(this).attr("class", "categoryLoaded");
+        }
+
+        $(document).on("click", ".categoryHidChildren", unHideProducts);
+        
+
     });
 </script>
