@@ -22,12 +22,12 @@ namespace POS.Controllers
 
         public ViewResult List() // lists everything (categories + products) for demo purposes
         {
-            return View(repository.Categories.Distinct());
+            return View(repository.Categories);
         }
 
         public ActionResult ParentCategories()
         {
-            return View(repository.ParentCategories.Distinct());
+            return View(repository.ParentCategories);
         }
 
         public ActionResult Categories()
