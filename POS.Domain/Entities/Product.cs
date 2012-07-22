@@ -64,27 +64,10 @@ namespace POS.Domain.Entities
         /// </summary>
         public virtual Category Category { get; set; }
 
-        /*
-        /// <summary>
-        /// Gets or sets the sub-category of the product
-        /// </summary>
-        /// <value>
-        /// A one-word string, only alpha-numeric characters and [.,_-;] are allowed
-        /// </value>
-        [Required(AllowEmptyStrings = false, ErrorMessageResourceName = "ProductSubCategoryRequired",
-            ErrorMessageResourceType = typeof (Resources))]
-        [StringLength(40, ErrorMessageResourceName = "ProductSubCategoryLengthError",
-            ErrorMessageResourceType = typeof (Resources))]
-        [TextLineInputValidatorAtribute]
-        [Display(Name = "ProductSubCategoryLabelText", ResourceType = typeof (Resources))]
-        public string SubCategory { get; set; }*/
-
-        /*
         public byte[] ImageData { get; set; }
-
 
         [HiddenInput(DisplayValue = false)]
         [StringLength(100)]
-        public string ImageMimeType { get; set; }*/
+        public string ImageMimeType { get; set; }
     }
 }

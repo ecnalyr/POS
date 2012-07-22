@@ -166,7 +166,7 @@ namespace POS.Tests
             Product product = new Product { Name = "Test" };
 
             // Action - try to save the product
-            ActionResult result = controller.Edit(product);
+            ActionResult result = controller.Edit(product, null);
 
             // Assert - check that the repository was called
             _mockRepository.Verify(m => m.SaveProduct(product));
@@ -188,7 +188,7 @@ namespace POS.Tests
             controller.ModelState.AddModelError("error", "error");
 
             // Action - try to save the product
-            ActionResult result = controller.Edit(product);
+            ActionResult result = controller.Edit(product, null);
 
             // Assert - check that the repository was called
             _mockRepository.Verify(m => m.SaveProduct(It.IsAny<Product>()), Times.Never());

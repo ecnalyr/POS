@@ -46,5 +46,18 @@ namespace POS.Controllers
             IEnumerable<Category> categoryList = repository.Categories.Where(p => p.ParentCategoryId == parentCategory);
             return PartialView("CategoryList", categoryList);
         }
+
+        public FileContentResult GetImage(int productid)
+        {
+            Product product = repository.Products.FirstOrDefault(p => p.ProductId == productid);
+            if (product != null)
+            {
+                return File(product.ImageData, product.ImageMimeType);
+            }
+            else
+            {
+                return null;
+            }
+        }
     }
 }
