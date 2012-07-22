@@ -3,31 +3,70 @@
 <head>
     <meta charset="utf-8" />
     <title>@ViewBag.Title</title>
-    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+    <!--<link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />-->
+    <link href="@Url.Content("~/Content/imports.css")" rel="stylesheet" type="text/css" />
+
     <script src="@Url.Content("~/Scripts/jquery-1.7.2.min.js")" type="text/javascript"></script>
     <script src="@Url.Content("~/Scripts/modernizr-2.5.3.js")" type="text/javascript"></script>
 </head>
-<body>
-    <div class="page">
-        <header>
-            <div id="title">
-                <h1>My MVC Application</h1>
+    <body style="background: #ebffef;">
+        <section class="drawer" id="fromtop">
+            <div class="container">
+                <div class="row">
+                    <i class="two columns"><p>This is some stuff</p></i>
+                    <i class="two columns"><p>This is some more stuff</p></i>
+                </div>
+                <div class="row">
+                    <i class="two columns"><p>This is some stuff</p></i>
+                    <i class="two columns"><p>This is some more stuff</p></i>
+                </div>
             </div>
-            <div id="logindisplay">
-                @Html.Partial("_LogOnPartial")
-            </div>
-            <nav>
-                <ul id="menu">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
+        </section>
+        <div id="logindisplay">
+            @Html.Partial("_LogOnPartial")
+        </div>
+        <div class="row">
+            <h2>Navigation</h2>
+            <nav class="pretty navbar clearfix" id="prettynav">
+                <a href="#" class="toggle" data-for="#basicnav > ul"><img src="@Url.Content("~/Content/img/icon_nav_toggle.gif")" /></a>
+                <ul>
+                    <li>
+                        @Html.ActionLink("Home", "Index", "Home")
+                        <div class="dropdown">
+                            <ul>
+                                <li><a href="#">Dropdown item</a></li>
+                                <li><a href="#">Dropdown item</a></li>
+                                <li><a href="#">Dropdown item</a></li>
+                                <li><a href="#">Dropdown item</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>@Html.ActionLink("About", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Parent Categories", "ParentCategories", "Product")</li>
+                    <li>
+                        <div class="field">
+                            <p class="text search oval"><input type="search" placeholder="Search" /></p>
+                        </div>
+                    </li>
                 </ul>
             </nav>
-        </header>
-        <section id="main">
-            @RenderBody()
-        </section>
-        <footer>
-        </footer>
-    </div>
-</body>
+        </div>
+
+        <div class="page">
+            <section id="main">
+                @RenderBody()
+            </section>
+            <footer>
+            <div class="container">
+                <article class="row drawertoggle">
+                    <p class="three columns alpha"><a href="#" class="toggle" data-for=".drawer#fromtop">Open Drawer Up Top</a></p>
+                </article>
+            </div>
+            </footer>
+        </div>
+
+    </body>
+    <script src="@Url.Content("~/Scripts/gumbyScripts/libs/gumby.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/gumbyScripts/plugins.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/gumbyScripts/main.js")" type="text/javascript"></script>
 </html>

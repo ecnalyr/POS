@@ -4,11 +4,15 @@
 @{
     ViewBag.Title = "ParentCategories";
 }
+<section class="row">
+    <div class="four columns">
+        @foreach(ParentCategory p in Model)
+        {
+            Html.RenderPartial("_ParentCategorySummary", p);
+        }
+        </div>
+</section>
 
-@foreach(ParentCategory p in Model)
-{
-    Html.RenderPartial("_ParentCategorySummary", p);
-}
 
 <script type="text/javascript">
     $(document).ready(function () {

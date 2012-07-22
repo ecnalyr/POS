@@ -1,0 +1,1596 @@
+/*=======================================================================
+
+	❤❤❤ A Beautifully Responsive UI Kit. Perfected by Digital Surgeons. ❤❤❤
+ 
+ ========================================================================*/
+ 
+ 
+
+
+/*=======================================================================
+
+	Buttons
+	
+ ========================================================================*/
+	
+	
+	.btn {
+	  
+		position: relative;
+		display: inline-block;
+		
+		width: auto;
+		height: 36px;
+		font-size: 16px;
+		line-height: 36px;
+		border: 1px solid #999;
+		border-radius: 4px;
+		cursor: pointer;
+		margin: 0 0 20px 0;
+
+		-webkit-box-shadow: inset 0 1px 1px #fff,
+			0 1px 2px rgba(0,0,0,0.31); /* Remove this line if you dont want a dropshadow on your buttons*/
+		box-shadow: inset 0 1px 1px #fff,
+					0 1px 2px rgba(0,0,0,0.31); /* Remove this line if you dont want a dropshadow on your buttons*/
+		
+		background: #ccc; /* Old browsers */
+		background: -moz-linear-gradient(top, #eee 0%, #ccc 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eee), color-stop(100%,#ccc)); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top, #eee 0%,#ccc 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top, #eee 0%,#ccc 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top, #eee 0%,#ccc 100%); /* IE10+ */
+		background: linear-gradient(top, #eee 0%,#ccc 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc',GradientType=0 ); /* IE6-9 */
+	}
+	
+	.btn:hover {
+		-webkit-box-shadow: inset 0 1px 1px #fff,
+			0 1px 2px rgba(0,0,0,0.31); /* Remove this line if you dont want a dropshadow on your buttons*/
+		box-shadow: inset 0 1px 1px #fff,
+					0 1px 2px rgba(0,0,0,0.31); /* Remove this line if you dont want a dropshadow on your buttons*/
+		
+		background: #ccc; /* Old browsers */
+		background: -moz-linear-gradient(top, #fff 0%, #ddd 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fff), color-stop(100%,#ddd)); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top, #fff 0%,#ddd 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top, #fff 0%,#ddd 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top, #fff 0%,#ddd 100%); /* IE10+ */
+		background: linear-gradient(top, #fff 0%,#ddd 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#dddddd',GradientType=0 ); /* IE6-9 */
+	}
+
+	
+	.btn a, .btn:hover a {
+		display: block;
+		font-family: "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
+		font-weight: bold;
+		padding: 0 20px;
+		text-align: center;
+		text-decoration: none;
+		color: #444;
+		text-shadow: 0 1px 1px #fff;
+	}
+	
+	.btn:hover a {
+		line-height: inherit;
+	}
+	
+	.btn:active {
+		background: #ccc; /* Old browsers */
+		background: -moz-linear-gradient(top, #ddd 0%, #fff 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ddd), color-stop(100%,#fff)); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top, #ddd 0%,#fff 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top, #ddd 0%,#fff 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top, #ddd 0%,#fff 100%); /* IE10+ */
+		background: linear-gradient(top, #ddd 0%,#fff 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dddddd', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+	}
+
+	.btn.primary {
+	  font-size: 24px;
+		height: 56px;
+		line-height: 56px;
+		border: 1px solid #7d180a;
+		
+		background: #c54224; /* Old browsers */
+		background: -moz-linear-gradient(top, #ef6638 0%, #b62918 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ef6638), color-stop(100%,#b62918)); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top, #ef6638 0%,#b62918 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top, #ef6638 0%,#b62918 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top, #ef6638 0%,#b62918 100%); /* IE10+ */
+		background: linear-gradient(top, #ef6638 0%,#b62918 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ef6638', endColorstr='#b62918',GradientType=0 ); /* IE6-9 */
+		
+		-webkit-box-shadow: inset 0 1px 1px #fb926a,
+			0 1px 2px rgba(0,0,0,0.61); /* Remove this line if you dont want a dropshadow on your buttons*/
+		box-shadow: inset 0 1px 1px #fb926a,
+					0 1px 2px rgba(0,0,0,0.61); /* Remove this line if you dont want a dropshadow on your buttons*/
+		
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		-ms-box-sizing: border-box;
+		box-sizing: border-box;
+
+	}
+	
+	.btn.primary:hover {
+		line-height: 56px;
+		background: #ed754e; /* Old browsers */
+		background: -moz-linear-gradient(top, #ed754e 0%, #c93e23 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ed754e), color-stop(100%,#c93e23)); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top, #ed754e 0%,#c93e23 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top, #ed754e 0%,#c93e23 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top, #ed754e 0%,#c93e23 100%); /* IE10+ */
+		background: linear-gradient(top, #ed754e 0%,#c93e23 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ed754e', endColorstr='#c93e23',GradientType=0 ); /* IE6-9 */
+	}
+	
+	.btn.primary a, btn.primary:hover a {
+		color: #fff;
+		text-shadow: 0 1px 2px #6f1c0e,
+								 0 1px 0 #6f1c0e;
+	}
+	
+	.btn.primary:active {
+		background: #ed754e; /* Old browsers */
+		background: -moz-linear-gradient(top, #c93e23 0%, #ed754e 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#c93e23), color-stop(100%,#ed754e)); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top, #c93e23 0%,#ed754e 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top, #c93e23 0%,#ed754e 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top, #c93e23 0%,#ed754e 100%); /* IE10+ */
+		background: linear-gradient(top, #c93e23 0%,#ed754e 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c93e23', endColorstr='#ed754e',GradientType=0 ); /* IE6-9 */
+	}
+	
+	.btn.secondary { 
+	  font-size: 24px;
+		height: 56px;
+		line-height: 56px;
+		border-color: #1d692d;
+	
+		-webkit-box-shadow: inset 0 1px 1px #94dda6,
+			0 1px 2px rgba(0,0,0,0.61); /* Remove this line if you dont want a dropshadow on your buttons*/
+		box-shadow: inset 0 1px 1px #94dda6,
+					0 1px 2px rgba(0,0,0,0.61); /* Remove this line if you dont want a dropshadow on your buttons*/
+	
+		background: #5dbb73; /* Old browsers */
+		background: -moz-linear-gradient(top, #5dbb73 0%, #2d9047 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#5dbb73), color-stop(100%,#2d9047)); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top, #5dbb73 0%,#2d9047 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top, #5dbb73 0%,#2d9047 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top, #5dbb73 0%,#2d9047 100%); /* IE10+ */
+		background: linear-gradient(top, #5dbb73 0%,#2d9047 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5dbb73', endColorstr='#2d9047',GradientType=0 ); /* IE6-9 */
+	}
+	
+	.btn.secondary:hover {
+		background: #68ce80; /* Old browsers */
+		background: -moz-linear-gradient(top, #68ce80 0%, #3cae5a 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#68ce80), color-stop(100%,#3cae5a)); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top, #68ce80 0%,#3cae5a 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top, #68ce80 0%,#3cae5a 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top, #68ce80 0%,#3cae5a 100%); /* IE10+ */
+		background: linear-gradient(top, #68ce80 0%,#3cae5a 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#68ce80', endColorstr='#3cae5a',GradientType=0 ); /* IE6-9 */
+	}
+	
+	.btn.secondary a, .btn.secondary:hover a {
+		color: #fff;
+		text-shadow: 0 1px 2px #114a1e,
+								 0 1px 0 #114a1e;
+	}
+	
+	.btn.secondary:active {
+		background: #68ce80; /* Old browsers */
+		background: -moz-linear-gradient(top, #3cae5a 0%, #68ce80 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#3cae5a), color-stop(100%,#68ce80)); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top, #3cae5a 0%,#68ce80 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top, #3cae5a 0%,#68ce80 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top, #3cae5a 0%,#68ce80 100%); /* IE10+ */
+		background: linear-gradient(top, #3cae5a 0%,#68ce80 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3cae5a', endColorstr='#68ce80',GradientType=0 ); /* IE6-9 */
+	}
+	
+	.btn.tertiary {
+	  font-size: 20px;
+		height: 46px;
+		line-height: 46px;
+		border-color: #c19114;
+		
+		background: #feeeb8; /* Old browsers */
+		background: -moz-linear-gradient(top, #feeeb8 0%, #fed554 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#feeeb8), color-stop(100%,#fed554)); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top, #feeeb8 0%,#fed554 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top, #feeeb8 0%,#fed554 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top, #feeeb8 0%,#fed554 100%); /* IE10+ */
+		background: linear-gradient(top, #feeeb8 0%,#fed554 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#feeeb8', endColorstr='#fed554',GradientType=0 ); /* IE6-9 */
+		
+		-webkit-box-shadow: inset 0 2px 2px #fef9e9,
+					inset 0 -3px 5px #fcaa20,
+					0 1px 2px rgba(0,0,0,0.61); /* Remove this line if you dont want a dropshadow on your buttons*/
+		box-shadow: inset 0 2px 2px #fef9e9,
+					inset 0 -3px 5px #fcaa20,
+					0 1px 2px rgba(0,0,0,0.61); /* Remove this line if you dont want a dropshadow on your buttons*/
+	}
+	
+	.btn.tertiary:hover {
+		background: #fef4d3; /* Old browsers */
+		background: -moz-linear-gradient(top, #fef4d3 0%, #fcde7e 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fef4d3), color-stop(100%,#fcde7e)); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top, #fef4d3 0%,#fcde7e 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top, #fef4d3 0%,#fcde7e 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top, #fef4d3 0%,#fcde7e 100%); /* IE10+ */
+		background: linear-gradient(top, #fef4d3 0%,#fcde7e 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fef4d3', endColorstr='#fcde7e',GradientType=0 ); /* IE6-9 */
+		
+		-webkit-box-shadow: inset 0 2px 2px #fef9e9,
+					inset 0 -3px 5px #fdc841,
+					0 1px 2px rgba(0,0,0,0.61); /* Remove this line if you dont want a dropshadow on your buttons*/
+		box-shadow: inset 0 2px 2px #fef9e9,
+					inset 0 -3px 5px #fdc841,
+					0 1px 2px rgba(0,0,0,0.61); /* Remove this line if you dont want a dropshadow on your buttons*/
+	}
+
+	.btn.tertiary a, .btn.tertiary:hover a {
+		color: #6a4a00;
+		text-shadow: 0 1px 2px #fff;
+	}
+	
+	.btn.tertiary:active {
+		background: #fef4d3; /* Old browsers */
+		background: -moz-linear-gradient(top, #fcde7e 0%, #fef4d3 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fcde7e), color-stop(100%,#fef4d3)); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top, #fcde7e 0%,#fef4d3 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top, #fcde7e 0%,#fef4d3 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top, #fcde7e 0%,#fef4d3 100%); /* IE10+ */
+		background: linear-gradient(top, #fcde7e 0%,#fef4d3 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcde7e', endColorstr='#fef4d3',GradientType=0 ); /* IE6-9 */
+	}
+	
+	.oval { 
+		-moz-border-radius: 1000px;
+		-webkit-border-radius: 1000px;
+		border-radius: 1000px;
+	}
+	
+	.btn.submit input {
+	  font: 16px "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
+	  font-weight: bold;
+	  padding: 0 20px;
+	  text-align: center;
+	  text-decoration: none;
+	  background: transparent;
+	  color: #444;
+	  text-shadow: 0 1px 1px #fff;
+	  border: none;
+	  margin: 0;
+	  cursor: pointer;
+	}
+
+	.btn.submit {
+		text-align: center;
+	}
+	
+	.btn.left { 
+		text-align: left; 
+		text-indent: 12px;
+	}
+	
+	
+	
+	/*=====================================================================
+	
+	 Resize your buttons (Works in conjunction with .primary, .secondary,
+	 .tertiary button styles as well!)
+	 	
+	 =======================================================================*/
+	
+
+	
+	.small.btn {
+	  font-size: 12px;
+		line-height: 24px !important;
+		height: 24px;
+	}
+	
+	.medium.btn {
+	  font-size: 16px;
+		line-height: 40px !important;
+		height: 40px;
+	}
+	
+	.large.btn {
+	  font-size: 30px;
+		line-height: 65px !important;
+		height: 65px;
+	}
+	
+	/* Mobile Buttons */
+	
+	@media only screen and (max-width: 767px) {
+		.btn { display: block; }
+		button.btn { width: 100%; padding-left: 0px; padding-right: 0px; }
+		
+		.btn.primary, .btn.secondary, .btn.tertiary, .btn.large {
+			width: 100% !important;
+		}
+		
+		.btn.medium {
+			min-width: 75% !important;
+		}
+	}
+	
+	@media only screen and (min-width:768px) and (max-width: 939px) {
+	  /* Style adjustments for viewports between 768px and 940px */
+	  
+	  .btn.shrink a {
+	    font-size: 90%;
+	  }
+	
+	}
+	
+	/* Correct FF button padding, thx ZURB */
+	@-moz-document url-prefix(http://) {
+		input[type=submit].button::-moz-focus-inner, button.button::-moz-focus-inner { border: 0; padding: 0; }
+		input[type=submit].small.button		{ padding: 7px 20px 8px; }
+		input[type=submit].medium.button	{ padding: 8px 34px 9px; }
+		input[type=submit].large.button		{ padding: 9px 48px 10px; }
+	}
+
+
+/*	--------------------------------------------------
+	Alerts
+	-------------------------------------------------- */
+
+	div.alert-box { display: block; padding: 6px 7px; font-weight: bold; font-size: 13px; background: #eee; border: 1px solid rgba(0,0,0,0.1); margin-bottom: 12px; border-radius: 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px; text-shadow: 0px 1px rgba(255,255,255,0.9); position: relative; }
+	.alert-box.success { background-color: #7fae00; color: #fff; text-shadow: 0px -1px rgba(0,0,0,0.3); }
+	.alert-box.warning { background-color: #c08c00; color: #fff; text-shadow: 0px -1px rgba(0,0,0,0.3); }
+	.alert-box.error { background-color: #c00000; color: #fff; text-shadow: 0px -1px rgba(0,0,0,0.3); }
+	
+	.alert-box a.close { color: #000; position: absolute; right: 4px; top: 0px; font-size: 18px; opacity: 0.2; padding: 4px; }
+	.alert-box a.close:hover { opacity: 0.4; }    
+    
+    
+    
+/*=======================================================================
+
+    Pagination
+    
+ ========================================================================*/
+ 
+ 
+    ul.pagination { display: block; height: 24px; margin-left: -5px; }
+    ul.pagination li { float: left; display: block; height: 24px; color: #999; font-size: 15px; margin-left: 5px; }
+    ul.pagination li a { display: block; padding: 6px 7px 4px; color: #555; }
+    ul.pagination li.current a, ul.pagination li:hover a { border-bottom: solid 2px #00a6fc; color: #141414; }
+    ul.pagination li.unavailable a { cursor: default; color: #999; }
+    ul.pagination li.unavailable:hover a { border-bottom: none; }
+    	
+
+
+/*=======================================================================
+
+    Tabs
+    
+ ========================================================================*/
+ 
+	.tabs { 
+		display: block;
+	}
+	
+	.tabs ul {
+		margin: 0;
+		padding: 0;
+		height: 30px;
+		border-bottom: 1px solid #1d692d;
+	}
+	
+  .tabs li {
+  	display: block;
+  	width: auto;
+  	padding: 0;
+  	margin: 0 10px 0 0;
+  	line-height: 30px;
+  	float: left;
+  	color: #999;
+  	cursor: default;
+  }
+
+  .tabs li a {
+  	display: block;
+  	width: auto;
+  	height: 29px;
+  	padding: 0 9px;
+  	line-height: 30px;
+  	border: 1px solid #1d692d;
+  	margin: 0 -1px 0 0;
+  	color: #05390a;
+  	text-shadow: 0 1px 1px #77d58e;
+  	background: #5dbb73;
+  }
+  
+  .tabs li a:hover {
+    text-decoration: none;
+  }
+  
+  .tabs li.active a {
+  	height: 30px;
+  	font-weight: bold;
+  	background: #ebffef;
+  	border-width: 1px 1px 0 1px;
+  	text-shadow: 0 1px 1px #fff;
+  }
+  
+  .tabs div {
+  	display: none;
+  	padding: 20px 10px;
+  }
+	
+	.tabs div.active {
+		display: block;
+	}
+	
+	.tabs li:last-child {
+		margin-right: 0;
+	}
+
+/**** Pretty Tab Styles ****/
+
+		.pretty.tabs ul {
+			display: table;
+			width: 100%;
+			border: 1px solid #999;
+			border-radius: 4px 4px 0 0;
+			
+			-webkit-box-shadow: inset 0 1px 1px #fff;
+			box-shadow: inset 0 1px 1px #fff;
+						
+			background: #ccc; /* Old browsers */
+			background: -moz-linear-gradient(top, #eee 0%, #ccc 100%); /* FF3.6+ */
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eee), color-stop(100%,#ccc)); /* Chrome,Safari4+ */
+			background: -webkit-linear-gradient(top, #eee 0%,#ccc 100%); /* Chrome10+,Safari5.1+ */
+			background: -o-linear-gradient(top, #eee 0%,#ccc 100%); /* Opera 11.10+ */
+			background: -ms-linear-gradient(top, #eee 0%,#ccc 100%); /* IE10+ */
+			background: linear-gradient(top, #eee 0%,#ccc 100%); /* W3C */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc',GradientType=0 ); /* IE6-9 */
+			
+		}
+		
+		.pretty.tabs li {
+			display: table-cell;
+			float: none;
+			text-align: center;
+		}
+		
+		.pretty.tabs li a {
+			padding: 0;
+			font-size: 16px;
+			height: 52px;
+			line-height: 52px;
+			color: #444;
+			border: none;
+			border-right: 1px solid #999;
+			text-shadow: 0 1px 1px #fff;
+			font-weight: bold;
+			background: transparent;
+		}
+		
+		.pretty.tabs li:last-child a {
+			border-right: none;
+		}
+		
+		.pretty.tabs li.active a {
+			font-weight: bold;
+			color: #fff;
+			position: relative;
+			border: none;
+			text-shadow: 0 2px 1px #1d692d,
+				0 1px 1px #1d692d
+			;
+
+			-webkit-box-shadow: inset 0 1px 1px #94dda6,
+				0 1px 0 #1d692d,
+				0 -1px 0 #1d692d,
+				1px 0 0 #1d692d,
+				-1px 0 0 #1d692d
+			;
+			box-shadow: inset 0 1px 1px #94dda6,
+				0 1px 0 #1d692d,
+				0 -1px 0 #1d692d,
+				1px 0 0 #1d692d,
+				-1px 0 0 #1d692d
+			;
+		
+			background: #5dbb73; /* Old browsers */
+			background: -moz-linear-gradient(top, #5dbb73 0%, #2d9047 100%); /* FF3.6+ */
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#5dbb73), color-stop(100%,#2d9047)); /* Chrome,Safari4+ */
+			background: -webkit-linear-gradient(top, #5dbb73 0%,#2d9047 100%); /* Chrome10+,Safari5.1+ */
+			background: -o-linear-gradient(top, #5dbb73 0%,#2d9047 100%); /* Opera 11.10+ */
+			background: -ms-linear-gradient(top, #5dbb73 0%,#2d9047 100%); /* IE10+ */
+			background: linear-gradient(top, #5dbb73 0%,#2d9047 100%); /* W3C */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5dbb73', endColorstr='#2d9047',GradientType=0 ); /* IE6-9 */
+
+		}
+		
+		.pretty.tabs ul li.active:first-child a {
+			border-radius: 4px 0 0 0;
+			margin-left: 0; 
+		}
+		
+		.pretty.tabs ul li.active:last-child a {
+			border-radius: 0 4px 0 0;
+		}
+
+		.ie7 .pretty.tabs > ul { width: 100%; height: 51px; }
+		.ie7 .pretty.tabs > ul li { display: block; float: left; margin: 0; }
+		.ie7 .pretty.tabs > ul li a { padding: 0 20px; }
+			
+		
+		
+	/**** Pill Tabs ****/
+
+	.pill.tabs { height: auto; }
+	.pill.tabs li, .pill.tabs li, .pretty.pill.tabs li { float: none; height: auto; }
+	.pill.tabs li a { display: block; width: auto; height: auto; padding: 15px 20px; line-height: 1; border: solid 0 #ccc; border-width: 1px 1px 0; margin: 0; color: #555; background: #eee; font-size: 15px; font-size: 1.5rem; }
+	.pill.tabs li a.active { height: auto; margin: 0; border-width: 1px 0 0; background: #fff; }
+	
+		.pretty.pill.tabs { border-bottom: solid 1px #eee; height: auto; }
+		.pretty.pill.tabs li a { padding: 15px 20px; border: none; border-left: 1px solid #eee; border-right: 1px solid #eee; border-top: 1px solid #eee; background: #fff; }
+		.pretty.pill.tabs li a.active { border: none; background: #00a6fc; color: #fff; margin: 0; position: static; top: 0; height: auto; }
+		.pretty.pill.tabs li.active:first-child a { margin: 0; }
+
+
+@media only screen and (max-width: 767px) {
+  .pretty.tabs ul {
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  
+  .pretty.tabs li a {
+    height: 36px;
+    line-height: 36px;
+    font-size: 14px;
+  }
+}
+
+	/* Vertically Align Stuff */
+
+	.valign { display: table; width: 100%; }
+	
+	.valign > div, .valign > article { display: table-cell; vertical-align: middle; }​
+
+
+/*=======================================================================
+ ========================================================================
+
+	❤❤❤ A Beautifully Responsive UI Kit. Perfected by Digital Surgeons. ❤❤❤
+	
+ ========================================================================
+ ========================================================================*/
+
+
+
+ 
+/*=======================================================================
+
+	Form Styles
+	
+ ========================================================================*/
+
+	form { 
+		margin: 0 0 18px;
+	}
+	
+	form label {
+		display: block;
+		font-size: 16px;
+		line-height: 18px;
+		cursor: pointer;
+		margin-bottom: 9px;
+	}
+	
+	form .field {
+		position: relative;
+		margin-bottom: 10px;
+	}
+	
+	form dt {
+		margin: 0;
+	}
+	
+ 	.field .text input, .field .text input[type="search"], form textarea {
+		font-size: 14px;
+		font-family: "Lucida Grande", sans-serif;
+		width: 100%;
+		border: none;
+		box-shadow: none;
+		-webkit-box-shadow: none;
+		border: none;
+		padding: 0;
+		margin: 0;
+		outline: none;
+		resize: none;
+	}
+
+	form textarea {
+		height: 150px;
+	}
+	
+	.field .text input[type="search"] {
+		-webkit-appearance: textfield;
+	}
+
+	.field .text, .field .search, .field .textarea {
+		position: relative;
+		font-size: 14px;
+		padding: 8px 10px;
+		outline: none !important;
+		background: #fff;
+		-webkit-box-shadow: inset 0 2px 3px #ccc,
+			0 1px 0 #f4fff6
+		;
+		box-shadow: inset 0 2px 3px #ccc,
+			0 1px 0 #f4fff6
+		;
+		border: 1px solid #b7b7b7;
+		border-radius: 4px;
+	}
+	
+	.field .text.oval {
+		border-radius: 1000px;
+	}
+	
+	.field .search {
+		padding: 2px 10px;
+		line-height: 24px;
+		margin-bottom: 0;
+		border: 1px solid #1d692d;
+		-webkit-box-shadow: 0px 1px 1px #94dda6,
+			inset 0 1px 3px #888
+		;
+		box-shadow: 0px 1px 1px #94dda6,
+			inset 0 1px 3px #888
+		;
+	}
+	
+	label + .text, label + textarea, label + select, label + div.dropdown, select + div.dropdown {
+		margin-top: -9px;
+	}
+	
+	.field.error .text,
+	.field.error .textarea {
+		margin-top: 45px;
+		-webkit-box-shadow: inset 0 2px 3px #feb9a2,
+			0 1px 0 #f4fff6
+		;
+		box-shadow: inset 0 2px 3px #feb9a2,
+			0 1px 0 #f4fff6
+		;
+		-webkit-transition-duration: .2s;  /* Saf3.2+, Chrome */
+	    -moz-transition-duration: .2s;  /* FF4+ */
+	    -ms-transition-duration: .2s;  /* IE10 */
+	    -o-transition-duration: .2s;  /* Opera 10.5+ */
+	    transition-duration: .2s;
+	}
+	
+	.field.error .text, .field.error .textarea, .field.error input, .field.error textarea {
+		color: #cd4225;
+		background: #ffdace;
+	}
+	
+	form .msg {
+		display: block;
+		opacity: 0;
+		height: 0;
+		width: 100%;
+		overflow: hidden;
+	}
+	
+	form .error > .msg {
+		opacity: 1;
+		height: auto;
+		overflow: visible;
+		
+		position: absolute;
+		top: 0px;
+		display: block;
+		
+		width: 100%;
+		background: #b72a18;
+		color: #fff;
+		font-weight: 500;
+		font-size: 14px;
+		text-align: center;
+		padding: 8px 0;
+		border-radius: 4px;
+		-webkit-transition-duration: .2s;  /* Saf3.2+, Chrome */
+	    -moz-transition-duration: .2s;  /* FF4+ */
+	    -ms-transition-duration: .2s;  /* IE10 */
+	    -o-transition-duration: .2s;  /* Opera 10.5+ */
+	    transition-duration: .2s;
+	}
+	
+	form .error .msg .caret {
+		left: 50%;
+		top: 100%;
+		border-right: 5px solid transparent;
+		border-left: 5px solid transparent;
+		border-top: 5px solid #b72a18;
+		opacity: 1;
+	}
+	
+	
+	/* Form Picker Element (<select>) */
+		
+	.picker {
+		position: relative;
+		width: auto;
+		height: 38px;
+		display: inline-block;
+		margin: 0 0 2px 1.2%;
+	}
+	
+	.picker:first-child {
+		margin-left: 0;
+	}
+	
+	.picker select {
+		position: absolute;
+		z-index: 0;
+		display:none;
+	}
+	
+	.picker .toggle {
+		position: relative;
+		top: 0;
+		left: 0;
+		height: 36px;
+		padding: 0 35px 0 20px;
+		border: 1px solid #999;
+		border-radius: 4px;
+		font: bold 16px "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
+		line-height: 36px;
+		color: #444;
+		text-shadow: 0 1px 1px #fff;
+		display: inline-block;
+		z-index: 1;
+		
+		background: #ccc; /* Old browsers */
+		background: -moz-linear-gradient(top, #eee 0%, #ccc 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eee), color-stop(100%,#ccc)); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top, #eee 0%,#ccc 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top, #eee 0%,#ccc 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top, #eee 0%,#ccc 100%); /* IE10+ */
+		background: linear-gradient(top, #eee 0%,#ccc 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc',GradientType=0 ); /* IE6-9 */
+		-webkit-box-shadow: inset 0 1px 1px #fff,
+			0 1px 2px rgba(0,0,0,0.31); /* Remove this line if you dont want a dropshadow on your buttons*/
+		box-shadow: inset 0 1px 1px #fff,
+					0 1px 2px rgba(0,0,0,0.31); /* Remove this line if you dont want a dropshadow on your buttons*/
+	}
+	
+	.picker .toggle:hover {
+		border-color: #bbb;
+		background: #eee; /* Old browsers */
+		background: -moz-linear-gradient(top, #fff 0%, #ddd 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fff), color-stop(100%,#ddd)); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top, #fff 0%,#ddd 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top, #fff 0%,#ddd 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top, #fff 0%,#ddd 100%); /* IE10+ */
+		background: linear-gradient(top, #fff 0%,#ddd 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#dddddd',GradientType=0 ); /* IE6-9 */
+	} 
+	
+	.caret {
+	  display: inline-block;
+	  position: absolute;
+	  width: 0;
+	  height: 0;
+	  text-indent: -99999px;
+	  *text-indent: 0;
+	  vertical-align: top;
+	  border-left: 4px solid transparent;
+	  border-right: 4px solid transparent;
+	  border-top: 4px solid #000000;
+	  opacity: 0.5;
+	  filter: alpha(opacity=30);
+	  content: "\2193";
+	  -webkit-transition-duration: .2s;  /* Saf3.2+, Chrome */
+	  -moz-transition-duration: .2s;  /* FF4+ */
+	  -ms-transition-duration: .2s;  /* IE10 */
+	  -o-transition-duration: .2s;  /* Opera 10.5+ */
+	  transition-duration: .2s;
+	}
+	
+	.picker .caret {
+	  right: 12px;
+	  top: 16px;
+	}
+	
+	.picker:hover .caret, .picker.open .caret {
+	  opacity: 1;
+	  filter: alpha(opacity=100);
+	  -webkit-transition-duration: .2s;  /* Saf3.2+, Chrome */
+	  -moz-transition-duration: .2s;  /* FF4+ */
+	  -ms-transition-duration: .2s;  /* IE10 */
+	  -o-transition-duration: .2s;  /* Opera 10.5+ */
+	  transition-duration: .2s;
+	}
+	
+	.picker ul {
+		display: inline-block;
+		position: absolute;
+		text-align: center;
+		left: 0;
+		top: 20px;
+		min-width: 180px;
+		height: 0;
+		max-height: 0;
+		margin: 0;
+		overflow: hidden;
+		background: #fff;
+		border-radius: 4px;
+	}
+	
+	.picker.open ul {
+		width: auto;
+		height: auto;
+		max-height: 1000px;
+		top: 40px;
+		border: 1px solid #bbb;
+		-webkit-box-shadow:	0 1px 2px rgba(0,0,0,0.31); /* Remove this line if you dont want a dropshadow on your buttons*/
+		box-shadow: 0 1px 2px rgba(0,0,0,0.31); /* Remove this line if you dont want a dropshadow on your buttons*/
+		
+		-webkit-transition-duration: .4s;  /* Saf3.2+, Chrome */
+	    -moz-transition-duration: .4s;  /* FF4+ */
+	    -ms-transition-duration: .4s;  /* IE10 */
+	    -o-transition-duration: .4s;  /* Opera 10.5+ */
+	    transition-duration: .4s;
+		z-index: 99;
+	}
+	
+	.picker ul li {
+		margin-bottom: 0;
+		border-bottom: 1px solid #eee;
+		text-align: left;
+	}
+	
+	.picker ul li:last-child {
+		border-bottom: none;
+	}
+	
+	.picker ul li a {
+		display: block;
+		padding: 10px 20px;
+	}
+
+	/* Inlined Label Style */
+	input.placeholder, textarea.placeholder { color: #888; }
+
+	/* Text input and textarea sizes */
+	input.input-text, textarea { width: 254px; }
+	input.small, textarea.small { width: 134px; }
+	input.medium, textarea.medium { width: 254px; }
+	input.large, textarea.large { width: 434px; }
+
+	/* Fieldsets */
+	form fieldset { padding: 9px 9px 2px 9px; border: solid 1px #ddd; margin: 18px 0; }
+
+	/* Inlined Radio & Checkbox */
+	
+	form .field input[type=radio], form .field input[type=checkbox] {
+		display: inline;
+		width:auto;
+		margin-bottom:0;
+	}
+
+	form .field .radio span, form .field .checkbox span {
+		display: inline-block;
+		width: 16px;
+		height: 16px;
+		position: relative;
+		top: 2px;
+		border: solid 1px #ccc;
+		background: #fefefe;
+	}
+	
+	form .field .radio.checked span, form .field .checkbox.checked span {
+		background: url(../img/sprite_checkradio.gif) #fefefe 0 1px no-repeat;
+	}
+	
+	form .field .radio span {
+		border-radius: 8px;
+		-webkit-border-radius: 8px;
+		-moz-border-radius: 8px;
+	}
+	
+	form .field .checkbox span {
+		border-radius: 3px;
+		-webkit-border-radius: 3px;
+		-moz-border-radius: 3px;
+	}
+	
+	form .field .checkbox.checked span {
+		background-position: 0px -14px;
+	}
+	
+	
+	
+	@media only screen and (max-width: 767px) {
+	  /* Style adjustments for viewports lower than 768px go here */
+
+	  /* inform JS */
+	  .picker:after {
+	  	content: 'handheld';
+	  	display: none;
+	  }
+
+	  .picker select {
+	  	display: inline-block;
+	  	position: relative;
+	  	opacity: 1;
+	  	z-index: 1;
+	  	
+	  	max-width: 100%;
+	  	height: 38px;
+	  	line-height: 38px;
+	  	font-size: 15px;
+	  }
+	  
+	  .picker .toggle {
+	  	display: none;
+	  }
+		
+	}
+		
+		
+		
+/*=====================================================
+
+ 	Tables
+ 	
+ ======================================================*/
+ 	
+ 	table { background: #fff; -moz-border-radius: 3px; -webkit-border-radius: 3px; width: 100%; margin: 0 0 18px; border: 1px solid #ddd;  }
+ 	
+ 	table thead { background: #f5f5f5; }
+ 	table thead tr th,
+ 	table tbody tr td { font-size: 12px; line-height: 18px; text-align: left; }
+ 	table thead tr th { padding: 8px 10px 9px; font-size: 14px; font-weight: bold; color: #222; }
+ 	table thead tr th:first-child { border-left: none; }
+ 	table thead tr th:last-child { border-right: none; }
+ 	
+ 	table thead tr {  }
+ 	table tbody {  }
+ 	table tbody tr {  }
+ 	table tbody tr.even,
+ 	table tbody tr.alt { background: #f1f8fe; }
+ 	table tbody tr:nth-child(even) { background: #f1f8fe; }
+ 	table tbody tr td { color: #999; padding: 9px 10px; vertical-align: top; border: none;}
+
+
+/*=====================================================
+
+   Navigation (with dropdowns)
+   	
+ ======================================================*/
+ 
+	
+	.navbar {
+		width: 100%;
+		display: table;
+		border: 1px solid #1d692d;
+		margin-bottom: 20px;
+		background: #5dbb73; /* Change this to suit the color theme of your site */
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		-ms-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+	
+	.navbar .logo {
+		display: table-cell;
+		height: 55px;
+		margin: 0;
+		line-height: 0;
+		vertical-align: middle;
+	}
+	
+	.navbar .logo a {
+		display: block;
+		height: 55px;
+		line-height: 60px;
+		padding: 0 0 0 15px;
+		overflow: hidden;
+	}
+	
+	.navbar a.toggle {
+	  display: none;
+	}
+	
+	.navbar ul {
+		display: table;
+		width: 100%;
+		float: none;
+		vertical-align: middle;
+		margin-bottom: 0;
+	}
+	
+	.navbar ul li {
+		display: table-cell;
+		float: none;
+		list-style-type: none;
+		margin-bottom: 0;
+		margin-left: 0;
+		text-align: center;
+		border-right: 1px solid #114a1e;
+	}
+	
+	.navbar > ul > li > a {
+		display: block;
+		height: 55px;
+		line-height: 55px;
+		font-size: 16px;
+		padding: 0 15px;
+		white-space: nowrap;
+		color: #fff;
+		font-weight: bold;
+		text-shadow: 0 1px 2px #114a1e,
+								 0 1px 0 #114a1e;
+	}
+	
+	.navbar > ul > li .field {
+		position: relative;
+		display: inline-block;
+		text-align: center;
+	}
+	
+	.navbar > ul > li .field .search input {
+		line-height: 14px;
+	}
+	
+	.navbar > ul > li:hover > a {	
+		position: relative;
+		background: #05390a;
+		z-index: 1000;
+	}
+	
+	.navbar > ul > li > li > a {
+		padding: 0 33px;
+	}
+	
+	.navbar > ul > li:last-child, .navbar > ul > li:last-child a:hover {
+		border-right: none;
+	}
+	
+	
+	/**** Navbar positioning for Microsoft's browser who deserves not to be mentioned ****/
+	.ie7 .navbar > ul { width: auto; }
+
+	.ie7 .navbar, .ie7 .navbar > ul > li > a { display: block; }
+	
+	.ie7 .navbar .logo, .ie7 .navbar ul, .ie7 .navbar ul li { float: left; display: inline-block; }
+	
+	.ie7 .navbar .logo a { display: block; overflow: hidden; }
+	
+	.ie7 .navbar > ul > li .field { display: block; padding: 12px 18px 0; width: 80%; }
+	
+	/******** Pretty Navbar Styles *********/
+	
+	.pretty.navbar {
+		border-radius: 4px;
+		
+		background: -moz-linear-gradient(top, #5dbb73 0%, #2d9047 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#5dbb73), color-stop(100%,#2d9047)); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top, #5dbb73 0%,#2d9047 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top, #5dbb73 0%,#2d9047 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top, #5dbb73 0%,#2d9047 100%); /* IE10+ */
+		background: linear-gradient(top, #5dbb73 0%,#2d9047 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5dbb73', endColorstr='#2d9047',GradientType=0 ); /* IE6-9 */
+		
+		-webkit-box-shadow: inset 0 1px 1px #94dda6,
+			0 1px 2px rgba(0,0,0,0.61) !important; /* Remove this line if you dont want a dropshadow on your navigation*/
+		box-shadow: inset 0 1px 1px #94dda6,
+					0 1px 2px rgba(0,0,0,0.61) !important; /* Remove this line if you dont want a dropshadow on your navigation*/
+	}
+	
+	.pretty.navbar li {
+		-webkit-box-shadow:
+			inset 1px 0 0 #94dda6;
+		box-shadow:
+			inset 1px 0 0 #94dda6;
+	}
+	
+	.pretty.navbar ul:first-child li:first-child a {
+		border-radius: 4px 0 0 4px;
+	}
+	
+	.pretty.navbar ul li:last-child a {
+		border-radius: 0 4px 4px 0;
+	}
+	
+	.pretty.navbar > ul > li:hover > a {
+		-webkit-box-shadow:	2px 0 0 #114a1e;
+		box-shadow: 2px 0 0 #114a1e;
+	}
+	
+	.pretty.navbar > ul > li:first-child, .pretty.navbar > ul > li:first-child a:hover {	
+		box-shadow: none;
+	}
+	
+	
+	
+	/******** CSS3 Dropdown Menu Styles **********/
+	
+	.navbar li .dropdown {
+		width: auto;
+		min-width: 0px;
+		max-width: 380px;
+		height: 0;
+		position: absolute;
+		background: #fff;
+		overflow: hidden;
+		z-index: 999;
+	}
+	
+	.navbar li:hover .dropdown {
+		min-height: 60px;
+		max-height: 500px;
+		height: auto;
+		width: 100%;
+		padding: 0;
+		border-top: 1px solid #1d692d;
+		
+		-webkit-box-shadow: 0px 3px 4px rgba(0,0,0,.3);
+		box-shadow: 0px 3px 4px rgba(0,0,0,.3);
+	
+	
+		-webkit-transition: ease-in-out .2s;
+		-moz-transition: ease-in-out .2s;
+		-o-transition: ease-in-out .2s;
+		-ms-transition: ease-in-out .2s;
+		transition: ease-in-out .2s;
+	}
+
+	.navbar li .dropdown ul {
+		margin: 0;
+	}
+	
+	.navbar li .dropdown ul > li {
+		display: block;
+		width: 100%;
+		float: left;
+		text-align: left;
+		height: auto;
+		font: 16px "Helvetica Neue", arial, sans-serif;
+		border-radius: none;
+	}
+	
+	.navbar li .dropdown ul > li a {
+		display: block;
+		line-height: 26px;
+		height: 26px;
+		padding: 10px 20px;
+		border-bottom: 1px solid #ddd;
+	}
+	
+	.navbar ul .dropdown ul li:first-child a {
+		border-radius: 0;
+	}
+	
+	.navbar li .dropdown li a:hover {
+		background: #ebfeee;
+	}
+	
+	@media only screen and (max-width: 767px) {
+		
+		.navbar, .pretty.navbar {
+		  position: relative;
+	  	background: transparent;
+	  	border: none;
+	  	text-align: center;
+	  }
+	  
+	  .navbar .logo {
+	    float: left;
+	  	display: inline;
+	  }
+	  
+	  .navbar a.toggle {
+	    position: relative;
+	    float: right;
+	    display: inline-block;
+	    right: 10px; /* Move me around */
+	    top: 10px; /* Move me around */
+	    background: #3c8f4f;
+	    width: 42px;
+	    height: 36px;
+	    line-height: 42px;
+	    border-radius: 4px;
+	    -webkit-transition-duration: .1s;  /* Saf3.2+, Chrome */
+	    -moz-transition-duration: .1s;  /* FF4+ */
+	    -ms-transition-duration: .1s;  /* IE10 */
+	    -o-transition-duration: .1s;  /* Opera 10.5+ */
+	    transition-duration: .1s;
+	  }
+	  
+	  .pretty.navbar a.toggle {
+	    border: 1px solid #1d692d;
+	    
+	    background: -moz-linear-gradient(top, #5dbb73 0%, #2d9047 100%); /* FF3.6+ */
+	    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#5dbb73), color-stop(100%,#2d9047)); /* Chrome,Safari4+ */
+	    background: -webkit-linear-gradient(top, #5dbb73 0%,#2d9047 100%); /* Chrome10+,Safari5.1+ */
+	    background: -o-linear-gradient(top, #5dbb73 0%,#2d9047 100%); /* Opera 11.10+ */
+	    background: -ms-linear-gradient(top, #5dbb73 0%,#2d9047 100%); /* IE10+ */
+	    background: linear-gradient(top, #5dbb73 0%,#2d9047 100%); /* W3C */
+	    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5dbb73', endColorstr='#2d9047',GradientType=0 ); /* IE6-9 */
+	    
+	    -webkit-box-shadow: inset 0 1px 1px #94dda6,
+	    	0 1px 1px #94dda6;
+	    box-shadow: inset 0 1px 1px #94dda6,
+	      0 1px 1px #94dda6;
+	  }
+	  
+	  .navbar a.toggle:hover, .navbar a.toggle.active {
+	    background: #5dbb73;
+	    -webkit-box-shadow: none;
+	    box-shadow: none;
+	    -webkit-transition-duration: .1s;  /* Saf3.2+, Chrome */
+	    -moz-transition-duration: .1s;  /* FF4+ */
+	    -ms-transition-duration: .1s;  /* IE10 */
+	    -o-transition-duration: .1s;  /* Opera 10.5+ */
+	    transition-duration: .1s;
+	  }
+	  
+	  .navbar a.toggle.active {
+	    background: #114a1e;
+	  }
+	  
+	  .navbar ul {
+	    position: absolute;
+	    width: 93.75%;
+	    height: 0;
+	    max-height: 0;
+	    top: 54px;
+	    right: 3.125%;
+	    overflow: hidden;
+	    display: inline-block;
+	    
+	    background: #fff;
+	    border-radius: 4px;
+
+	    -webkit-transition-duration: .2s;  /* Saf3.2+, Chrome */
+	    -moz-transition-duration: .2s;  /* FF4+ */
+	    -ms-transition-duration: .2s;  /* IE10 */
+	    -o-transition-duration: .2s;  /* Opera 10.5+ */
+	    transition-duration: .2s;
+	    
+	    -webkit-box-shadow: 0px 3px 4px rgba(0,0,0,.3);
+	    box-shadow: 0px 3px 4px rgba(0,0,0,.3);
+	  }
+	  
+	  .navbar ul.active {
+	    width: 93.75%;
+	    height: auto;
+	    max-height: 600px;
+	    z-index: 999;
+	    -webkit-transition-duration: .5s;  /* Saf3.2+, Chrome */
+	    -moz-transition-duration: .5s;  /* FF4+ */
+	    -ms-transition-duration: .5s;  /* IE10 */
+	    -o-transition-duration: .5s;  /* Opera 10.5+ */
+	    transition-duration: .5s;
+	  }
+	  
+	  .navbar ul li {
+	  	display: block;
+	  	width: 100%;
+	  	border-right: 0 !important;
+	  	-webkit-box-shadow: none;
+	  	box-shadow: none;
+	  }
+	  
+	  .pretty.navbar ul li {
+	    -webkit-box-shadow: none;
+	    box-shadow: none;
+	  }
+	
+	  .navbar ul li > a {
+			font-size: 22px !important;
+			border: 1px solid #1d692d;
+			background: #5dbb73; /* Old browsers */
+	  }
+	  
+	  .navbar > ul > li .field {
+	  	padding-top: 10px;
+	  	padding-bottom: 10px;
+	  	width: 90%;
+	  }
+	  
+	  .navbar > ul > li .search {
+	    border: 1px solid #bbb;
+	    -webkit-box-shadow: inset 0 1px 3px #ccc;
+	    box-shadow: inset 0 1px 3px #ccc;
+	  }
+	  
+	  .navbar li a:hover, .navbar > ul > li:first-child, .navbar > ul > li:first-child a:hover, .navbar > ul > li:last-child, .navbar > ul > li:last-child a:hover {	
+	  	-webkit-box-shadow: none;
+	  	box-shadow: none;
+	  }
+	  
+	  .navbar > ul > li:last-child, .navbar > ul > li:last-child a:hover {
+	  	border-right: none;
+	  }
+	  
+	  .navbar li:first-child a {
+	  	border-radius: 4px 4px 0 0 !important;
+	  }
+	  
+	  .navbar li:last-child a {
+	  	border-radius: 0 0 4px 4px !important;
+	  }
+	  
+	  .navbar li:hover .dropdown {
+	  	display: none;
+	  }
+	  
+	  .navbar ul li > a {
+	    background: transparent;
+	    border: none;
+	    color: #d04526;
+	    font-size: 16px;
+	    border-bottom: 1px solid #ccc;
+	    border-radius: none;
+	    text-shadow: none;
+	  }
+	  
+	  .navbar ul li:hover > a {
+	  	background: #f5f5f5;
+	  	border-right: none;
+	  	-webkit-box-shadow: none !important;
+	  	box-shadow: none !important;
+	  }
+	  
+	  .pretty.navbar {
+	    border: 1px solid #1d692d;
+	    
+	  	background: -moz-linear-gradient(top, #5dbb73 0%, #2d9047 100%); /* FF3.6+ */
+	  	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#5dbb73), color-stop(100%,#2d9047)); /* Chrome,Safari4+ */
+	  	background: -webkit-linear-gradient(top, #5dbb73 0%,#2d9047 100%); /* Chrome10+,Safari5.1+ */
+	  	background: -o-linear-gradient(top, #5dbb73 0%,#2d9047 100%); /* Opera 11.10+ */
+	  	background: -ms-linear-gradient(top, #5dbb73 0%,#2d9047 100%); /* IE10+ */
+	  	background: linear-gradient(top, #5dbb73 0%,#2d9047 100%); /* W3C */
+	  	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5dbb73', endColorstr='#2d9047',GradientType=0 ); /* IE6-9 */
+	  	
+	  	-webkit-box-shadow: inset 0 1px 1px #94dda6,
+	  		0 1px 2px rgba(0,0,0,0.61) !important; /* Remove this line if you dont want a dropshadow on your buttons*/
+	  	box-shadow: inset 0 1px 1px #94dda6,
+	  				0 1px 2px rgba(0,0,0,0.61) !important; /* Remove this line if you dont want a dropshadow on your buttons*/
+	  	border-radius: 0;
+	  }
+	  
+	  .pretty.navbar ul li .btn {
+	  	margin-top: 20px;
+	  }
+	  
+	}
+	
+	
+/*=====================================================
+
+   	Sub Navigation
+   	
+ ======================================================*/
+
+
+  .subnav {
+  	display: block;
+    width: auto;
+    overflow: hidden;
+    margin: 0 0 18px 0;
+    padding-top: 4px;
+  }
+
+  .subnav li, .subnav dt, .subnav dd {
+    float: left;
+    display: inline;
+    margin-left: 9px;
+    margin-bottom: 4px;
+  }
+  
+  .subnav li:first-child, .subnav dt:first-child, .subnav dd:first-child {
+  	margin-left: 0;
+  }
+
+  .sub-nav dt {
+    color: #999;
+    font-weight: normal;
+  }
+
+  .subnav li a, .subnav dd a {
+  	color: #05390a;
+  	font-size: 15px;
+    text-decoration: none;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+  }
+  
+  .subnav li.active a, .subnav dd.active a {
+    background: #5dbb73;
+    padding: 5px 9px;
+    text-shadow: 0 1px 1px #77d58e;
+  }
+  
+  
+  /** Drawers **/
+  
+  .drawer {
+    position: relative;
+    width: 100%;
+    max-height: 0;
+    background: #222;
+    -webkit-box-shadow: inset 0 -3px 5px #000,
+      inset 0 3px 5px #000
+    ;
+    box-shadow: inset 0 -3px 5px #000,
+      inset 0 3px 5px #000
+    ;
+    overflow: hidden;
+    -webkit-transition-duration: .3s;  /* Saf3.2+, Chrome */
+    -moz-transition-duration: .3s;  /* FF4+ */
+    -ms-transition-duration: .3s;  /* IE10 */
+    -o-transition-duration: .3s;  /* Opera 10.5+ */
+    transition-duration: .3s;
+  }
+  
+  .drawer.active {
+    height: auto;
+    max-height: 800px;
+    -webkit-transition-duration: .5s;  /* Saf3.2+, Chrome */
+    -moz-transition-duration: .5s;  /* FF4+ */
+    -ms-transition-duration: .5s;  /* IE10 */
+    -o-transition-duration: .5s;  /* Opera 10.5+ */
+    transition-duration: .5s;
+  }
+  
+
+	/** Intrinsic Ratio video embedding (maintains aspect ratio) **/
+	
+	body .video {
+		width: 100%;
+		position: relative;
+		height: 0;
+		padding-bottom: 56.25%;
+	}
+	
+	.youtube.video, .vimeo.video {
+		padding-top: 30px;
+	}
+	
+	.video > video, .video > iframe, .video > object, .video > embed {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+	
+	
+	/** Line Section Row Dividers **/
+	
+	
+	.line {
+		padding-bottom: 20px;
+		margin-bottom: 20px;
+		border-bottom-style: solid;
+		border-bottom-color: #ccc;
+	}
+	
+	.thin.line {
+		border-width: 1px;
+	}
+	
+	.medium.line {
+		border-width: 2px;
+	}
+	
+	.thick.line {
+		border-width: 4px;
+	}
+	
+	
+	/* Skip Links */
+	
+	.skipnav li {
+	  display: inline-block;
+	  margin-left: 2%;
+	}
+	
+	.skipnav li:first-child {
+	  margin-left: 0;
+	}
+	
+	.skiplink a, .skipnav a {
+	  background: #5dbb73;
+	  color: #05390a;
+	  padding: 6px 15px;
+	  border-radius: 4px;
+	  text-shadow: 0 1px 1px #77d58e;
+	}
+	
+	.skiplink a:hover, .skipnav a:hover {
+	  background: #72dd8d;
+	}
+	
+	.skiplink a i, .skipnav a i {
+	  margin-left: 10px;
+	}
+	
+
+	/* Preformatted Text */
+	
+	pre {
+		background-color: #1b1b1b;
+		-moz-border-radius: 4px;
+		-webkit-border-radius: 4px;
+		-o-border-radius: 4px;
+		-ms-border-radius: 4px;
+		-khtml-border-radius: 4px;
+		border-radius: 4px;
+		-webkit-box-shadow: inset 0 2px 2px #000;
+		box-shadow: inset 0 2px 2px #000;
+		border: 1px solid #e6ffeb;
+		color: #fff;
+		font-family: Courier, monospace;
+		font-size: 14px;
+		text-align: left;
+		overflow: hidden !important;
+		padding: 20px;
+		white-space: pre-wrap;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		-ms-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+	
+	code {
+		color: #D04526;
+		font-family: Courier, monospace;
+		font-size: 14px;
+		padding: 2px 4px 2px 4px;
+		background: #e7ffec;
+		border-radius: 4px;
+	}
+
+
+  /* Contain floats: h5bp.com/q */ 
+  .clearfix:before, .clearfix:after { content: ""; display: table; }
+  .clearfix:after { clear: both; }
+  .clearfix { zoom: 1; }
+
+
+
+/* ==========================================================================
+
+   Styles targeting cavemen who still use printers.
+   Who prints in 2012? Seriously...
+   Inlined to avoid required HTTP connection: h5bp.com/r
+   
+   ========================================================================== */
+ 
+@media print {
+  * { background: transparent !important; color: black !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important; } /* Black prints faster: h5bp.com/s */
+  a, a:visited { text-decoration: underline; }
+  a[href]:after { content: " (" attr(href) ")"; }
+  abbr[title]:after { content: " (" attr(title) ")"; }
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }  /* Don't show links for images, or javascript/internal links */
+  pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
+  thead { display: table-header-group; } /* h5bp.com/t */
+  tr, img { page-break-inside: avoid; }
+  img { max-width: 100% !important; }
+  @page { margin: 0.5cm; }
+  p, h2, h3 { orphans: 3; widows: 3; }
+  h2, h3 { page-break-after: avoid; }
+
+}
