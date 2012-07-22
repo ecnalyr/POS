@@ -1,0 +1,38 @@
+﻿@using POS.Domain.Entities
+@model IEnumerable<Product>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+}
+
+<h1>All Products</h1>
+<table class="Grid">
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Category</th>
+        <th>Parent-Category</th>
+        <th>Actions</th>
+    </tr>
+    @foreach (Product item in Model)
+    {
+        <tr>
+            <td>@Html.ActionLink(item.Name, "Edit", new { id = item.ProductId })</td>
+            <td>@item.Description</td>
+            <td>@string.Format("{0:F}", item.Price)</td>
+            <td>@item.Category.Name</td>
+            <td>@item.Category.ParentCategory.Name</td>
+            <td>
+                @using (Html.BeginForm("Delete", "Admin"))
+                {
+                    @Html.Hidden("id", item.ProductId)
+                    <input type="submit" value="Delete"/>
+                }
+            </td>
+        </tr>
+    }
+</table>
+<p>@Html.ActionLink("Add a new product", "Create")</p>
