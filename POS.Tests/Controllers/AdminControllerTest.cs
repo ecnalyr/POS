@@ -130,7 +130,6 @@ namespace POS.Tests
             var p2 = controller.Edit(2).ViewData.Model as Product;
             var p3 = controller.Edit(3).ViewData.Model as Product;
 
-
             // Assert
             Assert.AreEqual(1, p1.ProductId);
             Assert.AreEqual(2, p2.ProductId);
@@ -149,6 +148,78 @@ namespace POS.Tests
             // Action
             var result = (Product)controller.Edit(6).ViewData.Model;
 
+            // Assert
+            Assert.IsNull(result);
+        }
+
+        /// <summary>
+        /// EditCategory returns the appropriate category when given a valid Id value
+        ///</summary>
+        [TestMethod]
+        public void CanEditCategory()
+        {
+            // Arrange - create a controller
+            var controller = new AdminController(_mockRepository.Object);
+
+            // Action
+            var c1 = controller.EditCategory(1).ViewData.Model as Category;
+            var c2 = controller.EditCategory(2).ViewData.Model as Category;
+            var c3 = controller.EditCategory(3).ViewData.Model as Category;
+
+            // Assert
+            Assert.AreEqual(1, c1.CategoryId);
+            Assert.AreEqual(2, c2.CategoryId);
+            Assert.AreEqual(3, c3.CategoryId);
+        }
+
+        /// <summary>
+        /// EditCategory does not return a category when given an invalid Id value - one that is not in the repository
+        ///</summary>
+        [TestMethod]
+        public void CannotEditNonexistentCategory()
+        {
+            // Arrange - create a controller
+            var controller = new AdminController(_mockRepository.Object);
+
+            // Action
+            var result = (Category)controller.EditCategory(6).ViewData.Model;
+
+            // Assert
+            Assert.IsNull(result);
+        }
+
+
+        /// <summary>
+        /// EditParentCategory returns the appropriate parent-category when given a valid Id value
+        ///</summary>
+        [TestMethod]
+        public void CanEditProductCategory()
+        {
+            // Arrange - create a controller
+            var controller = new AdminController(_mockRepository.Object);
+
+            // Action
+            var pc1 = controller.EditParentCategory(1).ViewData.Model as ParentCategory;
+            var pc2 = controller.EditParentCategory(2).ViewData.Model as ParentCategory;
+            var pc3 = controller.EditParentCategory(3).ViewData.Model as ParentCategory;
+
+            // Assert
+            Assert.AreEqual(1, pc1.ParentCategoryId);
+            Assert.AreEqual(2, pc2.ParentCategoryId);
+            Assert.AreEqual(3, pc3.ParentCategoryId);
+        }
+
+        /// <summary>
+        /// EditParentCategory does not return a parent-category when given an invalid Id value - one that is not in the repository
+        ///</summary>
+        [TestMethod]
+        public void CannotEditNonexistentParentCategory()
+        {
+            // Arrange - create a controller
+            var controller = new AdminController(_mockRepository.Object);
+
+            // Action
+            var result = (Category)controller.EditParentCategory(6).ViewData.Model;
 
             // Assert
             Assert.IsNull(result);
@@ -220,7 +291,7 @@ namespace POS.Tests
             // Action - delete the product
             controller.Delete(product.ProductId);
 
-            // assert - ensure that the repository delete method was called with the correct Product
+            // assert - ensure that the repository Delete method was called with the correct Product
             localMock.Verify(m => m.DeleteProduct(product));
         }
 
@@ -236,8 +307,96 @@ namespace POS.Tests
             // Action - attempt to delete using a ProductId that does not exist
             controller.Delete(95);
 
-            // assert - ensure that the repository delete method was not called
+            // assert - ensure that the repository Delete method was not called
             _mockRepository.Verify(m => m.DeleteProduct(It.IsAny<Product>()), Times.Never());
+        }
+
+        /// <summary>
+        /// Tests that when a valid CategoryId is passed as a parameter the action method calls the DeleteCategory method of the repository and passes the correct Category object to be deleted
+        /// </summary
+        [TestMethod]
+        public void CanDeleteValidCategories()
+        {
+            // Arrange - create a category
+            Category category = new Category { CategoryId = 2, Name = "Test"};
+
+            // Arrange - create a local mock repository
+            var localMock = new Mock<IProductRepository>();
+            localMock.Setup(m => m.Categories).Returns(new Category[]
+                {
+                    new Category  {CategoryId = 1, Name = "C1"},
+                    category,
+                    new Category  {CategoryId = 3, Name = "C3"}
+                }.AsQueryable());
+
+            // Arrange - create a controller
+            var controller = new AdminController(localMock.Object);
+
+            // Action - delete the category
+            controller.DeleteCategory(category.CategoryId);
+
+            // assert - ensure that the repository DeleteCategory method was called with the correct category
+            localMock.Verify(m => m.DeleteCategory(category));
+        }
+
+        /// <summary>
+        /// Tests that when an invalid CategoryId value is passed to the DeleteCategory method therepository DeleteCategory method is not called
+        /// </summary
+        [TestMethod]
+        public void CannotDeleteInvalidCategories()
+        {
+            // Arrange - create a controller
+            var controller = new AdminController(_mockRepository.Object);
+
+            // Action - attempt to delete using a CategoryId that does not exist
+            controller.DeleteCategory(95);
+
+            // assert - ensure that the repository DeleteCategory method was not called
+            _mockRepository.Verify(m => m.DeleteCategory(It.IsAny<Category>()), Times.Never());
+        }
+
+        /// <summary>
+        /// Tests that when a valid ParentCategoryId is passed as a parameter the action method calls the DeleteParentCategory method of the repository and passes the correct ParentCategory object to be deleted
+        /// </summary
+        [TestMethod]
+        public void CanDeleteValidParentCategories()
+        {
+            // Arrange - create a parentCategory
+            ParentCategory parentCategory = new ParentCategory { ParentCategoryId = 2, Name = "Test" };
+
+            // Arrange - create a local mock repository
+            var localMock = new Mock<IProductRepository>();
+            localMock.Setup(m => m.ParentCategories).Returns(new ParentCategory[]
+                {
+                    new ParentCategory {ParentCategoryId = 1, Name = "PC1"},
+                    parentCategory,
+                    new ParentCategory {ParentCategoryId = 3, Name = "PC3"}
+                }.AsQueryable());
+
+            // Arrange - create a controller
+            var controller = new AdminController(localMock.Object);
+
+            // Action - delete the parentCategory
+            controller.DeleteParentCategory(parentCategory.ParentCategoryId);
+
+            // assert - ensure that the repository delete method was called with the correct ParentCategory
+            localMock.Verify(m => m.DeleteParentCategory(parentCategory));
+        }
+
+        /// <summary>
+        /// Tests that when an invalid ParentCategoryId value is passed to the DeleteParentCategory method therepository DeleteParentCategory method is not called
+        /// </summary
+        [TestMethod]
+        public void CannotDeleteInvalidParentCategories()
+        {
+            // Arrange - create a controller
+            var controller = new AdminController(_mockRepository.Object);
+
+            // Action - attempt to delete using a ParentCategoryId that does not exist
+            controller.DeleteParentCategory(95);
+
+            // assert - ensure that the repository DeleteParentCategory method was not called
+            _mockRepository.Verify(m => m.DeleteParentCategory(It.IsAny<ParentCategory>()), Times.Never());
         }
     }
 }

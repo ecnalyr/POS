@@ -1,0 +1,28 @@
+﻿@using POS.Domain.Entities
+@model IEnumerable<ParentCategory>
+
+@{
+    ViewBag.Title = "Parent-Category Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>All Categories</h1>
+<table class="Grid">
+    <tr>
+        <th>Name</th>
+    </tr>
+    @foreach (ParentCategory item in Model)
+    {
+        <tr>
+            <td>@Html.ActionLink(item.Name, "EditParentCategory", new { id = item.ParentCategoryId })</td>
+            <td>
+                @using (Html.BeginForm("DeleteParentCategory", "Admin"))
+                {
+                    @Html.Hidden("id", item.ParentCategoryId)
+                    <input type="submit" value="Delete"/>
+                }
+            </td>
+        </tr>
+    }
+</table>
+<p>@Html.ActionLink("Add a new parent-category", "CreateParentCategory")</p>
