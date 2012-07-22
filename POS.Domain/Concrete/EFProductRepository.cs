@@ -48,9 +48,49 @@
 
         #region Public Methods and Operators
 
+        public void DeleteCategory(Category category)
+        {
+            context.Categories.Remove(category);
+            context.SaveChanges();
+        }
+
+        public void DeleteParentCategory(ParentCategory parentCategory)
+        {
+            context.ParentCategories.Remove(parentCategory);
+            context.SaveChanges();
+        }
+
         public void DeleteProduct(Product product)
         {
             context.Products.Remove(product);
+            context.SaveChanges();
+        }
+
+        public void SaveCategory(Category category)
+        {
+            if (category.CategoryId == 0)
+            {
+                context.Categories.Add(category);
+            }
+            else
+            {
+                context.Entry(category).State = EntityState.Modified;
+            }
+
+            context.SaveChanges();
+        }
+
+        public void SaveParentCategory(ParentCategory parentCategory)
+        {
+            if (parentCategory.ParentCategoryId == 0)
+            {
+                context.ParentCategories.Add(parentCategory);
+            }
+            else
+            {
+                context.Entry(parentCategory).State = EntityState.Modified;
+            }
+
             context.SaveChanges();
         }
 

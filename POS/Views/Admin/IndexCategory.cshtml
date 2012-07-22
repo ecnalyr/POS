@@ -1,0 +1,32 @@
+﻿@using POS.Domain.Entities
+@model IEnumerable<Category>
+
+@{
+    ViewBag.Title = "Category Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>All Categories</h1>
+<table class="Grid">
+    <tr>
+        <th>Name</th>
+        <th>Parent-Category</th>
+        <th>Parent-Category Id</th>
+    </tr>
+    @foreach (Category item in Model)
+    {
+        <tr>
+            <td>@Html.ActionLink(item.Name, "EditCategory", new { id = item.CategoryId })</td>
+            <td>@item.ParentCategory.Name</td>
+            <td>@item.ParentCategoryId</td>
+            <td>
+                @using (Html.BeginForm("DeleteCategory", "Admin"))
+                {
+                    @Html.Hidden("id", item.CategoryId)
+                    <input type="submit" value="Delete"/>
+                }
+            </td>
+        </tr>
+    }
+</table>
+<p>@Html.ActionLink("Add a new category", "CreateCategory")</p>
