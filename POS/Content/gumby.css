@@ -1,0 +1,441 @@
+/* Gumby */
+
+/* -------------------------------------------------- 
+    Table of Contents
+-----------------------------------------------------
+:: Reset & Standards
+:: Links
+:: Lists
+:: Tables
+:: Misc
+*/
+
+
+/*	--------------------------------------------------
+	:: Global Reset & Standards
+	-------------------------------------------------- */
+	
+	/* 
+		Eric Meyer's CSS Reset
+		http://meyerweb.com/eric/tools/css/reset/ 
+		v2.0 | 20110126
+   		License: none (public domain)
+	*/
+	
+	html, body, div, span, applet, object, iframe,
+	h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+	a, abbr, acronym, address, big, cite, code,
+	del, dfn, em, img, ins, kbd, q, s, samp,
+	small, strike, strong, sub, sup, tt, var,
+	b, u, i, center,
+	dl, dt, dd, ol, ul, li,
+	fieldset, form, label, legend,
+	table, caption, tbody, tfoot, thead, tr, th, td,
+	article, aside, canvas, details, embed, 
+	figure, figcaption, footer, header, hgroup, 
+	menu, nav, output, ruby, section, summary,
+	time, mark, audio, video {
+		margin: 0;
+		padding: 0;
+		border: 0;
+		font: inherit;
+		vertical-align: baseline;
+	}
+	html {
+		font-size: 62.5%; 
+	}
+	/* HTML5 display-role reset for older browsers */
+	article, aside, details, figcaption, figure, 
+	footer, header, hgroup, menu, nav, section {
+		display: block;
+	}
+	body {
+		line-height: 1;
+	}
+	ol, ul {
+		list-style: none;
+	}
+	blockquote, q {
+		quotes: none;
+	}
+	blockquote:before, blockquote:after,
+	q:before, q:after {
+		content: '';
+		content: none;
+	}
+	table {
+		border-collapse: collapse;
+		border-spacing: 0;
+	}
+	
+	
+	.left, .columns.left    { float: left; }
+	.right, .columns.right  { float: right; }
+	.hide     	{ display: none; }
+	.highlight 	{ background: #ff0; }
+	
+	
+	
+	
+/*=======================================================================
+
+	❤❤❤ Artfully Masterminded by ZURB. Perfected by Digital Surgeons. ❤❤❤
+ 
+ ========================================================================*/
+ 
+    .ie9, .ie9 * {
+    	font-family: Arial, "Definitely Not Helvetica", sans-serif !important;
+    }
+ 
+  	body {
+  		background: #fff;
+  		font-family: "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  		font-size: 16px;
+  		font-size: 1.6rem;
+  		line-height: 1.6;
+  		color: #555;
+  		position: relative;
+  		-webkit-font-smoothing: antialiased;
+  	}
+  
+  
+ /*=====================================================
+  
+  	Headings
+  	
+  ======================================================*/
+  
+  
+  	h1, h2, h3, h4, h5, h6 {
+  		color: #1b1b1b;
+  		font-weight: bold;
+  		line-height: 1.6;
+  	}
+  	
+  	h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+  		font-weight: inherit;
+  	}
+  	
+  	h1 {
+  		font-size: 46px;
+  		font-size: 4.6rem;
+  		margin-bottom: 12px;
+  	}
+  	
+  	h2 {
+  		font-size: 39px;
+  		font-size: 3.9rem;
+  		margin-bottom: 9px;
+  	}
+  	
+  	h3 {
+  		font-size: 29px;
+  		font-size: 2.9rem;
+  		margin-bottom: 9px;
+  	}
+  	
+  	h4 {
+  		font-size: 25px;
+  		font-size: 2.5rem;
+  		margin-bottom: 3px;
+  	}
+  	
+  	h5 {
+  		font-size: 19px;
+  		font-size: 1.9rem;
+  		font-weight: normal;
+  		margin-bottom: 3px;
+  	}
+  	
+  	h6 {
+  		font-size: 15px;
+  		font-size: 1.5rem;
+  		font-weight: normal;
+  	}
+  
+  	.subhead {
+  		color: #777;
+  		font-weight: normal;
+  		margin-bottom: 20px;
+  	}
+  	
+  	
+ /*=====================================================
+  
+  	Links & Paragraph styles
+  	
+  	======================================================*/
+  	
+  	p {
+  		font-size: 16px;
+  		font-size: 1.6rem;
+  		line-height: 1.6;
+  		margin: 0 0 18px;
+  	}
+  	
+  	p img {
+  		margin: 0;
+  	}
+  	
+  	p.lead {
+  		font-size: 18px;
+  		font-size: 1.8rem;
+  	}
+  
+ 	a { color: #d04526; text-decoration: none; outline: 0; line-height: inherit; }
+ 	a:hover { color: #c03d20; }
+ 	p a, p a:visited { line-height: inherit; }
+  
+  
+ /*=====================================================
+ 
+  	Lists
+  	
+  ======================================================*/
+  	
+  	ul, ol { margin-bottom: 18px; }
+  	ul { list-style: none outside; }
+  	ol { list-style: decimal; }
+  	ol, ul.square, ul.circle, ul.disc { margin-left: 30px; }
+  	ul.square { list-style: square outside; }
+  	ul.circle { list-style: circle outside; }
+  	ul.disc { list-style: disc outside; }
+  	ul ul, ol ol { margin: 4px 0 5px 30px; }
+  	li { margin-bottom: 12px; }
+  	ul.large li { line-height: 21px; }
+  	
+  
+ 
+	
+/* Mobile */
+
+@media handheld, only screen and (max-width: 767px) {
+	body, p {  font-size: 16px; font-size: 1.6rem; line-height: 1.6; }
+}
+	
+	em {
+	  font-style: italic;
+	  line-height: inherit;
+	}
+	
+	strong {
+	  font-weight: bold;
+	  line-height: inherit;
+	}
+	
+	small {
+	  font-size: 56.4%;
+	  line-height: inherit;
+	}
+	
+	h1 small, h2 small, h3 small, h4 small, h5 small { color: #777; }
+	
+/*	Blockquotes  */
+	blockquote, blockquote p { line-height: 20px; color: #777; }
+	blockquote { margin: 0 0 18px; padding: 9px 20px 0 19px; border-left: 1px solid #ddd; }
+	blockquote cite { display: block; font-size: 12px; font-size: 1.2rem; color: #555; }
+	blockquote cite:before { content: "\2014 \0020"; }
+	blockquote cite a, blockquote cite a:visited { color: #555; }
+	
+	hr {
+	  border: 1px solid #ddd;
+	  clear: both;
+	  margin: 16px 0 18px;
+	  height: 0;
+	}
+	
+	abbr, acronym {
+	  text-transform: uppercase;
+	  font-size: 90%;
+	  color: #222;
+	  border-bottom: 1px solid #ddd;
+	  cursor: help;
+	}
+	
+	abbr { text-transform: none; }
+	
+	
+/**
+	 * Print styles.
+ *
+ * Inlined to avoid required HTTP connection: www.phpied.com/delay-loading-your-print-css/
+ * Credit to Paul Irish and HTML5 Boilerplate (html5boilerplate.com)
+ */
+ 
+@media print {
+  * { background: transparent !important; color: black !important; text-shadow: none !important; filter:none !important;
+  -ms-filter: none !important; } /* Black prints faster: sanbeiji.com/archives/953 */
+  p a, p a:visited { color: #444 !important; text-decoration: underline; }
+  p a[href]:after { content: " (" attr(href) ")"; }
+  abbr[title]:after { content: " (" attr(title) ")"; }
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }  /* Don't show links for images, or javascript/internal links */
+  pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
+  thead { display: table-header-group; } /* css-discuss.incutio.com/wiki/Printing_Tables */
+  tr, img { page-break-inside: avoid; }
+  @page { margin: 0.5cm; }
+  p, h2, h3 { orphans: 3; widows: 3; }
+  h2, h3{ page-break-after: avoid; }
+}
+	
+	
+	
+	
+/*=======================================================================
+
+	❤❤❤ Artfully Masterminded by ZURB. Perfected by Digital Surgeons. ❤❤❤
+ 
+ ========================================================================*/
+
+
+
+
+
+/*=================================================
+
+	+++ LE GRID +++
+	A Responsive Grid -- Gumby defaults to a standard 960 grid, 
+	but you can change it to whatever you'd like.
+ 
+ ==================================================*/
+ 
+
+	.container { padding: 0px 20px; }
+	
+	.row { width: 100%; max-width: 940px; min-width: 720px; margin: 0 auto; }
+	/* To fix the grid into a different size, set max-width to your desired width */
+	
+	.row .row { min-width: 0px; }
+	
+	.column, .columns { margin-left: 2.127663%; float: left; min-height: 1px; position: relative;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+	.column:first-child, .columns:first-child, .alpha { margin-left: 0px; }
+	
+	.column.omega, .columns.omega { float: right; }
+	
+	/*** Removed because it is usually annoying ***
+	 
+	 [class*="column"] + [class*="column"]:last-child { float: right; }
+	
+	***/
+	
+	.row .one.columns 		{ width: 6.382989%; }
+	.row .two.columns 		{ width: 14.893641%; }
+	.row .three.columns 	{ width: 23.404293%; }
+	.row .four.columns 		{ width: 31.914945%; }
+	.row .five.columns 		{ width: 40.425597%; }
+	.row .six.columns 		{ width: 48.936249%; }
+	.row .seven.columns 	{ width: 57.446901%; }
+	.row .eight.columns 	{ width: 65.957553%; }
+	.row .nine.columns 		{ width: 74.468205%; }
+	.row .ten.columns 		{ width: 82.978857%; }
+	.row .eleven.columns	{ width: 91.489509%; }
+	.row .twelve.columns	{ width: 100%; }
+	
+		
+	/*** Formula: Column Width + Twice the Default Margin ***/
+	
+	.row .push_one 		{ margin-left: 10.638315%; }
+	.row .push_two 		{ margin-left: 19.148967%; }
+	.row .push_three 	{ margin-left: 27.659619%; }
+	.row .push_four 	{ margin-left: 36.170271%; }
+	.row .push_five 	{ margin-left: 44.680923%; }
+	.row .push_six 		{ margin-left: 53.191575%; }
+	.row .push_seven 	{ margin-left: 61.702227%; }
+	.row .push_eight 	{ margin-left: 70.212879%; }
+	.row .push_nine 	{ margin-left: 78.723531%; }
+	.row .push_ten 		{ margin-left: 87.234183%; }
+	/*.row .push_eleven 	{ margin-left: 95.744835%;  }*/
+	
+	
+	/* Centering Columns is fun */
+	
+	.row .one.centered		{ margin-left: 46.808586%; }
+	.row .two.centered 		{ margin-left: 42.55326%; }
+	.row .three.centered	{ margin-left: 38.297934%; }
+	.row .four.centered		{ margin-left: 34.042608%; }
+	.row .five.centered 	{ margin-left: 29.787282%; }
+	.row .six.centered 		{ margin-left: 25.531956%; }
+	.row .seven.centered 	{ margin-left: 21.27663%; }
+	.row .eight.centered 	{ margin-left: 17.021304%; }
+	.row .nine.centered 	{ margin-left: 12.765978%; }
+	.row .ten.centered 		{ margin-left: 8.510652%; }
+	.row .eleven.centered { margin-left: 4.255326%; }
+
+
+	/*** Formula: Column Width + Default Margin ***/
+	
+	.row .push_one:first-child 		{ margin-left: 8.510652%; }
+	.row .push_two:first-child 		{ margin-left: 17.021304%; }
+	.row .push_three:first-child 	{ margin-left: 25.531956%; }
+	.row .push_four:first-child 	{ margin-left: 34.042608%; }
+	.row .push_five:first-child 	{ margin-left: 42.55326%; }
+	.row .push_six:first-child 		{ margin-left: 51.063912%; }
+	.row .push_seven:first-child 	{ margin-left: 59.574564%; }
+	.row .push_eight:first-child 	{ margin-left: 68.085216%; }
+	.row .push_nine:first-child 	{ margin-left: 76.596868%; }
+	.row .push_ten:first-child 		{ margin-left: 85.10652%; }
+	.row .push_eleven:first-child { margin-left: 93.617172%; }
+	
+	
+	
+	img, object, embed { max-width: 100%; height: auto; }
+	img { -ms-interpolation-mode: bicubic; }
+	#map_canvas img, .map_canvas img {max-width: none!important;}
+	 
+	 /* Nicolas Gallagher's micro clearfix */
+	 .row:before, .row:after, .clearfix:before, .clearfix:after { content:""; display:table; }
+	 .row:after, .clearfix:after { clear: both; }
+	 .row, .clearfix { zoom: 1; }
+	 
+	 
+
+
+/*=======================================================================
+
+	❤❤❤ Artfully Masterminded by ZURB. Perfected by Digital Surgeons. ❤❤❤
+ 
+ ========================================================================*/
+
+    
+    
+	
+	
+/*==================================================
+
+	+++ Grid +++
+	
+===================================================*/
+	
+	/* Mobile */
+	
+	@media only screen and (max-width: 480px) {
+	  /* Style adjustments for viewports 480px and under go here */
+	  .row {
+	  	text-align: center;
+	  }
+	}
+	
+	@media only screen and (max-width: 767px) {
+		body { -webkit-text-size-adjust: none; -ms-text-size-adjust: none; width: 100%; min-width: 0; margin-left: 0; margin-right: 0; padding-left: 0; padding-right: 0; }
+		
+		.container { min-width: 0; margin-left: 0; margin-right: 0; }
+		.row { width: 100%; min-width: 0; margin-left: 0; margin-right: 0; }
+		.row .row .column, .row .row .columns { padding: 0; }
+		.column, .columns { width: auto !important; float: none; margin-left: 0; margin-right: 0; }
+		.column:last-child, .columns:last-child { margin-right: 0; float: none; }
+		.row .row .column, .row .row .columns { padding: 0; }
+		.column, .columns { width: auto !important; float: none; margin-left: 0px; margin-right: 0px; }
+		.column:last-child, .columns:last-child { margin-right: 0; float: none; }
+		[class*="column"] + [class*="column"]:last-child { float: none; }
+		[class*="column"]:before, [class*="column"]:after { display: table; }
+		[class*="column"]:after { clear: both; }
+		
+		
+		.push_one, .push_two, .push_three, .push_four, .push_five, .push_six, .push_seven, .push_eight, .push_nine, .push_ten, .push_eleven, .centered { margin-left: 0% !important; }
+	}
+	
+	
+	

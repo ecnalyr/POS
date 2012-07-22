@@ -1,8 +1,8 @@
 ﻿@model POS.Domain.Entities.Product
            
 <div class = "item">
-    <h3>@Model.Name</h3>
-    @Model.Description
+    <p class="btn tertiary">@Model.Name</p>
+    <p>@Model.Description</p>
     @Model.Category.Name
     <h4>@Model.Price.ToString("c")</h4>
 </div>

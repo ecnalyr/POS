@@ -93,7 +93,19 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\gumby.css" />
+    <Content Include="Content\img\icon_nav_toggle.gif" />
+    <Content Include="Content\imports.css" />
+    <Content Include="Content\style.css" />
+    <Content Include="Content\text.css" />
+    <Content Include="Content\ui.css" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\gumbyScripts\libs\gumby.js" />
+    <Content Include="Scripts\gumbyScripts\libs\gumby.min.js" />
+    <Content Include="Scripts\gumbyScripts\libs\jquery-1.7.2.min.js" />
+    <Content Include="Scripts\gumbyScripts\libs\modernizr-2.0.6.min.js" />
+    <Content Include="Scripts\gumbyScripts\main.js" />
+    <Content Include="Scripts\gumbyScripts\plugins.js" />
     <Content Include="Scripts\jquery-1.7.2-vsdoc.js" />
     <Content Include="Scripts\jquery-1.7.2.js" />
     <Content Include="Scripts\jquery-1.7.2.min.js" />
