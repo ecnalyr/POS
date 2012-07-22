@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using POS.Domain.Entities;
-
-namespace POS.Domain.Concrete
+﻿namespace POS.Domain.Concrete
 {
+    using System.Collections.Generic;
+    using System.Data.Entity;
+
+    using POS.Domain.Entities;
+
     public class EFDbContextInitializer : DropCreateDatabaseIfModelChanges<EFDbContext>
     {
         protected override void Seed(EFDbContext context)

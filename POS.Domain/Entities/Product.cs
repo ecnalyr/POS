@@ -64,8 +64,14 @@ namespace POS.Domain.Entities
         /// </summary>
         public virtual Category Category { get; set; }
 
+        /// <summary>
+        /// Gets or sets the ImageData
+        /// </summary>
         public byte[] ImageData { get; set; }
 
+        /// <summary>
+        /// Gets or sets the ImageMimeType
+        /// </summary>
         [HiddenInput(DisplayValue = false)]
         [StringLength(100)]
         public string ImageMimeType { get; set; }

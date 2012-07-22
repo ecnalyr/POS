@@ -1,26 +1,51 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-
-namespace POS.Controllers
+﻿namespace POS.Controllers
 {
+    #region
+
+    using System.Linq;
+    using System.Web;
+    using System.Web.Mvc;
+
     using POS.Domain.Abstract;
     using POS.Domain.Entities;
 
+    #endregion
+
     public class AdminController : Controller
     {
-        private IProductRepository repository;
+        #region Fields
+
+        private readonly IProductRepository repository;
+
+        #endregion
+
+        #region Constructors and Destructors
 
         public AdminController(IProductRepository productRepository)
         {
             repository = productRepository;
         }
 
-        public ViewResult Index()
+        #endregion
+
+        #region Public Methods and Operators
+
+        public ViewResult Create()
         {
-            return this.View(repository.Products);
+            return this.View("Edit", new Product());
+        }
+
+        [HttpPost]
+        public ActionResult Delete(int id)
+        {
+            Product product = repository.Products.FirstOrDefault(p => p.ProductId == id);
+            if (product != null)
+            {
+                repository.DeleteProduct(product);
+                TempData["message"] = string.Format("{0} was deleted", product.Name);
+            }
+
+            return RedirectToAction("Index");
         }
 
         public ViewResult Edit(int id)
@@ -40,6 +65,7 @@ namespace POS.Controllers
                     product.ImageData = new byte[image.ContentLength];
                     image.InputStream.Read(product.ImageData, 0, image.ContentLength);
                 }
+
                 repository.SaveProduct(product);
                 TempData["message"] = string.Format("{0} has been saved", product.Name);
                 return RedirectToAction("Index");
@@ -51,21 +77,11 @@ namespace POS.Controllers
             }
         }
 
-        public ViewResult Create()
+        public ViewResult Index()
         {
-            return this.View("Edit", new Product());
+            return this.View(repository.Products);
         }
 
-        [HttpPost]
-        public ActionResult Delete(int id)
-        {
-            Product product = repository.Products.FirstOrDefault(p => p.ProductId == id);
-            if (product != null)
-            {
-                repository.DeleteProduct(product);
-                TempData["message"] = string.Format("{0} was deleted", product.Name);
-            }
-            return RedirectToAction("Index");
-        }
+        #endregion
     }
 }

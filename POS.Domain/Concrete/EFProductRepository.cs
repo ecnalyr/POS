@@ -1,19 +1,57 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using POS.Domain.Abstract;
-using POS.Domain.Entities;
-
-namespace POS.Domain.Concrete
+﻿namespace POS.Domain.Concrete
 {
+    #region
+
+    using System.Data;
+    using System.Linq;
+
+    using POS.Domain.Abstract;
+    using POS.Domain.Entities;
+
+    #endregion
+
     public class EFProductRepository : IProductRepository
     {
-        private EFDbContext context = new EFDbContext();
+        #region Fields
+
+        private readonly EFDbContext context = new EFDbContext();
+
+        #endregion
+
+        #region Public Properties
+
+        public IQueryable<Category> Categories
+        {
+            get
+            {
+                return context.Categories;
+            }
+        }
+
+        public IQueryable<ParentCategory> ParentCategories
+        {
+            get
+            {
+                return context.ParentCategories;
+            }
+        }
 
         public IQueryable<Product> Products
         {
-            get { return context.Products; }
+            get
+            {
+                return context.Products;
+            }
+        }
+
+        #endregion
+
+        #region Public Methods and Operators
+
+        public void DeleteProduct(Product product)
+        {
+            context.Products.Remove(product);
+            context.SaveChanges();
         }
 
         public void SaveProduct(Product product)
@@ -24,25 +62,12 @@ namespace POS.Domain.Concrete
             }
             else
             {
-                context.Entry(product).State = System.Data.EntityState.Modified;
+                context.Entry(product).State = EntityState.Modified;
             }
+
             context.SaveChanges();
         }
 
-        public void DeleteProduct(Product product)
-        {
-            context.Products.Remove(product);
-            context.SaveChanges();
-        }
-
-        public IQueryable<Category> Categories
-        {
-            get { return context.Categories; }
-        }
-
-        public IQueryable<ParentCategory> ParentCategories
-        {
-            get { return context.ParentCategories; }
-        }
+        #endregion
     }
 }

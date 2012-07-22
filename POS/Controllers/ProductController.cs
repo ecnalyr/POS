@@ -1,44 +1,38 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using POS.Models;
-using POS.Domain.Abstract;
-using POS.Domain.Entities;
-using System.Diagnostics;
-
-namespace POS.Controllers
+﻿namespace POS.Controllers
 {
+    #region
+
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Web.Mvc;
+
+    using POS.Domain.Abstract;
+    using POS.Domain.Entities;
+
+    #endregion
+
     public class ProductController : Controller
     {
-        private IProductRepository repository;
+        #region Fields
+
+        private readonly IProductRepository repository;
+
+        #endregion
+
+        #region Constructors and Destructors
 
         public ProductController(IProductRepository productRepository)
         {
             repository = productRepository;
         }
 
-        public ViewResult List() // lists everything (categories + products) for demo purposes
-        {
-            return View(repository.Categories);
-        }
+        #endregion
 
-        public ActionResult ParentCategories()
-        {
-            return View(repository.ParentCategories);
-        }
+        #region Public Methods and Operators
 
         public ActionResult Categories()
         {
             return PartialView(repository.Categories);
-        }
-
-        public ActionResult ProductList(int category)
-        {
-            IEnumerable<Product> productList = repository.Products.Where(p => p.CategoryId == category);
-            return PartialView("ProductList", productList);
         }
 
         public ActionResult CategoryList(int parentCategory)
@@ -59,5 +53,24 @@ namespace POS.Controllers
                 return null;
             }
         }
+
+        public ViewResult List()
+        {
+            // lists everything (categories + products) for demo purposes
+            return View(repository.Categories);
+        }
+
+        public ActionResult ParentCategories()
+        {
+            return View(repository.ParentCategories);
+        }
+
+        public ActionResult ProductList(int category)
+        {
+            IEnumerable<Product> productList = repository.Products.Where(p => p.CategoryId == category);
+            return PartialView("ProductList", productList);
+        }
+
+        #endregion
     }
 }
