@@ -2,6 +2,12 @@
            
 <div class = "item">
     <p class="btn tertiary">@Model.Name</p>
+    @if (Model.ImageData != null)
+    {
+        <div style="float:right;margin-right:20px">
+            <img width="75" height="75" src="@Url.Action("GetImage", "Product", new { Model.ProductId })" alt="thumbnail"/>
+        </div>
+    }
     <p>@Model.Description</p>
     @Model.Category.Name
     <h4>@Model.Price.ToString("c")</h4>
