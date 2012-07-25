@@ -16,6 +16,12 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
+        /***********/
+        function preventPropagation(e) {
+            e.stopPropagation();
+        }
+        
+        $(document).on("click", ".item", preventPropagation);
         
         /***********/
         function getCategories(e) {

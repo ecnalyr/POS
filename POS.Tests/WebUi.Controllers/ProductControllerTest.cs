@@ -17,7 +17,7 @@
     #endregion
 
     ///<summary>
-    ///	This is a test class for ProductControllerTest and is intended to contain all ProductControllerTest Unit Tests
+    ///	This is a test class for ProductController and is intended to contain all ProductController Unit Tests
     ///</summary>
     [TestClass]
     public class ProductControllerTest
