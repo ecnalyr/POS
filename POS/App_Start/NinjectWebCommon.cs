@@ -1,8 +1,5 @@
-using System.Collections.Generic;
-using System.Linq;
-using Moq;
+using System.Configuration;
 using POS.Domain.Concrete;
-using POS.Domain.Entities;
 
 [assembly: WebActivator.PreApplicationStartMethod(typeof(POS.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivator.ApplicationShutdownMethodAttribute(typeof(POS.App_Start.NinjectWebCommon), "Stop")]
@@ -61,20 +58,17 @@ namespace POS.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            /*Mock<IProductRepository> mock = new Mock<IProductRepository>();
-            mock.Setup(m => m.Categories).Returns(new List<Category>
-                                                      {
-                                                          new Category { CategoryId = 0, Name = "Balls" },
-                                                          new Category { CategoryId = 1, Name = "Drinks" }
-                                                      }.AsQueryable());
-            mock.Setup(m => m.Products).Returns(new List<Product>
-                                                    {
-                                                        new Product { Name = "Football", Price = 25, Description = "Brown in color", CategoryId = 1,},
-                                                        new Product { Name = "Soccerball", Price = 15 },
-                                                        new Product { Name = "Volleyball", Price = 25 }
-                                                    }.AsQueryable());
-            kernel.Bind<IProductRepository>().ToConstant(mock.Object);*/
             kernel.Bind<IProductRepository>().To<EFProductRepository>();
+
+            EmailSettings emailSettings = new EmailSettings
+                                              {
+                                                  WriteAsFile =
+                                                      bool.Parse(
+                                                          ConfigurationManager.AppSettings["Email.WriteAsFile"] ??
+                                                          "false")
+                                              };
+
+            kernel.Bind<IOrderProcessor>().To<EmailOrderProcessor>().WithConstructorArgument("settings", emailSettings);
         }        
     }
 }
