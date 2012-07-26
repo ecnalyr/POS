@@ -162,4 +162,7 @@
   <data name="TextLineInputValidatorRegEx" xml:space="preserve">
     <value>^(?!.*--)[A-Za-z0-9\.,'_\-]*</value>
   </data>
+  <data name="EmptyCartError">
+    <value xml:space="preserve">Sorry, your cart is empty!</value>
+  </data>
 </root>

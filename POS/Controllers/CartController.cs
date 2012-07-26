@@ -6,6 +6,8 @@ using POS.Models;
 
 namespace POS.Controllers
 {
+    using POS.Domain.Properties;
+
     public class CartController : Controller
     {
         #region Fields
@@ -73,7 +75,7 @@ namespace POS.Controllers
         {
             if (!cart.Lines.Any())
             {
-                ModelState.AddModelError("", "Sorry, your cart is empty!");
+                ModelState.AddModelError("", Resources.EmptyCartError);
             }
             if (ModelState.IsValid)
             {

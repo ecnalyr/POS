@@ -61,6 +61,15 @@ namespace POS.Domain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Sorry, your cart is empty!.
+        /// </summary>
+        public static string EmptyCartError {
+            get {
+                return ResourceManager.GetString("EmptyCartError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Only alpha-numeric characters and [.,_-;] are allowed.
         /// </summary>
         public static string InvalidInputCharacter {

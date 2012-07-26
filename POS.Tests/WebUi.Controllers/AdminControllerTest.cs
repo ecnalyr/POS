@@ -1,12 +1,12 @@
-﻿using POS.Controllers;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting.Web;
-using POS.Domain.Abstract;
-using System.Web.Mvc;
-
-namespace POS.Tests
+﻿namespace POS.Tests.WebUi.Controllers
 {
+    using POS.Controllers;
+
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using POS.Domain.Abstract;
+
+    using System.Web.Mvc;
     using System.Collections.Generic;
     using System.Linq;
 
@@ -60,7 +60,7 @@ namespace POS.Tests
                                                                 new ParentCategory {ParentCategoryId = 3, Name = "PC2"},
                                                                 new ParentCategory {ParentCategoryId = 4, Name = "PC4"}
                                                             }.AsQueryable());
-            _mockRepository = mock;
+            this._mockRepository = mock;
         }
 
         #region Additional test attributes
@@ -102,7 +102,7 @@ namespace POS.Tests
         public void IndexReturnsEntirProductList()
         {
             // Arrange - create a controller
-            var controller = new AdminController(_mockRepository.Object);
+            var controller = new AdminController(this._mockRepository.Object);
 
             // Action
             var result = ((IEnumerable<Product>)controller.Index().ViewData.Model).ToArray();
@@ -123,7 +123,7 @@ namespace POS.Tests
         public void CanEditProduct()
         {
             // Arrange - create a controller
-            var controller = new AdminController(_mockRepository.Object);
+            var controller = new AdminController(this._mockRepository.Object);
 
             // Action
             var p1 = controller.Edit(1).ViewData.Model as Product;
@@ -143,7 +143,7 @@ namespace POS.Tests
         public void CannotEditNonexistentProduct()
         {
             // Arrange - create a controller
-            var controller = new AdminController(_mockRepository.Object);
+            var controller = new AdminController(this._mockRepository.Object);
 
             // Action
             var result = (Product)controller.Edit(6).ViewData.Model;
@@ -159,7 +159,7 @@ namespace POS.Tests
         public void CanEditCategory()
         {
             // Arrange - create a controller
-            var controller = new AdminController(_mockRepository.Object);
+            var controller = new AdminController(this._mockRepository.Object);
 
             // Action
             var c1 = controller.EditCategory(1).ViewData.Model as Category;
@@ -179,7 +179,7 @@ namespace POS.Tests
         public void CannotEditNonexistentCategory()
         {
             // Arrange - create a controller
-            var controller = new AdminController(_mockRepository.Object);
+            var controller = new AdminController(this._mockRepository.Object);
 
             // Action
             var result = (Category)controller.EditCategory(6).ViewData.Model;
@@ -196,7 +196,7 @@ namespace POS.Tests
         public void CanEditProductCategory()
         {
             // Arrange - create a controller
-            var controller = new AdminController(_mockRepository.Object);
+            var controller = new AdminController(this._mockRepository.Object);
 
             // Action
             var pc1 = controller.EditParentCategory(1).ViewData.Model as ParentCategory;
@@ -216,7 +216,7 @@ namespace POS.Tests
         public void CannotEditNonexistentParentCategory()
         {
             // Arrange - create a controller
-            var controller = new AdminController(_mockRepository.Object);
+            var controller = new AdminController(this._mockRepository.Object);
 
             // Action
             var result = (Category)controller.EditParentCategory(6).ViewData.Model;
@@ -232,7 +232,7 @@ namespace POS.Tests
         public void CanSaveValidChanges()
         {
             // Arrange - create a controller
-            var controller = new AdminController(_mockRepository.Object);
+            var controller = new AdminController(this._mockRepository.Object);
             // Arrange - create a product
             Product product = new Product { Name = "Test" };
 
@@ -240,7 +240,7 @@ namespace POS.Tests
             ActionResult result = controller.Edit(product, null);
 
             // Assert - check that the repository was called
-            _mockRepository.Verify(m => m.SaveProduct(product));
+            this._mockRepository.Verify(m => m.SaveProduct(product));
             // Assert - check the method result type
             Assert.IsNotInstanceOfType(result, typeof(ViewResult));
         }
@@ -252,7 +252,7 @@ namespace POS.Tests
         public void CannotSaveInvalidChanges()
         {
             // Arrange - create a controller
-            var controller = new AdminController(_mockRepository.Object);
+            var controller = new AdminController(this._mockRepository.Object);
             // Arrange - create a product
             Product product = new Product { Name = "Test" };
             // Arrange - add an error to the model state
@@ -262,7 +262,7 @@ namespace POS.Tests
             ActionResult result = controller.Edit(product, null);
 
             // Assert - check that the repository was called
-            _mockRepository.Verify(m => m.SaveProduct(It.IsAny<Product>()), Times.Never());
+            this._mockRepository.Verify(m => m.SaveProduct(It.IsAny<Product>()), Times.Never());
             // Assert - check the method result type
             Assert.IsInstanceOfType(result, typeof(ViewResult));
         }
@@ -302,13 +302,13 @@ namespace POS.Tests
         public void CannotDeleteInvalidProducts()
         {
             // Arrange - create a controller
-            var controller = new AdminController(_mockRepository.Object);
+            var controller = new AdminController(this._mockRepository.Object);
 
             // Action - attempt to delete using a ProductId that does not exist
             controller.Delete(95);
 
             // assert - ensure that the repository Delete method was not called
-            _mockRepository.Verify(m => m.DeleteProduct(It.IsAny<Product>()), Times.Never());
+            this._mockRepository.Verify(m => m.DeleteProduct(It.IsAny<Product>()), Times.Never());
         }
 
         /// <summary>
@@ -346,13 +346,13 @@ namespace POS.Tests
         public void CannotDeleteInvalidCategories()
         {
             // Arrange - create a controller
-            var controller = new AdminController(_mockRepository.Object);
+            var controller = new AdminController(this._mockRepository.Object);
 
             // Action - attempt to delete using a CategoryId that does not exist
             controller.DeleteCategory(95);
 
             // assert - ensure that the repository DeleteCategory method was not called
-            _mockRepository.Verify(m => m.DeleteCategory(It.IsAny<Category>()), Times.Never());
+            this._mockRepository.Verify(m => m.DeleteCategory(It.IsAny<Category>()), Times.Never());
         }
 
         /// <summary>
@@ -390,13 +390,13 @@ namespace POS.Tests
         public void CannotDeleteInvalidParentCategories()
         {
             // Arrange - create a controller
-            var controller = new AdminController(_mockRepository.Object);
+            var controller = new AdminController(this._mockRepository.Object);
 
             // Action - attempt to delete using a ParentCategoryId that does not exist
             controller.DeleteParentCategory(95);
 
             // assert - ensure that the repository DeleteParentCategory method was not called
-            _mockRepository.Verify(m => m.DeleteParentCategory(It.IsAny<ParentCategory>()), Times.Never());
+            this._mockRepository.Verify(m => m.DeleteParentCategory(It.IsAny<ParentCategory>()), Times.Never());
         }
     }
 }
