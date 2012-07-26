@@ -1,13 +1,16 @@
-﻿using System.Linq;
-using System.Web.Mvc;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Moq;
-using POS.Controllers;
-using POS.Domain.Abstract;
-using POS.Domain.Entities;
-
-namespace POS.Tests
+﻿namespace POS.Tests.WebUi.Controllers
 {
+    using System.Linq;
+    using System.Web.Mvc;
+
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Moq;
+
+    using POS.Controllers;
+    using POS.Domain.Abstract;
+    using POS.Domain.Entities;
+
     /// <summary>
     ///This is a test class for CartController and is intended
     ///to contain all CartController Unit Tests

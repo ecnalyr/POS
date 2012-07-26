@@ -1,9 +1,11 @@
-﻿using System.Web.Mvc;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using POS.Controllers;
-
-namespace POS.Tests.Controllers
+﻿namespace POS.Tests.WebUi.Controllers
 {
+    using System.Web.Mvc;
+
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using POS.Controllers;
+
     [TestClass]
     public class HomeControllerTest
     {
