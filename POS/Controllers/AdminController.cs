@@ -1,29 +1,24 @@
-﻿namespace POS.Controllers
+﻿using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using POS.Domain.Abstract;
+using POS.Domain.Entities;
+
+namespace POS.Controllers
 {
     #region
 
-    using System.Linq;
-    using System.Web;
-    using System.Web.Mvc;
-
-    using POS.Domain.Abstract;
-    using POS.Domain.Entities;
+    
 
     #endregion
 
-    public class AdminController : Controller
+    public class AdminController : MasterController
     {
-        #region Fields
-
-        private readonly IProductRepository repository;
-
-        #endregion
-
         #region Constructors and Destructors
 
         public AdminController(IProductRepository productRepository)
+            : base(productRepository)
         {
-            repository = productRepository;
         }
 
         #endregion
@@ -32,17 +27,17 @@
 
         public ViewResult Create()
         {
-            return this.View("Edit", new Product());
+            return View("Edit", new Product());
         }
 
         public ViewResult CreateCategory()
         {
-            return this.View("EditCategory", new Category());
+            return View("EditCategory", new Category());
         }
 
         public ViewResult CreateParentCategory()
         {
-            return this.View("EditParentCategory", new ParentCategory());
+            return View("EditParentCategory", new ParentCategory());
         }
 
         [HttpPost]
@@ -87,7 +82,7 @@
         public ViewResult Edit(int id)
         {
             Product product = repository.Products.FirstOrDefault(p => p.ProductId == id);
-            return this.View(product);
+            return View(product);
         }
 
         [HttpPost]
@@ -109,14 +104,14 @@
             else
             {
                 // there is something wrong with the data values
-                return this.View(product);
+                return View(product);
             }
         }
 
         public ViewResult EditCategory(int id)
         {
             Category category = repository.Categories.FirstOrDefault(p => p.CategoryId == id);
-            return this.View(category);
+            return View(category);
         }
 
         [HttpPost]
@@ -131,14 +126,14 @@
             else
             {
                 // there is something wrong with the data values
-                return this.View(category);
+                return View(category);
             }
         }
 
         public ViewResult EditParentCategory(int id)
         {
             ParentCategory parentCategory = repository.ParentCategories.FirstOrDefault(p => p.ParentCategoryId == id);
-            return this.View(parentCategory);
+            return View(parentCategory);
         }
 
         [HttpPost]
@@ -153,23 +148,23 @@
             else
             {
                 // there is something wrong with the data values
-                return this.View(parentCategory);
+                return View(parentCategory);
             }
         }
 
         public ViewResult Index()
         {
-            return this.View(repository.Products);
+            return View(repository.Products);
         }
 
         public ViewResult IndexCategory()
         {
-            return this.View(repository.Categories);
+            return View(repository.Categories);
         }
 
         public ViewResult IndexParentCategory()
         {
-            return this.View(repository.ParentCategories);
+            return View(repository.ParentCategories);
         }
 
         #endregion

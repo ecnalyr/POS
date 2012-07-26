@@ -1,29 +1,24 @@
-﻿namespace POS.Controllers
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Web.Mvc;
+using POS.Domain.Abstract;
+using POS.Domain.Entities;
+
+namespace POS.Controllers
 {
     #region
 
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Web.Mvc;
-
-    using POS.Domain.Abstract;
-    using POS.Domain.Entities;
+    
 
     #endregion
 
-    public class ProductController : Controller
+    public class ProductController : MasterController
     {
-        #region Fields
-
-        private readonly IProductRepository repository;
-
-        #endregion
 
         #region Constructors and Destructors
 
-        public ProductController(IProductRepository productRepository)
+        public ProductController(IProductRepository productRepository) : base(productRepository)
         {
-            repository = productRepository;
         }
 
         #endregion
