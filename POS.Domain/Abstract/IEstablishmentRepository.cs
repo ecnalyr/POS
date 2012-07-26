@@ -1,9 +1,10 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using POS.Domain.Entities;
 
 namespace POS.Domain.Abstract
 {
-    public interface ILocationRepository
+    public interface IEstablishmentRepository : IDisposable
     {
         #region Public Properties
 

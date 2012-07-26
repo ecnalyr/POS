@@ -1,4 +1,6 @@
-﻿namespace POS.Domain.Abstract
+﻿using System;
+
+namespace POS.Domain.Abstract
 {
     #region
 
@@ -8,7 +10,7 @@
 
     #endregion
 
-    public interface IProductRepository
+    public interface IProductRepository : IDisposable
     {
         #region Public Properties
 

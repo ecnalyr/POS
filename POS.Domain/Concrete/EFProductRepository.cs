@@ -1,20 +1,22 @@
-﻿namespace POS.Domain.Concrete
+﻿using System;
+using System.Data;
+using System.Linq;
+using POS.Domain.Abstract;
+using POS.Domain.Entities;
+
+namespace POS.Domain.Concrete
 {
     #region
 
-    using System.Data;
-    using System.Linq;
-
-    using POS.Domain.Abstract;
-    using POS.Domain.Entities;
+    
 
     #endregion
 
-    public class EFProductRepository : IProductRepository
+    public class EfProductRepository : IProductRepository
     {
         #region Fields
 
-        private readonly EFDbContext context = new EFDbContext();
+        private readonly EfDbContext context = new EfDbContext();
 
         #endregion
 
@@ -22,31 +24,24 @@
 
         public IQueryable<Category> Categories
         {
-            get
-            {
-                return context.Categories;
-            }
+            get { return context.Categories; }
         }
 
         public IQueryable<ParentCategory> ParentCategories
         {
-            get
-            {
-                return context.ParentCategories;
-            }
+            get { return context.ParentCategories; }
         }
 
         public IQueryable<Product> Products
         {
-            get
-            {
-                return context.Products;
-            }
+            get { return context.Products; }
         }
 
         #endregion
 
         #region Public Methods and Operators
+
+        private bool _disposed;
 
         public void DeleteCategory(Category category)
         {
@@ -106,6 +101,24 @@
             }
 
             context.SaveChanges();
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!_disposed)
+            {
+                if (disposing)
+                {
+                    context.Dispose();
+                }
+            }
+            _disposed = true;
         }
 
         #endregion

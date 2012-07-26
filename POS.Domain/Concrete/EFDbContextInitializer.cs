@@ -5,9 +5,9 @@
 
     using POS.Domain.Entities;
 
-    public class EFDbContextInitializer : DropCreateDatabaseIfModelChanges<EFDbContext>
+    public class EfDbContextInitializer : DropCreateDatabaseIfModelChanges<EfDbContext>
     {
-        protected override void Seed(EFDbContext context)
+        protected override void Seed(EfDbContext context)
         {
             var parentCategories = new List<ParentCategory>
                                        {

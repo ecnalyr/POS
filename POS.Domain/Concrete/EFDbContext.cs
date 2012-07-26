@@ -8,7 +8,7 @@
 
     #endregion
 
-    public class EFDbContext : DbContext
+    public class EfDbContext : DbContext
     {
         #region Public Properties
 

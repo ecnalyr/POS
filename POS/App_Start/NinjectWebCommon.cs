@@ -58,7 +58,7 @@ namespace POS.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            kernel.Bind<IProductRepository>().To<EFProductRepository>();
+            kernel.Bind<IProductRepository>().To<EfProductRepository>();
 
             EmailSettings emailSettings = new EmailSettings
                                               {

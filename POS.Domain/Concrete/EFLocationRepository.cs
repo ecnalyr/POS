@@ -1,18 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Text;
 using POS.Domain.Abstract;
 using POS.Domain.Entities;
 
 namespace POS.Domain.Concrete
 {
-    class EFLocationRepository : ILocationRepository
+    public class EfLocationRepository : IEstablishmentRepository
     {
         #region Fields
 
-        private readonly EFDbContext context = new EFDbContext();
+        private readonly EfDbContext context = new EfDbContext();
 
         #endregion
 
@@ -20,13 +18,14 @@ namespace POS.Domain.Concrete
 
         public IQueryable<Establishment> Establishments
         {
-            get
-            {
-                return context.Establishments;
-            }
+            get { return context.Establishments; }
         }
 
         #endregion
+
+        private bool _disposed;
+
+        #region IEstablishmentRepository Members
 
         public void DeleteEstablishment(Establishment establishment)
         {
@@ -46,6 +45,26 @@ namespace POS.Domain.Concrete
             }
 
             context.SaveChanges();
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        #endregion
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!_disposed)
+            {
+                if (disposing)
+                {
+                    context.Dispose();
+                }
+            }
+            _disposed = true;
         }
     }
 }
