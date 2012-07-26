@@ -18,6 +18,8 @@
 
         public DbSet<Product> Products { get; set; }
 
+        public DbSet<Establishment> Establishments { get; set; }
+
         #endregion
     }
 }
