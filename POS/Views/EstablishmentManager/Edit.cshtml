@@ -1,0 +1,27 @@
+﻿@model POS.Domain.Entities.Establishment
+
+@{
+    ViewBag.Title = "Establishment Manager: Edit" + @Model.Name;
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Edit @Model.Name</h1>
+@using (Html.BeginForm("Edit", "EstablishmentManager", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.EditorForModel()
+
+    <div class="editor-label">Image</div>
+    <div class="editor-field">
+        @if (Model.ImageData == null)
+        {
+            @:None
+        }
+        else
+        {
+            <img width="150" height="150" src="@Url.Action("GetImage", "EstablishmentManager", new { Model.EstablishmentId })" alt="thumbnail" />
+        }
+        <div>Upload new image: <input type="file" name="Image" /></div>
+    </div>
+    <input type="submit" value="Save" />
+    @Html.ActionLink("Cancel and return to the list", "Index")
+}

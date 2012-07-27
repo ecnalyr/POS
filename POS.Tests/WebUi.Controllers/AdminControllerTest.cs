@@ -99,7 +99,7 @@
         /// First checks that there is the proper number of products, then checks that the product names are in their expected locations
         ///</summary>
         [TestMethod]
-        public void IndexReturnsEntirProductList()
+        public void IndexReturnsEntireProductList()
         {
             // Arrange - create a controller
             var controller = new AdminController(this._mockRepository.Object);
@@ -274,7 +274,7 @@
         public void CanDeleteValidProducts()
         {
             // Arrange - create a product
-            Product product = new Product { ProductId = 2, Name = "Test" };
+            var product = new Product { ProductId = 2, Name = "Test" };
 
             // Arrange - create a local mock repository
             var localMock = new Mock<IProductRepository>();
@@ -296,7 +296,7 @@
         }
 
         /// <summary>
-        /// Tests that when an invalid ProductId value is passed to the Delete method therepository DeleteProduct method is not called
+        /// Tests that when an invalid ProductId value is passed to the Delete method the repository DeleteProduct method is not called
         /// </summary
         [TestMethod]
         public void CannotDeleteInvalidProducts()

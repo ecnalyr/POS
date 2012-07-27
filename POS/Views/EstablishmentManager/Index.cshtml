@@ -1,0 +1,29 @@
+﻿@using POS.Domain.Entities
+@model IEnumerable<Establishment>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>All Locations</h1>
+<table class="Grid">
+    <tr>
+        <th>Name</th>
+        <th>Actions</th>
+    </tr>
+    @foreach (Establishment item in Model)
+    {
+        <tr>
+            <td>@Html.ActionLink(item.Name, "Edit", new { id = item.EstablishmentId })</td>
+            <td>
+                @using (Html.BeginForm("Delete", "EstablishmentManager"))
+                {
+                    @Html.Hidden("id", item.EstablishmentId)
+                    <input type="submit" value="Delete"/>
+                }
+            </td>
+        </tr>
+    }
+</table>
+<p>@Html.ActionLink("Add a new establishment", "Create")</p>

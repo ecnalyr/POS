@@ -7,15 +7,22 @@ namespace POS.Controllers
     {
         #region Fields
 
-        public IProductRepository repository;
+        public IProductRepository ProductRepository;
+
+        public IEstablishmentRepository EstablishmentRepository;
 
         #endregion
 
         #region Constructors and Destructors
 
-        public MasterController(IProductRepository productRepository)
+        public MasterController(IProductRepository productRepo)
         {
-            repository = productRepository;
+            ProductRepository = productRepo;
+        }
+
+        public MasterController(IEstablishmentRepository establishmentRepo)
+        {
+            EstablishmentRepository = establishmentRepo;
         }
 
         #endregion

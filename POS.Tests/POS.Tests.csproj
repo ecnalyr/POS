@@ -74,6 +74,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CartControllerTest.cs" />
+    <Compile Include="EstablishmentManagerControllerTest.cs" />
     <Compile Include="WebUi.Controllers\CartControllerTest.cs" />
     <Compile Include="WebUi.Controllers\AdminControllerTest.cs" />
     <Compile Include="WebUi.Controllers\ProductControllerTest.cs" />

@@ -43,10 +43,10 @@ namespace POS.Controllers
         [HttpPost]
         public ActionResult Delete(int id)
         {
-            Product product = repository.Products.FirstOrDefault(p => p.ProductId == id);
+            Product product = ProductRepository.Products.FirstOrDefault(p => p.ProductId == id);
             if (product != null)
             {
-                repository.DeleteProduct(product);
+                ProductRepository.DeleteProduct(product);
                 TempData["message"] = string.Format("Product {0} was deleted", product.Name);
             }
 
@@ -56,10 +56,10 @@ namespace POS.Controllers
         [HttpPost]
         public ActionResult DeleteCategory(int id)
         {
-            Category category = repository.Categories.FirstOrDefault(p => p.CategoryId == id);
+            Category category = ProductRepository.Categories.FirstOrDefault(p => p.CategoryId == id);
             if (category != null)
             {
-                repository.DeleteCategory(category);
+                ProductRepository.DeleteCategory(category);
                 TempData["message"] = string.Format("Category {0} was deleted", category.Name);
             }
 
@@ -69,10 +69,10 @@ namespace POS.Controllers
         [HttpPost]
         public ActionResult DeleteParentCategory(int id)
         {
-            ParentCategory parentCategory = repository.ParentCategories.FirstOrDefault(p => p.ParentCategoryId == id);
+            ParentCategory parentCategory = ProductRepository.ParentCategories.FirstOrDefault(p => p.ParentCategoryId == id);
             if (parentCategory != null)
             {
-                repository.DeleteParentCategory(parentCategory);
+                ProductRepository.DeleteParentCategory(parentCategory);
                 TempData["message"] = string.Format("Parent-Category {0} was deleted", parentCategory.Name);
             }
 
@@ -81,7 +81,7 @@ namespace POS.Controllers
 
         public ViewResult Edit(int id)
         {
-            Product product = repository.Products.FirstOrDefault(p => p.ProductId == id);
+            Product product = ProductRepository.Products.FirstOrDefault(p => p.ProductId == id);
             return View(product);
         }
 
@@ -97,7 +97,7 @@ namespace POS.Controllers
                     image.InputStream.Read(product.ImageData, 0, image.ContentLength);
                 }
 
-                repository.SaveProduct(product);
+                ProductRepository.SaveProduct(product);
                 TempData["message"] = string.Format("Product {0} has been saved", product.Name);
                 return RedirectToAction("Index");
             }
@@ -110,7 +110,7 @@ namespace POS.Controllers
 
         public ViewResult EditCategory(int id)
         {
-            Category category = repository.Categories.FirstOrDefault(p => p.CategoryId == id);
+            Category category = ProductRepository.Categories.FirstOrDefault(p => p.CategoryId == id);
             return View(category);
         }
 
@@ -119,7 +119,7 @@ namespace POS.Controllers
         {
             if (ModelState.IsValid)
             {
-                repository.SaveCategory(category);
+                ProductRepository.SaveCategory(category);
                 TempData["message"] = string.Format("Category {0} has been saved", category.Name);
                 return RedirectToAction("IndexCategory");
             }
@@ -132,7 +132,7 @@ namespace POS.Controllers
 
         public ViewResult EditParentCategory(int id)
         {
-            ParentCategory parentCategory = repository.ParentCategories.FirstOrDefault(p => p.ParentCategoryId == id);
+            ParentCategory parentCategory = ProductRepository.ParentCategories.FirstOrDefault(p => p.ParentCategoryId == id);
             return View(parentCategory);
         }
 
@@ -141,7 +141,7 @@ namespace POS.Controllers
         {
             if (ModelState.IsValid)
             {
-                repository.SaveParentCategory(parentCategory);
+                ProductRepository.SaveParentCategory(parentCategory);
                 TempData["message"] = string.Format("Parent {0} has been saved", parentCategory.Name);
                 return RedirectToAction("IndexParentCategory");
             }
@@ -154,17 +154,17 @@ namespace POS.Controllers
 
         public ViewResult Index()
         {
-            return View(repository.Products);
+            return View(ProductRepository.Products);
         }
 
         public ViewResult IndexCategory()
         {
-            return View(repository.Categories);
+            return View(ProductRepository.Categories);
         }
 
         public ViewResult IndexParentCategory()
         {
-            return View(repository.ParentCategories);
+            return View(ProductRepository.ParentCategories);
         }
 
         #endregion

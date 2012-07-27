@@ -36,6 +36,14 @@
                                    new Product {Name = "Taco", Description = "Folded in half", Price = new decimal(0.75), CategoryId = 3}
                                };
             products.ForEach(s => context.Products.Add(s));
+
+            var estabslishments = new List<Establishment>
+                {
+                    new Establishment {Name = "The Dreary Inn"},
+                    new Establishment {Name = "Falling Out the Third"},
+                    new Establishment {Name = "The Rim of the Sky"}
+                };
+            estabslishments.ForEach(s => context.Establishments.Add(s));
             context.SaveChanges();
         }
     }
