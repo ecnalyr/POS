@@ -27,18 +27,18 @@ namespace POS.Controllers
 
         public ActionResult Categories()
         {
-            return PartialView(repository.Categories);
+            return PartialView(ProductRepository.Categories);
         }
 
         public ActionResult CategoryList(int parentCategory)
         {
-            IEnumerable<Category> categoryList = repository.Categories.Where(p => p.ParentCategoryId == parentCategory);
+            IEnumerable<Category> categoryList = ProductRepository.Categories.Where(p => p.ParentCategoryId == parentCategory);
             return PartialView("CategoryList", categoryList);
         }
 
         public FileContentResult GetImage(int productid)
         {
-            Product product = repository.Products.FirstOrDefault(p => p.ProductId == productid);
+            Product product = ProductRepository.Products.FirstOrDefault(p => p.ProductId == productid);
             if (product != null)
             {
                 return File(product.ImageData, product.ImageMimeType);
@@ -52,17 +52,17 @@ namespace POS.Controllers
         public ViewResult List()
         {
             // lists everything (categories + products) for demo purposes
-            return View(repository.Categories);
+            return View(ProductRepository.Categories);
         }
 
         public ActionResult ParentCategories()
         {
-            return View(repository.ParentCategories);
+            return View(ProductRepository.ParentCategories);
         }
 
         public ActionResult ProductList(int category)
         {
-            IEnumerable<Product> productList = repository.Products.Where(p => p.CategoryId == category);
+            IEnumerable<Product> productList = ProductRepository.Products.Where(p => p.CategoryId == category);
             return PartialView("ProductList", productList);
         }
 

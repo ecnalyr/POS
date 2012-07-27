@@ -58,7 +58,7 @@
     <Compile Include="Abstract\IProductRepository.cs" />
     <Compile Include="Concrete\EFDbContext.cs" />
     <Compile Include="Concrete\EFDbContextInitializer.cs" />
-    <Compile Include="Concrete\EFLocationRepository.cs" />
+    <Compile Include="Concrete\EfEstablishmentRepository.cs" />
     <Compile Include="Concrete\EFProductRepository.cs" />
     <Compile Include="Concrete\EmailOrderProcessor.cs" />
     <Compile Include="Entities\Cart.cs" />

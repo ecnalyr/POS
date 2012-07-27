@@ -6,7 +6,7 @@ using POS.Domain.Entities;
 
 namespace POS.Domain.Concrete
 {
-    public class EfLocationRepository : IEstablishmentRepository
+    public class EfEstablishmentRepository : IEstablishmentRepository
     {
         #region Fields
 
