@@ -25,5 +25,10 @@ namespace POS.Domain.Entities
         [HiddenInput(DisplayValue = false)]
         [StringLength(100)]
         public string ImageMimeType { get; set; }
+
+        /// <summary>
+        /// Intend on having this return a list of Products sold by Establishment
+        /// </summary>
+        public ICollection<Product> Products { get; set; }  
     }
 }

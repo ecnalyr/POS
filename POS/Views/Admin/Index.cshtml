@@ -15,6 +15,7 @@
         <th>Price</th>
         <th>Category</th>
         <th>Parent-Category</th>
+        <th>Sold at</th>
         <th>Actions</th>
     </tr>
     @foreach (Product item in Model)
@@ -25,6 +26,7 @@
             <td>@string.Format("{0:F}", item.Price)</td>
             <td>@item.Category.Name</td>
             <td>@item.Category.ParentCategory.Name</td>
+            <td>@item.Establishment.Name</td>
             <td>
                 @using (Html.BeginForm("Delete", "Admin"))
                 {

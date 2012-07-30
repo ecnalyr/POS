@@ -12,7 +12,11 @@
         <section class="drawer" id="fromtop">
             <div class="container">
                 <div class="row">
-                    <i class="two columns"><p>This is some stuff</p></i>
+                    <i class="two columns">
+                        <div id="logindisplay">
+                            @Html.Partial("_LogOnPartial")
+                        </div>
+                    </i>
                     <i class="two columns"><p>This is some more stuff</p></i>
                 </div>
                 <div class="row">
@@ -22,9 +26,7 @@
             </div>
         </section>
         @{Html.RenderAction("Summary", "Cart");}
-        <div id="logindisplay">
-            @Html.Partial("_LogOnPartial")
-        </div>
+        
         <div class="row">
             <h2>Navigation</h2>
             <nav class="pretty navbar clearfix" id="prettynav">
@@ -41,8 +43,9 @@
                             </ul>
                         </div>
                     </li>
-                    <li>@Html.ActionLink("About", "Index", "Home")</li>
                     <li>@Html.ActionLink("Parent Categories", "ParentCategories", "Product")</li>
+                    <li>@Html.ActionLink("Product Admin", "Index", "Admin")</li>
+                    <li>@Html.ActionLink("Establishment Admin", "Index", "EstablishmentManager")</li>
                     <li>
                         <div class="field">
                             <p class="text search oval"><input type="search" placeholder="Search" /></p>

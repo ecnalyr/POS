@@ -6,7 +6,7 @@ using POS.Domain.Entities;
 
 namespace POS.Controllers
 {
-    public class EstablishmentManagerController : MasterController
+    public class EstablishmentManagerController : ControllerBase
     {
         #region Constructors and Destructors
 

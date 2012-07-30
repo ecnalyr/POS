@@ -75,5 +75,15 @@ namespace POS.Domain.Entities
         [HiddenInput(DisplayValue = false)]
         [StringLength(100)]
         public string ImageMimeType { get; set; }
+
+        /// <summary>
+        /// Gets or sets the entity Id of the Establishment at which the Product is sold
+        /// </summary>
+        public int EstablishmentId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the virtual Establishment
+        /// </summary>
+        public virtual Establishment Establishment { get; set; }
     }
 }

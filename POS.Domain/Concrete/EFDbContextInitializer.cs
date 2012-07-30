@@ -28,12 +28,12 @@
 
             var products = new List<Product>
                                {
-                                   new Product {Name = "Football", Description = "Brown in color", Price = 25, CategoryId = 1 },
-                                   new Product {Name = "Soccerball", Description = "White in color", Price = 15, CategoryId = 1},
-                                   new Product {Name = "Volleyball", Description = "Colorful in color", Price = 25, CategoryId = 1},
-                                   new Product {Name = "Milk", Description = "Brown in color", Price = new decimal(0.75), CategoryId = 2},
-                                   new Product {Name = "Water", Description = "Brown in color", Price = new decimal(1.50), CategoryId = 2},
-                                   new Product {Name = "Taco", Description = "Folded in half", Price = new decimal(0.75), CategoryId = 3}
+                                   new Product {Name = "Football", Description = "Brown in color", Price = 25, CategoryId = 1, EstablishmentId = 1},
+                                   new Product {Name = "Soccerball", Description = "White in color", Price = 15, CategoryId = 1, EstablishmentId = 1},
+                                   new Product {Name = "Volleyball", Description = "Colorful in color", Price = 25, CategoryId = 1, EstablishmentId = 1},
+                                   new Product {Name = "Milk", Description = "Brown in color", Price = new decimal(0.75), CategoryId = 2, EstablishmentId = 1},
+                                   new Product {Name = "Water", Description = "Brown in color", Price = new decimal(1.50), CategoryId = 2, EstablishmentId = 1},
+                                   new Product {Name = "Taco", Description = "Folded in half", Price = new decimal(0.75), CategoryId = 3, EstablishmentId = 1}
                                };
             products.ForEach(s => context.Products.Add(s));
 

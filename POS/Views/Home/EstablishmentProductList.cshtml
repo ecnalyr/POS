@@ -1,0 +1,15 @@
+﻿@using POS.Domain.Entities
+@model ICollection<Product>
+
+@{
+    ViewBag.Title = "EstablishmentProductList";
+}
+
+@foreach (var item in Model)
+{
+    <div>
+        <p>
+            * @Html.Display(item.Name)
+        </p>
+    </div>
+}
