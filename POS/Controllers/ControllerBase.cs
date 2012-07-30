@@ -1,4 +1,7 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Reflection;
+using System.Web.Mvc;
+using NLog;
 using POS.Domain.Abstract;
 
 namespace POS.Controllers
@@ -7,9 +10,8 @@ namespace POS.Controllers
     {
         #region Fields
 
-        public IProductRepository ProductRepository;
-
         public IEstablishmentRepository EstablishmentRepository;
+        public IProductRepository ProductRepository;
 
         #endregion
 
@@ -26,5 +28,16 @@ namespace POS.Controllers
         }
 
         #endregion
+
+        protected Logger Logger
+        {
+            get
+            {
+                Type declaringType = MethodBase.GetCurrentMethod().DeclaringType;
+                if (declaringType != null)
+                    return LogManager.GetLogger(declaringType.ToString());
+                return null;
+            }
+        }
     }
 }
