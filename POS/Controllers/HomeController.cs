@@ -14,6 +14,7 @@ namespace POS.Controllers
 
         public ActionResult Index()
         {
+            Logger.Debug("Checking that nLogger is working from Index");
             return View(EstablishmentRepository.Establishments);
         }
 
