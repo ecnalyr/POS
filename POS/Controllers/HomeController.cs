@@ -1,18 +1,41 @@
-﻿using System.Web.Mvc;
+﻿using System.Diagnostics;
+using System.Web.Mvc;
+using POS.Domain.Abstract;
+using POS.Domain.Entities;
+using System.Linq;
 
 namespace POS.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : ControllerBase
     {
-        public ActionResult Index()
+        public HomeController(IEstablishmentRepository establishmentRepo) : base(establishmentRepo)
         {
-            ViewBag.Message = "Welcome to ASP.NET MVC!";
-
-            return View();
         }
 
-        public ActionResult About()
+        public ActionResult Index()
         {
+            return View(EstablishmentRepository.Establishments);
+        }
+
+        public ActionResult EstablishmentProductList(int id)
+        {
+            Establishment establishment = EstablishmentRepository.Establishments.FirstOrDefault(p => p.EstablishmentId == id);
+            if (establishment != null)
+            {
+                Debug.Write(establishment.Name + "<-- that was the establishment name. ");
+                var products = establishment.Products;
+                foreach (var item in establishment.Products)
+                {
+                    Debug.Write(item.Name);
+                }
+
+                    return View(products);
+            }
+            else
+            {
+                // throw an error?
+                return View();
+            }
             return View();
         }
     }

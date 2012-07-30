@@ -3,7 +3,7 @@ using POS.Domain.Abstract;
 
 namespace POS.Controllers
 {
-    public class MasterController : Controller
+    public class ControllerBase : Controller
     {
         #region Fields
 
@@ -15,12 +15,12 @@ namespace POS.Controllers
 
         #region Constructors and Destructors
 
-        public MasterController(IProductRepository productRepo)
+        public ControllerBase(IProductRepository productRepo)
         {
             ProductRepository = productRepo;
         }
 
-        public MasterController(IEstablishmentRepository establishmentRepo)
+        public ControllerBase(IEstablishmentRepository establishmentRepo)
         {
             EstablishmentRepository = establishmentRepo;
         }

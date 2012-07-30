@@ -12,7 +12,7 @@ namespace POS.Controllers
 
     #endregion
 
-    public class AdminController : MasterController
+    public class AdminController : ControllerBase
     {
         #region Constructors and Destructors
 

@@ -12,7 +12,7 @@ namespace POS.Controllers
 
     #endregion
 
-    public class ProductController : MasterController
+    public class ProductController : ControllerBase
     {
 
         #region Constructors and Destructors
