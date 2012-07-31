@@ -14,11 +14,17 @@ namespace POS.Controllers
 
     public class ProductController : ControllerBase
     {
+        #region Fields
+
+        private readonly IProductRepository _productRepository;
+
+        #endregion
 
         #region Constructors and Destructors
 
-        public ProductController(IProductRepository productRepository) : base(productRepository)
+        public ProductController(IProductRepository productRepo)
         {
+            _productRepository = productRepo;
         }
 
         #endregion
@@ -27,18 +33,18 @@ namespace POS.Controllers
 
         public ActionResult Categories()
         {
-            return PartialView(ProductRepository.Categories);
+            return PartialView(_productRepository.Categories);
         }
 
         public ActionResult CategoryList(int parentCategory)
         {
-            IEnumerable<Category> categoryList = ProductRepository.Categories.Where(p => p.ParentCategoryId == parentCategory);
+            IEnumerable<Category> categoryList = _productRepository.Categories.Where(p => p.ParentCategoryId == parentCategory);
             return PartialView("CategoryList", categoryList);
         }
 
         public FileContentResult GetImage(int productid)
         {
-            Product product = ProductRepository.Products.FirstOrDefault(p => p.ProductId == productid);
+            Product product = _productRepository.Products.FirstOrDefault(p => p.ProductId == productid);
             if (product != null)
             {
                 return File(product.ImageData, product.ImageMimeType);
@@ -52,17 +58,17 @@ namespace POS.Controllers
         public ViewResult List()
         {
             // lists everything (categories + products) for demo purposes
-            return View(ProductRepository.Categories);
+            return View(_productRepository.Categories);
         }
 
         public ActionResult ParentCategories()
         {
-            return View(ProductRepository.ParentCategories);
+            return View(_productRepository.ParentCategories);
         }
 
         public ActionResult ProductList(int category)
         {
-            IEnumerable<Product> productList = ProductRepository.Products.Where(p => p.CategoryId == category);
+            IEnumerable<Product> productList = _productRepository.Products.Where(p => p.CategoryId == category);
             return PartialView("ProductList", productList);
         }
 

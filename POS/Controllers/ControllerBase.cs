@@ -10,22 +10,10 @@ namespace POS.Controllers
     {
         #region Fields
 
-        public IEstablishmentRepository EstablishmentRepository;
-        public IProductRepository ProductRepository;
-
         #endregion
 
         #region Constructors and Destructors
 
-        public ControllerBase(IProductRepository productRepo)
-        {
-            ProductRepository = productRepo;
-        }
-
-        public ControllerBase(IEstablishmentRepository establishmentRepo)
-        {
-            EstablishmentRepository = establishmentRepo;
-        }
 
         #endregion
 
