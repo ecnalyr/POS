@@ -1,9 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
 using POS.Domain.Properties;
-using POS.Domain.Validators;
 
-namespace POS.Domain.Entities
+namespace POS.Domain.Model
 {
     public class Product
     {

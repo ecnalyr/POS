@@ -3,7 +3,7 @@
     using System.Collections.Generic;
     using System.Data.Entity;
 
-    using POS.Domain.Entities;
+    using POS.Domain.Model;
 
     public class EfDbContextInitializer : DropCreateDatabaseIfModelChanges<EfDbContext>
     {

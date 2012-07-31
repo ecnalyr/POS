@@ -2,7 +2,7 @@
 using System.Web;
 using System.Web.Mvc;
 using POS.Domain.Abstract;
-using POS.Domain.Entities;
+using POS.Domain.Model;
 
 namespace POS.Controllers
 {

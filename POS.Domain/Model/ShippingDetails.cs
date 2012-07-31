@@ -1,6 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 
-namespace POS.Domain.Entities
+namespace POS.Domain.Model
 {
     public class ShippingDetails
     {

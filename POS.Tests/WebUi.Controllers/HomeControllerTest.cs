@@ -2,7 +2,7 @@
 using System.Linq;
 using Moq;
 using POS.Domain.Abstract;
-using POS.Domain.Entities;
+using POS.Domain.Model;
 
 namespace POS.Tests.WebUi.Controllers
 {

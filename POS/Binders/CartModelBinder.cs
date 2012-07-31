@@ -1,5 +1,5 @@
 ﻿using System.Web.Mvc;
-using POS.Domain.Entities;
+using POS.Domain.Model;
 
 namespace POS.Binders
 {

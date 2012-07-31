@@ -9,7 +9,7 @@
 
     using POS.Controllers;
     using POS.Domain.Abstract;
-    using POS.Domain.Entities;
+    using POS.Domain.Model;
 
     /// <summary>
     ///This is a test class for CartController and is intended

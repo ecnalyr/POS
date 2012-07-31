@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Web.Mvc;
 using POS.Domain.Abstract;
-using POS.Domain.Entities;
+using POS.Domain.Model;
 using System.Linq;
 
 namespace POS.Controllers

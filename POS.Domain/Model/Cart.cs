@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
 
-namespace POS.Domain.Entities
+namespace POS.Domain.Model
 {
     /// <summary>
     /// A shopping cart
