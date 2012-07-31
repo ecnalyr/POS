@@ -6,7 +6,7 @@ using System.Web.Routing;
 using NLog;
 using POS.Binders;
 using POS.Domain.Concrete;
-using POS.Domain.Entities;
+using POS.Domain.Model;
 
 namespace POS
 {

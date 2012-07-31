@@ -4,7 +4,7 @@
 
     using System.Data.Entity;
 
-    using POS.Domain.Entities;
+    using POS.Domain.Model;
 
     #endregion
 

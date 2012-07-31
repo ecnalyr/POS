@@ -12,7 +12,7 @@
 
     using Moq;
 
-    using POS.Domain.Entities;
+    using POS.Domain.Model;
 
     /// <summary>
     ///This is a test class for AdminControllerTest and is intended

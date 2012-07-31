@@ -12,7 +12,7 @@
 
     using POS.Controllers;
     using POS.Domain.Abstract;
-    using POS.Domain.Entities;
+    using POS.Domain.Model;
 
     #endregion
 

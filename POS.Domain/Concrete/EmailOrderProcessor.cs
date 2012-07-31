@@ -2,7 +2,7 @@
 using System.Net.Mail;
 using System.Text;
 using POS.Domain.Abstract;
-using POS.Domain.Entities;
+using POS.Domain.Model;
 
 namespace POS.Domain.Concrete
 {

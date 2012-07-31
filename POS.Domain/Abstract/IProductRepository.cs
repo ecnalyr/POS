@@ -1,4 +1,5 @@
 ﻿using System;
+using POS.Domain.Model;
 
 namespace POS.Domain.Abstract
 {
@@ -6,7 +7,6 @@ namespace POS.Domain.Abstract
 
     using System.Linq;
 
-    using POS.Domain.Entities;
 
     #endregion
 

@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using POS.Controllers;
 using POS.Domain.Abstract;
-using POS.Domain.Entities;
+using POS.Domain.Model;
 
 namespace POS.Tests
 {

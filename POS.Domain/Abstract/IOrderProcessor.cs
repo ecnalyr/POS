@@ -1,4 +1,4 @@
-﻿using POS.Domain.Entities;
+﻿using POS.Domain.Model;
 
 namespace POS.Domain.Abstract
 {
