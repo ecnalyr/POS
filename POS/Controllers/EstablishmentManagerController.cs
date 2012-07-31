@@ -8,23 +8,30 @@ namespace POS.Controllers
 {
     public class EstablishmentManagerController : ControllerBase
     {
+        #region Fields
+
+        private readonly IEstablishmentRepository _establishmentRepository;
+
+        #endregion
+
         #region Constructors and Destructors
 
-        public EstablishmentManagerController(IEstablishmentRepository establishmentRepository) : base(establishmentRepository)
+        public EstablishmentManagerController(IEstablishmentRepository establishmentRepo)
         {
+            _establishmentRepository = establishmentRepo;
         }
 
         #endregion
 
         public ViewResult Index()
         {
-            return View(EstablishmentRepository.Establishments);
+            return View(_establishmentRepository.Establishments);
         }
 
         public ViewResult Edit(int id)
         {
             Establishment establishment =
-                EstablishmentRepository.Establishments.FirstOrDefault(p => p.EstablishmentId == id);
+                _establishmentRepository.Establishments.FirstOrDefault(p => p.EstablishmentId == id);
             return View(establishment);
         }
 
@@ -40,7 +47,7 @@ namespace POS.Controllers
                     image.InputStream.Read(establishment.ImageData, 0, image.ContentLength);
                 }
 
-                EstablishmentRepository.SaveEstablishment(establishment);
+                _establishmentRepository.SaveEstablishment(establishment);
                 TempData["message"] = string.Format("Establishment {0} has been saved", establishment.Name);
                 return RedirectToAction("Index");
             }
@@ -54,10 +61,10 @@ namespace POS.Controllers
         [HttpPost]
         public ActionResult Delete(int id)
         {
-            Establishment establishment = EstablishmentRepository.Establishments.FirstOrDefault(p => p.EstablishmentId == id);
+            Establishment establishment = _establishmentRepository.Establishments.FirstOrDefault(p => p.EstablishmentId == id);
             if (establishment != null)
             {
-                EstablishmentRepository.DeleteEstablishment(establishment);
+                _establishmentRepository.DeleteEstablishment(establishment);
                 TempData["message"] = string.Format("Establishment {0} was deleted", establishment.Name);
             }
 

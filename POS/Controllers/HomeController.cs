@@ -8,19 +8,30 @@ namespace POS.Controllers
 {
     public class HomeController : ControllerBase
     {
-        public HomeController(IEstablishmentRepository establishmentRepo) : base(establishmentRepo)
+        #region Fields
+
+        private readonly IEstablishmentRepository _establishmentRepository;
+
+        #endregion
+
+        #region Constructors and Destructors
+
+        public HomeController(IEstablishmentRepository establishmentRepo)
         {
+            _establishmentRepository = establishmentRepo;
         }
+
+        #endregion
 
         public ActionResult Index()
         {
             Logger.Debug("Checking that nLogger is working from Index");
-            return View(EstablishmentRepository.Establishments);
+            return View(_establishmentRepository.Establishments);
         }
 
         public ActionResult EstablishmentProductList(int id)
         {
-            Establishment establishment = EstablishmentRepository.Establishments.FirstOrDefault(p => p.EstablishmentId == id);
+            Establishment establishment = _establishmentRepository.Establishments.FirstOrDefault(p => p.EstablishmentId == id);
             if (establishment != null)
             {
                 Debug.Write(establishment.Name + "<-- that was the establishment name. ");
