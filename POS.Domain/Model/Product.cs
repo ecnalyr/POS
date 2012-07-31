@@ -73,6 +73,7 @@ namespace POS.Domain.Model
         /// </summary>
         [HiddenInput(DisplayValue = false)]
         [StringLength(100)]
+        [RegularExpression(@"[^\n]+", ErrorMessage = "ImageMimeType is invalid")] // Needs to not allow newline characters
         public string ImageMimeType { get; set; }
 
         /// <summary>

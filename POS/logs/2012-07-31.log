@@ -36,3 +36,4 @@
    at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
    at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
 2012-07-31 06:58:00.3378 DEBUG Checking that nLogger is working from Index
+2012-07-31 09:24:30.3613 DEBUG Checking that nLogger is working from Index
