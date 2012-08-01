@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using POS.Domain.Abstract;
 using POS.Domain.Model;
 
-namespace POS.Domain.Concrete
+namespace POS.Infrastructure.Concrete
 {
     public class EfEstablishmentRepository : IEstablishmentRepository
     {

@@ -168,6 +168,10 @@
       <Project>{5AE451AA-73A6-4C36-8D1C-F78A03EB93D9}</Project>
       <Name>POS.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\POS.Infrastructure\POS.Infrastructure.csproj">
+      <Project>{C4F72FC1-0914-4CC6-93E9-A4168D81DCAE}</Project>
+      <Name>POS.Infrastructure</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Product\List.cshtml" />

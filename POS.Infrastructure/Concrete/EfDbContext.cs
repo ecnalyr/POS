@@ -1,10 +1,11 @@
-﻿namespace POS.Domain.Concrete
+﻿using System.Data.Entity;
+using POS.Domain.Model;
+
+namespace POS.Infrastructure.Concrete
 {
     #region
 
-    using System.Data.Entity;
-
-    using POS.Domain.Model;
+    
 
     #endregion
 
