@@ -48,7 +48,6 @@ namespace POS.Controllers
                 // throw an error?
                 return View();
             }
-            return View();
         }
     }
 }

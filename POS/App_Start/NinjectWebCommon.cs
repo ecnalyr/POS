@@ -1,5 +1,6 @@
 using System.Configuration;
 using POS.Domain.Concrete;
+using POS.Infrastructure.Concrete;
 
 [assembly: WebActivator.PreApplicationStartMethod(typeof(POS.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivator.ApplicationShutdownMethodAttribute(typeof(POS.App_Start.NinjectWebCommon), "Stop")]

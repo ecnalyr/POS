@@ -4,7 +4,7 @@ using System.Linq;
 using POS.Domain.Abstract;
 using POS.Domain.Model;
 
-namespace POS.Domain.Concrete
+namespace POS.Infrastructure.Concrete
 {
     #region
 
