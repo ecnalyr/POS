@@ -8,6 +8,7 @@
 <h1>Edit @Model.Name</h1>
 @using (Html.BeginForm("Edit", "EstablishmentManager", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
+    @Html.AntiForgeryToken()
     @Html.EditorForModel()
 
     <div class="editor-label">Image</div>

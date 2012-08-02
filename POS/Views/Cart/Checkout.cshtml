@@ -8,6 +8,7 @@
 Please enter your details, and we'll ship your goods right away!
 @using (Html.BeginForm()) {
     
+    @Html.AntiForgeryToken()
     @Html.ValidationSummary()
 
     <h3>Ship to</h3>

@@ -1,3 +1,33 @@
 2012-08-02 09:11:51.9804 DEBUG Checking that nLogger is working from Index
 2012-08-02 09:50:39.6113 DEBUG Checking that nLogger is working from Index
 2012-08-02 09:51:59.3974 DEBUG Checking that nLogger is working from Index
+2012-08-02 10:34:12.2500 DEBUG Checking that nLogger is working from Index
+2012-08-02 10:39:44.0429 FATAL Unhandled exception trying to access http://localhost:1149/Admin/Edit/3: A required anti-forgery token was not supplied or was invalid. | Stack Trace:    at System.Web.Helpers.AntiForgeryWorker.Validate(HttpContextBase context, String salt)
+   at System.Web.Helpers.AntiForgery.Validate(HttpContextBase httpContext, String salt)
+   at System.Web.Mvc.ValidateAntiForgeryTokenAttribute.OnAuthorization(AuthorizationContext filterContext)
+   at POS.Controllers.ControllerBase.UseAntiForgeryTokenOnPostByDefault.OnActionExecuting(ActionExecutingContext filterContext) in C:\Users\Administrator\Documents\GitHub\POS\POS\Controllers\ControllerBase.cs:line 49
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodFilter(IActionFilter filter, ActionExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<>c__DisplayClass17.<InvokeActionMethodWithFilters>b__14()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodFilter(IActionFilter filter, ActionExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<>c__DisplayClass17.<InvokeActionMethodWithFilters>b__14()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodWithFilters(ControllerContext controllerContext, IList`1 filters, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeAction(ControllerContext controllerContext, String actionName)
+   at System.Web.Mvc.Controller.ExecuteCore()
+   at System.Web.Mvc.ControllerBase.Execute(RequestContext requestContext)
+   at System.Web.Mvc.ControllerBase.System.Web.Mvc.IController.Execute(RequestContext requestContext)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass6.<>c__DisplayClassb.<BeginProcessRequest>b__5()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass1.<MakeVoidDelegate>b__0()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClasse.<EndProcessRequest>b__d()
+   at System.Web.Mvc.SecurityUtil.<GetCallInAppTrustThunk>b__0(Action f)
+   at System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust(Action action)
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2012-08-02 10:39:52.3085 DEBUG Checking that nLogger is working from Index
+2012-08-02 10:53:41.1171 WARN Unhandled exception trying to access http://localhost:1149/Views/Admin/Edit.cshtml: Path '/Views/Admin/Edit.cshtml' was not found. | Stack Trace:    at System.Web.HttpNotFoundHandler.ProcessRequest(HttpContext context)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2012-08-02 10:54:28.0703 DEBUG Checking that nLogger is working from Index
