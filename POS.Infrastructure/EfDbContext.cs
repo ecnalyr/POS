@@ -1,7 +1,7 @@
 ﻿using System.Data.Entity;
 using POS.Domain.Model;
 
-namespace POS.Infrastructure.Concrete
+namespace POS.Infrastructure
 {
     #region
 

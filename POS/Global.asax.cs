@@ -5,7 +5,7 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using NLog;
 using POS.Binders;
-using POS.Infrastructure.Concrete;
+using POS.Infrastructure;
 using POS.Domain.Model;
 
 namespace POS
