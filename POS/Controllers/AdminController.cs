@@ -30,7 +30,6 @@ namespace POS.Controllers
         #endregion
 
         
-
         #region Public Methods and Operators
 
         public ViewResult Create()
