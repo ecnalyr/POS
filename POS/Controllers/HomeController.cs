@@ -1,8 +1,11 @@
-﻿using System.Diagnostics;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.Web.Mvc;
 using POS.Domain.Abstract;
 using POS.Domain.Model;
 using System.Linq;
+using POS.Models;
 
 namespace POS.Controllers
 {
@@ -48,6 +51,23 @@ namespace POS.Controllers
                 // throw an error?
                 return View();
             }
+        }
+
+        public PartialViewResult _EstablishmentSummary(int id)
+        {
+            Establishment establishment = _establishmentRepository.Establishments.FirstOrDefault(p => p.EstablishmentId == id);
+            if (establishment != null)
+            {
+                var parentCategories = establishment.Products.Select(item => item.Category.ParentCategory).Distinct().ToList();
+
+                var model = new EstablishmentSummaryViewModel
+                    {
+                        Establishment = establishment,
+                        ParentCategories = parentCategories
+                    };
+                return PartialView(model);
+            }
+            return null; // error state
         }
     }
 }

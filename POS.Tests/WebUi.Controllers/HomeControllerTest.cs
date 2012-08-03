@@ -52,7 +52,7 @@ namespace POS.Tests.WebUi.Controllers
         public void IndexReturnsEntireEstablishmentList()
         {
             // Arrange - create a controller
-            var controller = new EstablishmentManagerController(_mockRepository.Object);
+            var controller = new EstablishmentController(_mockRepository.Object);
 
             // Action
             Establishment[] result = ((IEnumerable<Establishment>)controller.Index().ViewData.Model).ToArray();

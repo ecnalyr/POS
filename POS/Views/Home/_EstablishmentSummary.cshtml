@@ -1,5 +1,10 @@
-﻿@model POS.Domain.Model.Establishment
+﻿@model POS.Models.EstablishmentSummaryViewModel
 
-<div class = "establishment" id= "@Model.EstablishmentId">
-    <h1 class="btn primary">@Model.Name</h1>
+<div class = "establishment" id= "@Model.Establishment.EstablishmentId">
+    <h1 class="btn primary">@Model.Establishment.Name</h1>
+    @foreach(var item in Model.ParentCategories)
+    {
+        <span>***</span>
+        <p>Product Parent Category: @Html.DisplayFor(m => item.Name)</p>
+    }
 </div>

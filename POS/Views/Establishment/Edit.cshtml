@@ -6,7 +6,7 @@
 }
 
 <h1>Edit @Model.Name</h1>
-@using (Html.BeginForm("Edit", "EstablishmentManager", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("Edit", "Establishment", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     @Html.EditorForModel()

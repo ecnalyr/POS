@@ -26,6 +26,6 @@ namespace POS.Domain.Model
         /// <summary>
         /// Intend on having this return a list of Products sold by Establishment
         /// </summary>
-        public ICollection<Product> Products { get; set; }  
+        public virtual ICollection<Product> Products { get; set; }  
     }
 }
