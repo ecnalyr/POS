@@ -99,7 +99,7 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\EstablishmentManagerController.cs" />
+    <Compile Include="Controllers\EstablishmentController.cs" />
     <Compile Include="Controllers\ControllerBase.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
@@ -108,6 +108,7 @@
     <Compile Include="HtmlHelpers\HtmlHelpers.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\CartIndexViewModel.cs" />
+    <Compile Include="Models\EstablishmentSummaryViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -238,10 +239,10 @@
     <Content Include="Views\Cart\Completed.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\EstablishmentManager\Index.cshtml" />
+    <Content Include="Views\Establishment\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\EstablishmentManager\Edit.cshtml" />
+    <Content Include="Views\Establishment\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\_EstablishmentSummary.cshtml" />

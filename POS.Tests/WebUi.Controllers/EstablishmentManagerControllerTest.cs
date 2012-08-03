@@ -49,7 +49,7 @@ namespace POS.Tests
         public void IndexReturnsEntireEstablishmentList()
         {
             // Arrange - create a controller
-            var controller = new EstablishmentManagerController(_mockRepository.Object);
+            var controller = new EstablishmentController(_mockRepository.Object);
 
             // Action
             Establishment[] result = ((IEnumerable<Establishment>) controller.Index().ViewData.Model).ToArray();
@@ -70,7 +70,7 @@ namespace POS.Tests
         public void CanEditEstablishment()
         {
             // Arrange - create a controller
-            var controller = new EstablishmentManagerController(_mockRepository.Object);
+            var controller = new EstablishmentController(_mockRepository.Object);
 
             // Action
             var e1 = controller.Edit(1).ViewData.Model as Establishment;
@@ -90,7 +90,7 @@ namespace POS.Tests
         public void CannotEditNonexistentProduct()
         {
             // Arrange - create a controller
-            var controller = new EstablishmentManagerController(_mockRepository.Object);
+            var controller = new EstablishmentController(_mockRepository.Object);
 
             // Action
             var result = (Establishment) controller.Edit(6).ViewData.Model;
@@ -106,7 +106,7 @@ namespace POS.Tests
         public void CanSaveValidChanges()
         {
             // Arrange - create a controller
-            var controller = new EstablishmentManagerController(_mockRepository.Object);
+            var controller = new EstablishmentController(_mockRepository.Object);
             // Arrange - create a product
             var establishment = new Establishment {Name = "Test"};
 
@@ -126,7 +126,7 @@ namespace POS.Tests
         public void CannotSaveInvalidChanges()
         {
             // Arrange - create a controller
-            var controller = new EstablishmentManagerController(_mockRepository.Object);
+            var controller = new EstablishmentController(_mockRepository.Object);
             // Arrange - create a product
             var establishment = new Establishment {Name = "Test"};
             // Arrange - add an error to the model state
@@ -160,7 +160,7 @@ namespace POS.Tests
                 }.AsQueryable());
 
             // Arrange - create a controller
-            var controller = new EstablishmentManagerController(localMock.Object);
+            var controller = new EstablishmentController(localMock.Object);
 
             // Action - delete the product
             controller.Delete(establishment.EstablishmentId);
@@ -176,7 +176,7 @@ namespace POS.Tests
         public void CannotDeleteInvalidEstablishments()
         {
             // Arrange - create a controller
-            var controller = new EstablishmentManagerController(_mockRepository.Object);
+            var controller = new EstablishmentController(_mockRepository.Object);
 
             // Action - attempt to delete using a EstablishmentId that does not exist
             controller.Delete(95);

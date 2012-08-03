@@ -33,7 +33,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AntiXssLibrary, Version=4.2.0.0, Culture=neutral, PublicKeyToken=d127efab8a9c114f, processorArchitecture=MSIL" />
     <Reference Include="EntityFramework, Version=4.3.1.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL" />
+    <Reference Include="HtmlSanitizationLibrary">
+      <HintPath>..\packages\AntiXSS.4.2.1\lib\net40\HtmlSanitizationLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Build.Framework" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
@@ -48,6 +52,7 @@
     <Reference Include="Ninject.Web.Mvc">
       <HintPath>..\packages\Ninject.MVC3.3.0.0.6\lib\net40-full\Ninject.Web.Mvc.dll</HintPath>
     </Reference>
+    <Reference Include="NLog, Version=2.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
@@ -74,6 +79,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CartControllerTest.cs" />
+    <Compile Include="ControllerBaseTest.cs" />
     <Compile Include="WebUi.Controllers\EstablishmentManagerControllerTest.cs" />
     <Compile Include="WebUi.Controllers\CartControllerTest.cs" />
     <Compile Include="WebUi.Controllers\AdminControllerTest.cs" />
@@ -88,6 +94,10 @@
     <ProjectReference Include="..\POS.Domain\POS.Domain.csproj">
       <Project>{5AE451AA-73A6-4C36-8D1C-F78A03EB93D9}</Project>
       <Name>POS.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\POS.Infrastructure\POS.Infrastructure.csproj">
+      <Project>{C4F72FC1-0914-4CC6-93E9-A4168D81DCAE}</Project>
+      <Name>POS.Infrastructure</Name>
     </ProjectReference>
     <ProjectReference Include="..\POS\POS.csproj">
       <Project>{DF8DA591-23F3-4DA7-B610-38419EFBFC73}</Project>

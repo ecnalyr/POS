@@ -1,4 +1,5 @@
 ﻿@using POS.Domain.Model
+@using POS.Models
 @model IQueryable<Establishment>
 
 @{
@@ -9,7 +10,7 @@
     <div class="four columns">
         @foreach(Establishment p in Model)
         {
-            Html.RenderPartial("_EstablishmentSummary", p);
+            @Html.Action("_EstablishmentSummary", new { id = p.EstablishmentId });
         }
         </div>
 </section>

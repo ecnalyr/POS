@@ -6,7 +6,7 @@ using POS.Domain.Model;
 
 namespace POS.Controllers
 {
-    public class EstablishmentManagerController : ControllerBase
+    public class EstablishmentController : ControllerBase
     {
         #region Fields
 
@@ -16,7 +16,7 @@ namespace POS.Controllers
 
         #region Constructors and Destructors
 
-        public EstablishmentManagerController(IEstablishmentRepository establishmentRepo)
+        public EstablishmentController(IEstablishmentRepository establishmentRepo)
         {
             _establishmentRepository = establishmentRepo;
         }

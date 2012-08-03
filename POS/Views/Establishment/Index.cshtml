@@ -17,7 +17,7 @@
         <tr>
             <td>@Html.ActionLink(item.Name, "Edit", new { id = item.EstablishmentId })</td>
             <td>
-                @using (Html.BeginForm("Delete", "EstablishmentManager"))
+                @using (Html.BeginForm("Delete", "Establishment"))
                 {
                     @Html.Hidden("id", item.EstablishmentId)
                     <input type="submit" value="Delete"/>
