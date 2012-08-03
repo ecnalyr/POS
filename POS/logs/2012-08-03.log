@@ -412,3 +412,10 @@
 2012-08-03 09:48:04.7207 DEBUG Checking that nLogger is working from Index
 2012-08-03 09:54:06.4248 DEBUG Checking that nLogger is working from Index
 2012-08-03 09:56:41.0820 DEBUG Checking that nLogger is working from Index
+2012-08-03 10:07:01.6875 DEBUG Checking that nLogger is working from Index
+2012-08-03 10:11:56.8154 DEBUG Checking that nLogger is working from Index
+2012-08-03 10:15:00.7695 DEBUG Checking that nLogger is working from Index
+2012-08-03 10:17:43.9746 WARN Unhandled exception trying to access http://localhost:1149/Views/Home/Index.cshtml: Path '/Views/Home/Index.cshtml' was not found. | Stack Trace:    at System.Web.HttpNotFoundHandler.ProcessRequest(HttpContext context)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2012-08-03 10:18:05.1777 DEBUG Checking that nLogger is working from Index

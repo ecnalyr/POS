@@ -56,18 +56,7 @@ namespace POS.Controllers
         public PartialViewResult _EstablishmentSummary(int id)
         {
             Establishment establishment = _establishmentRepository.Establishments.FirstOrDefault(p => p.EstablishmentId == id);
-            if (establishment != null)
-            {
-                var parentCategories = establishment.Products.Select(item => item.Category.ParentCategory).Distinct().ToList();
-
-                var model = new EstablishmentSummaryViewModel
-                    {
-                        Establishment = establishment,
-                        ParentCategories = parentCategories
-                    };
-                return PartialView(model);
-            }
-            return null; // error state
+            return PartialView(establishment);
         }
     }
 }
