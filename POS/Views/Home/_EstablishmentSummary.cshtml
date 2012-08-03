@@ -2,9 +2,10 @@
 
 <div class = "establishment" id= "@Model.EstablishmentId">
     <h1 class="btn primary">@Model.Name</h1>
-    @foreach(var item in Model.GetParentCategories())
+    @foreach(var p in Model.GetParentCategories())
     {
         <span>***</span>
-        <p>Product Parent Category: @Html.DisplayFor(m => item.Name)</p>
+        <p>Product Parent Category: @Html.DisplayFor(m => p.Name)</p>
+        Html.RenderPartial("~/Views/Product/_ParentCategorySummary.cshtml", p);
     }
 </div>

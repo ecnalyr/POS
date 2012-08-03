@@ -61,11 +61,13 @@ namespace POS.Controllers
             return View(_productRepository.Categories);
         }
 
+        [BypassAntiForgeryTokenAttribute]
         public ActionResult ParentCategories()
         {
             return View(_productRepository.ParentCategories);
         }
 
+        [BypassAntiForgeryTokenAttribute]
         public ActionResult ProductList(int category)
         {
             IEnumerable<Product> productList = _productRepository.Products.Where(p => p.CategoryId == category);
