@@ -1,11 +1,6 @@
 ﻿@model POS.Domain.Model.Establishment
 
 <div class = "establishment" id= "@Model.EstablishmentId">
-    <h1 class="btn primary">@Model.Name</h1>
-    @foreach(var p in Model.GetParentCategories())
-    {
-        <span>***</span>
-        <p>Product Parent Category: @Html.DisplayFor(m => p.Name)</p>
-        Html.RenderPartial("~/Views/Product/_ParentCategorySummary.cshtml", p);
-    }
+    <h1 class="oval btn">@Model.Name</h1>
+        @Html.ActionLink(Model.Name ,"Establishment", new { id = Model.EstablishmentId })
 </div>

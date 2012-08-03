@@ -58,5 +58,11 @@ namespace POS.Controllers
             Establishment establishment = _establishmentRepository.Establishments.FirstOrDefault(p => p.EstablishmentId == id);
             return PartialView(establishment);
         }
+
+        public ActionResult Establishment(int id)
+        {
+            Establishment establishment = _establishmentRepository.Establishments.FirstOrDefault(p => p.EstablishmentId == id);
+            return View(establishment);
+        }
     }
 }

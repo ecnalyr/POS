@@ -1,17 +1,17 @@
-﻿@using POS.Domain.Model
-@model IQueryable<ParentCategory>
-
+﻿@model POS.Domain.Model.Establishment
 @{
-    ViewBag.Title = "Parent-Categories";
+    ViewBag.Title = "Establishment";
 }
 @Html.AntiForgeryToken()
+
 <section class="row">
-    <div class="four columns">
-        @foreach(ParentCategory p in Model)
-        {
-            Html.RenderPartial("_ParentCategorySummary", p);
-        }
-        </div>
+<div class = "four columns" id= "@Model.EstablishmentId">
+    <h1 class="oval btn">@Model.Name</h1>
+    @foreach(var p in Model.GetParentCategories())
+    {
+        Html.RenderPartial("~/Views/Product/_ParentCategorySummary.cshtml", p);
+    }
+</div>
 </section>
 
 <script type="text/javascript">
