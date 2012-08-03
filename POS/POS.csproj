@@ -108,7 +108,6 @@
     <Compile Include="HtmlHelpers\HtmlHelpers.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\CartIndexViewModel.cs" />
-    <Compile Include="Models\EstablishmentSummaryViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
