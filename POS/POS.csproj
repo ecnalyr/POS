@@ -92,6 +92,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActionFilters\CustomValidateAntiForgeryTokenAttribute.cs" />
     <Compile Include="AntiXssEncoder.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="Binders\CartModelBinder.cs" />
