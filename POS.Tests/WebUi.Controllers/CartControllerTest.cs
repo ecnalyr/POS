@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
@@ -309,7 +310,16 @@ namespace POS.Tests.WebUi.Controllers
 
             // Action - add a product to the cart
             target.AddToCart(cart, 1, null);
-            target.AddToCart(cart, 2, null);
+            try
+            {
+                target.AddToCart(cart, 2, null);
+                Assert.Fail(); // If we get to this line we have failed.
+            }
+            catch (Exception)
+            {
+                // If we add a throw; here the test does not run.
+            }
+
 
             // Assert
             Assert.AreEqual(cart.Lines.Count(), 1);

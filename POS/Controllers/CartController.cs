@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Web.Mvc;
 using POS.Domain.Abstract;
 using POS.Domain.Model;
@@ -33,21 +34,19 @@ namespace POS.Controllers
         {
             Product product = repository.Products
                 .FirstOrDefault(p => p.ProductId == productId);
-            if (product != null)
-            {
-                cart.AddItem(product, 1);
-            }
-            return RedirectToAction("Index", new {returnUrl});
+
+            if (product != null) cart.AddItem(product, 1);
+
+            return RedirectToAction("Index", new { returnUrl });
         }
 
         public RedirectToRouteResult RemoveFromCart(Cart cart, int productId, string returnUrl)
         {
             Product product = repository.Products
                 .FirstOrDefault(p => p.ProductId == productId);
-            if (product != null)
-            {
-                cart.RemoveLine(product);
-            }
+
+            if (product != null) cart.RemoveLine(product);
+
             return RedirectToAction("Index", new {returnUrl});
         }
 
@@ -73,20 +72,15 @@ namespace POS.Controllers
         [HttpPost]
         public ViewResult Checkout(Cart cart, ShippingDetails shippingDetails)
         {
-            if (!cart.Lines.Any())
-            {
-                ModelState.AddModelError("", Resources.EmptyCartError);
-            }
+            if (!cart.Lines.Any()) ModelState.AddModelError("", Resources.EmptyCartError);
+
             if (ModelState.IsValid)
             {
                 orderProcessor.ProcessOrder(cart, shippingDetails);
                 cart.Clear();
                 return View("Completed");
             }
-            else
-            {
-                return View(shippingDetails);
-            }
+            return View(shippingDetails);
         }
 
         #endregion
