@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -37,11 +38,9 @@ namespace POS.Domain.Model
 
             if (product.EstablishmentId != _establishmentId)
             {
-                // Product cannot go in cart because it does not match the establishment that other objects in this cart have
-                // TODO: Add failure
+                // TODO: Add HttpException handling in place of Exception below
                 //
-                Debug.Write(
-                    "Product cannot go in cart because it does not match the establishment that other objects in this cart have");
+                throw new Exception("Product cannot go in cart because it does not match the establishment that other objects in this cart have");
             }
             else
             {
