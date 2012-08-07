@@ -47,6 +47,7 @@
     <Compile Include="EfDbContext.cs" />
     <Compile Include="EfDbContextInitializer.cs" />
     <Compile Include="EfEstablishmentRepository.cs" />
+    <Compile Include="EfOrderRepository.cs" />
     <Compile Include="EfProductRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

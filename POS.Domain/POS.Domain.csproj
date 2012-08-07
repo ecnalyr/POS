@@ -58,10 +58,11 @@
     <Compile Include="Abstract\IEstablishmentRepository.cs" />
     <Compile Include="Abstract\IOrderProcessor.cs" />
     <Compile Include="Abstract\IProductRepository.cs" />
-    <Compile Include="Concrete\EmailOrderProcessor.cs" />
+    <Compile Include="Concrete\OrderProcessor.cs" />
     <Compile Include="Model\Cart.cs" />
     <Compile Include="Model\Category.cs" />
     <Compile Include="Model\Establishment.cs" />
+    <Compile Include="Model\Order.cs" />
     <Compile Include="Model\ParentCategory.cs" />
     <Compile Include="Model\Product.cs" />
     <Compile Include="Model\ShippingDetails.cs" />
