@@ -1,11 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Web.Mvc;
 using POS.Domain.Abstract;
 using POS.Domain.Model;
-using System.Linq;
-using POS.Models;
 
 namespace POS.Controllers
 {
@@ -34,17 +32,18 @@ namespace POS.Controllers
 
         public ActionResult EstablishmentProductList(int id)
         {
-            Establishment establishment = _establishmentRepository.Establishments.FirstOrDefault(p => p.EstablishmentId == id);
+            Establishment establishment =
+                _establishmentRepository.Establishments.FirstOrDefault(p => p.EstablishmentId == id);
             if (establishment != null)
             {
                 Debug.Write(establishment.Name + "<-- that was the establishment name. ");
-                var products = establishment.Products;
-                foreach (var item in establishment.Products)
+                ICollection<Product> products = establishment.Products;
+                foreach (Product item in establishment.Products)
                 {
                     Debug.Write(item.Name);
                 }
 
-                    return View(products);
+                return View(products);
             }
             else
             {
@@ -55,13 +54,15 @@ namespace POS.Controllers
 
         public PartialViewResult _EstablishmentSummary(int id)
         {
-            Establishment establishment = _establishmentRepository.Establishments.FirstOrDefault(p => p.EstablishmentId == id);
+            Establishment establishment =
+                _establishmentRepository.Establishments.FirstOrDefault(p => p.EstablishmentId == id);
             return PartialView(establishment);
         }
 
         public ActionResult Establishment(int id)
         {
-            Establishment establishment = _establishmentRepository.Establishments.FirstOrDefault(p => p.EstablishmentId == id);
+            Establishment establishment =
+                _establishmentRepository.Establishments.FirstOrDefault(p => p.EstablishmentId == id);
             return View(establishment);
         }
     }
