@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Linq;
 using System.Web.Mvc;
 using POS.Domain.Abstract;
@@ -7,23 +8,23 @@ using POS.Models;
 
 namespace POS.Controllers
 {
-    using POS.Domain.Properties;
+    using Domain.Properties;
 
     public class CartController : Controller
     {
         #region Fields
 
         private readonly IProductRepository repository;
-        private readonly IOrderProcessor orderProcessor;
+        private readonly IOrderProcessor orderRepository;
 
         #endregion
 
         #region Constructors and Destructors
 
-        public CartController(IProductRepository productRepository, IOrderProcessor proc)
+        public CartController(IProductRepository productRepository, IOrderProcessor processor)
         {
             repository = productRepository;
-            orderProcessor = proc;
+            orderRepository = processor;
         }
 
         #endregion
@@ -76,7 +77,7 @@ namespace POS.Controllers
 
             if (ModelState.IsValid)
             {
-                orderProcessor.ProcessOrder(cart, shippingDetails);
+                orderRepository.ProcessOrder(cart, shippingDetails);
                 cart.Clear();
                 return View("Completed");
             }

@@ -61,16 +61,7 @@ namespace POS.App_Start
         {
             kernel.Bind<IProductRepository>().To<EfProductRepository>();
             kernel.Bind<IEstablishmentRepository>().To<EfEstablishmentRepository>();
-
-            EmailSettings emailSettings = new EmailSettings
-                                              {
-                                                  WriteAsFile =
-                                                      bool.Parse(
-                                                          ConfigurationManager.AppSettings["Email.WriteAsFile"] ??
-                                                          "false")
-                                              };
-
-            kernel.Bind<IOrderProcessor>().To<EmailOrderProcessor>().WithConstructorArgument("settings", emailSettings);
+            kernel.Bind<IOrderProcessor>().To<EfOrderRepository>();
         }        
     }
 }

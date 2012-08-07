@@ -6,7 +6,7 @@ using System.Linq;
 namespace POS.Domain.Model
 {
     /// <summary>
-    /// A shopping cart
+    /// A shopping cart.
     /// Only items from a single Establishment can be added to a cart at one time
     /// </summary>
     public class Cart
@@ -31,28 +31,22 @@ namespace POS.Domain.Model
         /// <param name="quantity">The quantity of the product being added to the cart</param>
         public void AddItem(Product product, int quantity)
         {
-            if (_establishmentId == 0)
-            {
-                _establishmentId = product.EstablishmentId;
-            }
+            if (_establishmentId == 0) _establishmentId = product.EstablishmentId;
 
             if (product.EstablishmentId != _establishmentId)
             {
                 // TODO: Add HttpException handling in place of Exception below
-                //
                 throw new Exception("Product cannot go in cart because it does not match the establishment that other objects in this cart have");
+            }
+
+            CartLine line = _lineCollection.FirstOrDefault(p => p.Product.ProductId == product.ProductId);
+            if (line == null)
+            {
+                _lineCollection.Add(new CartLine {Product = product, Quantity = quantity});
             }
             else
             {
-                CartLine line = _lineCollection.FirstOrDefault(p => p.Product.ProductId == product.ProductId);
-                if (line == null)
-                {
-                    _lineCollection.Add(new CartLine {Product = product, Quantity = quantity});
-                }
-                else
-                {
-                    line.Quantity += quantity;
-                }
+                line.Quantity += quantity;
             }
         }
 
@@ -92,7 +86,10 @@ namespace POS.Domain.Model
     /// </summary>
     public class CartLine
     {
+        public int CartLineId { get; set; }
         public Product Product { get; set; }
         public int Quantity { get; set; }
+        public int OrderId { get; set; }
+        public virtual Order Order { get; set; }
     }
 }
