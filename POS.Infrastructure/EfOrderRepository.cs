@@ -37,9 +37,10 @@ namespace POS.Infrastructure
 
         public void ProcessOrder(Cart cart, ShippingDetails shippingDetails)
         {
-            var order = ProcessTheOrder(cart, shippingDetails);
-            context.Orders.Add(order);
+            //var order = ProcessTheOrder(cart, shippingDetails);
+            //context.Orders.Add(order);
             context.SaveChanges();
+            cart.Clear();
         }
 
         public void SaveOrder(Order order)
@@ -56,14 +57,29 @@ namespace POS.Infrastructure
             context.SaveChanges();
         }
 
-        private Order ProcessTheOrder(Cart cart, ShippingDetails shippingDetails)
+        /*private Order ProcessTheOrder(Cart cart, ShippingDetails shippingDetails)
         {
             var firstOrDefault = cart.Lines.FirstOrDefault();
             if (firstOrDefault != null) Debug.Write(firstOrDefault.Product.Name);
 
+            var order = new Order();
+
             var cartLines = new List<CartLine>();
             try
             {
+                foreach (var item in cartLines)
+                {
+                    var orderDetail = new OrderDetail
+                        {
+                            OrderId = order.OrderId,
+                            ProductId = item.Product.ProductId,
+                            Quantity = item.Quantity,
+                            UnitPrice = item.Product.Price
+                        };
+                    // I could update the order's total cost here if I wanted
+                    context.OrderDetails.Add(orderDetail);
+                    order.OrderDetails.Add(orderDetail);
+                }
                 cartLines.AddRange(cart.Lines);
             }
             catch (Exception)
@@ -75,14 +91,10 @@ namespace POS.Infrastructure
             var firstCartLineProduct = cart.Lines.FirstOrDefault();
             int establishmentId = firstCartLineProduct.Product.EstablishmentId;
 
-            var model = new Order
-            {
-                CartLines = cartLines,
-                EstablishmentId = establishmentId
-            };
+            order.EstablishmentId = establishmentId;
 
-            return model;
-        }
+            return order;
+        }*/
 
         #endregion
 

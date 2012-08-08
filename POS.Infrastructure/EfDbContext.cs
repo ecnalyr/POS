@@ -23,7 +23,8 @@ namespace POS.Infrastructure
 
         public DbSet<Order> Orders { get; set; }
 
-        public DbSet<CartLine> CartLines { get; set; }
+        public DbSet<OrderDetail> OrderDetails { get; set; }
+
 
         #endregion
     }

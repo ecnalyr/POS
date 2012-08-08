@@ -1,5 +1,3 @@
-using System.Configuration;
-using POS.Domain.Concrete;
 using POS.Infrastructure;
 
 [assembly: WebActivator.PreApplicationStartMethod(typeof(POS.App_Start.NinjectWebCommon), "Start")]
