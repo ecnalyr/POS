@@ -43,7 +43,22 @@ namespace POS.Infrastructure
                     new Establishment {Name = "The Rim of the Sky"}
                 };
             estabslishments.ForEach(s => context.Establishments.Add(s));
+
+            var orders = new List<Order>
+                {
+
+                };
+            orders.ForEach(s => context.Orders.Add(s));
+
+            var orderDetails = new List<OrderDetail>
+                {
+
+                };
+            orderDetails.ForEach(s => context.OrderDetails.Add(s));
+
             context.SaveChanges();
         }
+
+
     }
 }

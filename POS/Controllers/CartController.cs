@@ -78,7 +78,6 @@ namespace POS.Controllers
             if (ModelState.IsValid)
             {
                 orderRepository.ProcessOrder(cart, shippingDetails);
-                cart.Clear();
                 return View("Completed");
             }
             return View(shippingDetails);
