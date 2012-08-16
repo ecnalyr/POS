@@ -59,6 +59,5 @@ namespace POS.Infrastructure
             context.SaveChanges();
         }
 
-
     }
 }
