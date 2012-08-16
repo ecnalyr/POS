@@ -49,6 +49,7 @@
     <Compile Include="EfEstablishmentRepository.cs" />
     <Compile Include="EfOrderRepository.cs" />
     <Compile Include="EfProductRepository.cs" />
+    <Compile Include="EFRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
