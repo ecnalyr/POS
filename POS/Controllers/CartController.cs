@@ -77,6 +77,11 @@ namespace POS.Controllers
 
             if (ModelState.IsValid)
             {
+                //CartApplicationService.Get(id);
+                //CartApplicationService.Process(cart); // (Maybe it returns a hydrated Order object)
+                //OrderApplicationService.Create(Order order);
+                // then OrderApplicationService.Create(Order) calls EfOrderRepository
+
                 orderRepository.ProcessOrder(cart, shippingDetails);
                 return View("Completed");
             }
