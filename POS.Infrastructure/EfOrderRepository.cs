@@ -37,8 +37,12 @@ namespace POS.Infrastructure
 
         public void ProcessOrder(Cart cart, ShippingDetails shippingDetails)
         {
-            //var order = ProcessTheOrder(cart, shippingDetails);
-            //context.Orders.Add(order);
+            var order = ProcessTheOrder(cart, shippingDetails);
+            context.Orders.Add(order);
+            //foreach (var item in order.OrderDetails)
+            //{
+            //    context.OrderDetails.Add(item);
+            //}
             context.SaveChanges();
             cart.Clear();
         }
@@ -57,44 +61,40 @@ namespace POS.Infrastructure
             context.SaveChanges();
         }
 
-        /*private Order ProcessTheOrder(Cart cart, ShippingDetails shippingDetails)
+        private Order ProcessTheOrder(Cart cart, ShippingDetails shippingDetails)
         {
-            var firstOrDefault = cart.Lines.FirstOrDefault();
-            if (firstOrDefault != null) Debug.Write(firstOrDefault.Product.Name);
-
             var order = new Order();
+            var orderDetailsList = new List<OrderDetail>();
 
-            var cartLines = new List<CartLine>();
             try
             {
-                foreach (var item in cartLines)
+                foreach (var item in cart.Lines)
                 {
                     var orderDetail = new OrderDetail
                         {
                             OrderId = order.OrderId,
-                            ProductId = item.Product.ProductId,
+                            ProductName = item.Product.Name,
                             Quantity = item.Quantity,
                             UnitPrice = item.Product.Price
                         };
                     // I could update the order's total cost here if I wanted
+                    orderDetailsList.Add(orderDetail);
                     context.OrderDetails.Add(orderDetail);
-                    order.OrderDetails.Add(orderDetail);
                 }
-                cartLines.AddRange(cart.Lines);
             }
             catch (Exception)
             {
                 // TODO: Add HttpException handling in place of Exception below
-                throw new Exception("cart.Lines was null.");
+                throw new Exception("Erorr building list of roder details -> cart.Lines was probably null.");
             }
 
             var firstCartLineProduct = cart.Lines.FirstOrDefault();
             int establishmentId = firstCartLineProduct.Product.EstablishmentId;
 
+            order.OrderDetails = orderDetailsList;
             order.EstablishmentId = establishmentId;
-
             return order;
-        }*/
+        }
 
         #endregion
 
