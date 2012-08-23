@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Diagnostics;
 using System.Linq;
 using POS.Domain.Abstract;
 using POS.Domain.Model;
@@ -35,18 +33,6 @@ namespace POS.Infrastructure
             context.SaveChanges();
         }
 
-        public void ProcessOrder(Cart cart, ShippingDetails shippingDetails)
-        {
-            var order = ProcessTheOrder(cart, shippingDetails);
-            context.Orders.Add(order);
-            //foreach (var item in order.OrderDetails)
-            //{
-            //    context.OrderDetails.Add(item);
-            //}
-            context.SaveChanges();
-            cart.Clear();
-        }
-
         public void SaveOrder(Order order)
         {
             if (order.OrderId == 0)
@@ -61,39 +47,26 @@ namespace POS.Infrastructure
             context.SaveChanges();
         }
 
-        private Order ProcessTheOrder(Cart cart, ShippingDetails shippingDetails)
+        public void CreateOrder(Order order)
         {
-            var order = new Order();
-            var orderDetailsList = new List<OrderDetail>();
-
-            try
+            if (order.OrderId == 0)
             {
-                foreach (var item in cart.Lines)
+                foreach (var item in order.OrderDetails)
                 {
-                    var orderDetail = new OrderDetail
-                        {
-                            OrderId = order.OrderId,
-                            ProductName = item.Product.Name,
-                            Quantity = item.Quantity,
-                            UnitPrice = item.Product.Price
-                        };
-                    // I could update the order's total cost here if I wanted
-                    orderDetailsList.Add(orderDetail);
-                    context.OrderDetails.Add(orderDetail);
+                    context.OrderDetails.Add(item);
                 }
+                context.Orders.Add(order);
             }
-            catch (Exception)
+            else
             {
-                // TODO: Add HttpException handling in place of Exception below
-                throw new Exception("Erorr building list of roder details -> cart.Lines was probably null.");
+                foreach (var item in order.OrderDetails)
+                {
+                    context.Entry(item).State = EntityState.Modified;
+                }
+                context.Entry(order).State = EntityState.Modified;
             }
 
-            var firstCartLineProduct = cart.Lines.FirstOrDefault();
-            int establishmentId = firstCartLineProduct.Product.EstablishmentId;
-
-            order.OrderDetails = orderDetailsList;
-            order.EstablishmentId = establishmentId;
-            return order;
+            context.SaveChanges();
         }
 
         #endregion

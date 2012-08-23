@@ -141,7 +141,7 @@ namespace POS.Tests.WebUi.Controllers
         /// <summary>
         /// Tests that a user cannot get to checkout with Cart that has zero Products in it
         /// </summary>
-        [TestMethod]
+        /*[TestMethod]
         public void CannotCheckoutEmptyCart()
         {
             // Arrange - create a mock order processor
@@ -164,12 +164,12 @@ namespace POS.Tests.WebUi.Controllers
             Assert.AreEqual("", result.ViewName);
             // Assert - check that we are passing an invalid model to the view
             Assert.AreEqual(false, result.ViewData.ModelState.IsValid);
-        }
+        }*/
 
         /// <summary>
         /// Tests that when an error is injected into the ViewModel (to simulate a problem reported by the model binder) the user cannot Checkout (i.e. when the users provides invalid shipping details)
         /// </summary>
-        [TestMethod]
+        /*[TestMethod]
         public void CannotCheckoutInvalidShippingDetails()
         {
             // Arrange - create a mock order processor
@@ -192,12 +192,12 @@ namespace POS.Tests.WebUi.Controllers
             Assert.AreEqual("", result.ViewName);
             // Assert - check that we are passing an invalid model to the view
             Assert.AreEqual(false, result.ViewData.ModelState.IsValid);
-        }
+        }*/
 
         /// <summary>
         /// Tests that, when given an appropriate cart (one with at least one Product and no errors), a user can complete order checkout.
         /// </summary>
-        [TestMethod]
+        /*[TestMethod]
         public void CanCheckoutAndSubmitOrder()
         {
             // Arrange - create a mock order processor
@@ -218,7 +218,7 @@ namespace POS.Tests.WebUi.Controllers
             Assert.AreEqual("Completed", result.ViewName);
             // Assert - check that we are passing a valid model to the view
             Assert.AreEqual(true, result.ViewData.ModelState.IsValid);
-        }
+        }*/
 
         /// <summary>
         /// The URL the user can follow to return to the catalogue should be correctly passed to the Index action method

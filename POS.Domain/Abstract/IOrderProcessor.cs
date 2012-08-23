@@ -14,11 +14,11 @@ namespace POS.Domain.Abstract
 
         #region Public Methods and Operators
 
-        void ProcessOrder(Cart cart, ShippingDetails shippingDetails);
-
         void DeleteOrder(Order order);
 
         void SaveOrder(Order order);
+
+        void CreateOrder(Order order);
 
         #endregion
     }
