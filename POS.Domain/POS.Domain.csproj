@@ -60,7 +60,6 @@
     <Compile Include="Abstract\IProductRepository.cs" />
     <Compile Include="Abstract\IRepository.cs" />
     <Compile Include="ApplicationService\CartApplicationService.cs" />
-    <Compile Include="ApplicationService\OrderService.ProcessOrder.cs" />
     <Compile Include="Model\Cart.cs" />
     <Compile Include="Model\Category.cs" />
     <Compile Include="Model\Establishment.cs" />
