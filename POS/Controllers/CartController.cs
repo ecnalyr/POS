@@ -1,21 +1,19 @@
-﻿using System;
-using System.Diagnostics;
-using System.Linq;
+﻿using System.Linq;
 using System.Web.Mvc;
 using POS.Domain.Abstract;
+using POS.Domain.ApplicationService;
 using POS.Domain.Model;
+using POS.Domain.Properties;
 using POS.Models;
 
 namespace POS.Controllers
 {
-    using Domain.Properties;
-
     public class CartController : Controller
     {
         #region Fields
 
-        private readonly IProductRepository repository;
         private readonly IOrderProcessor orderRepository;
+        private readonly IProductRepository repository;
 
         #endregion
 
@@ -38,7 +36,7 @@ namespace POS.Controllers
 
             if (product != null) cart.AddItem(product, 1);
 
-            return RedirectToAction("Index", new { returnUrl });
+            return RedirectToAction("Index", new {returnUrl});
         }
 
         public RedirectToRouteResult RemoveFromCart(Cart cart, int productId, string returnUrl)
@@ -54,10 +52,10 @@ namespace POS.Controllers
         public ViewResult Index(Cart cart, string returnUrl)
         {
             return View(new CartIndexViewModel
-            {
-                Cart = cart,
-                ReturnUrl = returnUrl
-            });
+                {
+                    Cart = cart,
+                    ReturnUrl = returnUrl
+                });
         }
 
         public ViewResult Summary(Cart cart)
@@ -77,12 +75,9 @@ namespace POS.Controllers
 
             if (ModelState.IsValid)
             {
-                //CartApplicationService.Get(id);
-                //CartApplicationService.Process(cart); // (Maybe it returns a hydrated Order object)
-                //OrderApplicationService.Create(Order order);
-                // then OrderApplicationService.Create(Order) calls EfOrderRepository
+                var cartProcessor = new CartApplicationService(orderRepository);
+                cartProcessor.Process(cart, shippingDetails);
 
-                orderRepository.ProcessOrder(cart, shippingDetails);
                 return View("Completed");
             }
             return View(shippingDetails);

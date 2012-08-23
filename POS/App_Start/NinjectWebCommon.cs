@@ -1,3 +1,4 @@
+using POS.Domain.ApplicationService;
 using POS.Infrastructure;
 
 [assembly: WebActivator.PreApplicationStartMethod(typeof(POS.App_Start.NinjectWebCommon), "Start")]
