@@ -16,6 +16,8 @@ namespace POS.App_Start
     using Ninject;
     using Ninject.Web.Common;
 
+    using POS.Controllers;
+
     public static class NinjectWebCommon 
     {
         private static readonly Bootstrapper Bootstrapper = new Bootstrapper();

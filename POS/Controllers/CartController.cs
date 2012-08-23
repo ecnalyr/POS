@@ -12,17 +12,17 @@ namespace POS.Controllers
     {
         #region Fields
 
-        private readonly IOrderProcessor orderRepository;
         private readonly IProductRepository repository;
+        private readonly CartApplicationService cartApplicationService;
 
         #endregion
 
         #region Constructors and Destructors
 
-        public CartController(IProductRepository productRepository, IOrderProcessor processor)
+        public CartController(IProductRepository productRepository, CartApplicationService cartApplicationService)
         {
             repository = productRepository;
-            orderRepository = processor;
+            this.cartApplicationService = cartApplicationService;
         }
 
         #endregion
@@ -75,9 +75,7 @@ namespace POS.Controllers
 
             if (ModelState.IsValid)
             {
-                var cartProcessor = new CartApplicationService(orderRepository);
-                cartProcessor.Process(cart, shippingDetails);
-
+                cartApplicationService.Process(cart, shippingDetails);
                 return View("Completed");
             }
             return View(shippingDetails);
