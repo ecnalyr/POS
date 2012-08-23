@@ -12,8 +12,8 @@ namespace POS.Controllers
     {
         #region Fields
 
-        private readonly IProductRepository repository;
-        private readonly CartApplicationService cartApplicationService;
+        private readonly IProductRepository _repository;
+        private readonly CartApplicationService _cartApplicationService;
 
         #endregion
 
@@ -21,8 +21,8 @@ namespace POS.Controllers
 
         public CartController(IProductRepository productRepository, CartApplicationService cartApplicationService)
         {
-            repository = productRepository;
-            this.cartApplicationService = cartApplicationService;
+            this._repository = productRepository;
+            this._cartApplicationService = cartApplicationService;
         }
 
         #endregion
@@ -31,7 +31,7 @@ namespace POS.Controllers
 
         public RedirectToRouteResult AddToCart(Cart cart, int productId, string returnUrl)
         {
-            Product product = repository.Products
+            Product product = this._repository.Products
                 .FirstOrDefault(p => p.ProductId == productId);
 
             if (product != null) cart.AddItem(product, 1);
@@ -41,7 +41,7 @@ namespace POS.Controllers
 
         public RedirectToRouteResult RemoveFromCart(Cart cart, int productId, string returnUrl)
         {
-            Product product = repository.Products
+            Product product = this._repository.Products
                 .FirstOrDefault(p => p.ProductId == productId);
 
             if (product != null) cart.RemoveLine(product);
@@ -75,7 +75,7 @@ namespace POS.Controllers
 
             if (ModelState.IsValid)
             {
-                cartApplicationService.Process(cart, shippingDetails);
+                _cartApplicationService.Process(cart, shippingDetails);
                 return View("Completed");
             }
             return View(shippingDetails);
