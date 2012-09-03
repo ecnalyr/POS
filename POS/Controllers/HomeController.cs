@@ -1,17 +1,22 @@
-﻿using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Web.Mvc;
-using POS.Domain.Abstract;
-using POS.Domain.Model;
-
-namespace POS.Controllers
+﻿namespace POS.Controllers
 {
+    #region
+
+    using System.Collections.Generic;
+    using System.Diagnostics;
+    using System.Linq;
+    using System.Web.Mvc;
+
+    using POS.Domain.Abstract;
+    using POS.Domain.Model;
+
+    #endregion
+
     public class HomeController : ControllerBase
     {
         #region Fields
 
-        private readonly IEstablishmentRepository _establishmentRepository;
+        private readonly IEstablishmentRepository establishmentRepository;
 
         #endregion
 
@@ -19,21 +24,24 @@ namespace POS.Controllers
 
         public HomeController(IEstablishmentRepository establishmentRepo)
         {
-            _establishmentRepository = establishmentRepo;
+            this.establishmentRepository = establishmentRepo;
         }
 
         #endregion
 
-        public ActionResult Index()
+        #region Public Methods and Operators
+
+        public ActionResult Establishment(int id)
         {
-            Logger.Debug("Checking that nLogger is working from Index");
-            return View(_establishmentRepository.Establishments);
+            Establishment establishment =
+                this.establishmentRepository.Establishments.FirstOrDefault(p => p.EstablishmentId == id);
+            return View(establishment);
         }
 
         public ActionResult EstablishmentProductList(int id)
         {
             Establishment establishment =
-                _establishmentRepository.Establishments.FirstOrDefault(p => p.EstablishmentId == id);
+                this.establishmentRepository.Establishments.FirstOrDefault(p => p.EstablishmentId == id);
             if (establishment != null)
             {
                 Debug.Write(establishment.Name + "<-- that was the establishment name. ");
@@ -52,18 +60,19 @@ namespace POS.Controllers
             }
         }
 
+        public ActionResult Index()
+        {
+            Logger.Debug("Checking that nLogger is working from Index");
+            return View(this.establishmentRepository.Establishments);
+        }
+
         public PartialViewResult _EstablishmentSummary(int id)
         {
             Establishment establishment =
-                _establishmentRepository.Establishments.FirstOrDefault(p => p.EstablishmentId == id);
+                this.establishmentRepository.Establishments.FirstOrDefault(p => p.EstablishmentId == id);
             return PartialView(establishment);
         }
 
-        public ActionResult Establishment(int id)
-        {
-            Establishment establishment =
-                _establishmentRepository.Establishments.FirstOrDefault(p => p.EstablishmentId == id);
-            return View(establishment);
-        }
+        #endregion
     }
 }

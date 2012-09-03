@@ -63,6 +63,7 @@ namespace POS.App_Start
             kernel.Bind<IProductRepository>().To<EfProductRepository>();
             kernel.Bind<IEstablishmentRepository>().To<EfEstablishmentRepository>();
             kernel.Bind<IOrderProcessor>().To<EfOrderRepository>();
+            kernel.Bind<ICartApplicationService>().To<CartApplicationService>();
         }        
     }
 }

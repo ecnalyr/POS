@@ -1,14 +1,13 @@
-﻿using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using POS.Domain.Abstract;
-using POS.Domain.Model;
-
-namespace POS.Controllers
+﻿namespace POS.Controllers
 {
     #region
 
-    
+    using System.Linq;
+    using System.Web;
+    using System.Web.Mvc;
+
+    using POS.Domain.Abstract;
+    using POS.Domain.Model;
 
     #endregion
 
@@ -29,7 +28,6 @@ namespace POS.Controllers
 
         #endregion
 
-        
         #region Public Methods and Operators
 
         public ViewResult Create()
@@ -76,7 +74,8 @@ namespace POS.Controllers
         [HttpPost]
         public ActionResult DeleteParentCategory(int id)
         {
-            ParentCategory parentCategory = _productRepository.ParentCategories.FirstOrDefault(p => p.ParentCategoryId == id);
+            ParentCategory parentCategory =
+                _productRepository.ParentCategories.FirstOrDefault(p => p.ParentCategoryId == id);
             if (parentCategory != null)
             {
                 _productRepository.DeleteParentCategory(parentCategory);
@@ -139,7 +138,8 @@ namespace POS.Controllers
 
         public ViewResult EditParentCategory(int id)
         {
-            ParentCategory parentCategory = _productRepository.ParentCategories.FirstOrDefault(p => p.ParentCategoryId == id);
+            ParentCategory parentCategory =
+                _productRepository.ParentCategories.FirstOrDefault(p => p.ParentCategoryId == id);
             return View(parentCategory);
         }
 
