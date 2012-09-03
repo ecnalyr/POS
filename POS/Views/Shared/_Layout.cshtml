@@ -17,10 +17,10 @@
                             @Html.Partial("_LogOnPartial")
                         </div>
                     </i>
-                    <i class="two columns"><p>This is some more stuff</p></i>
+                    <i class="two columns"><p>@Html.ActionLink("View Orders' Order Details", "Index", "OrderDetails")</p></i>
                 </div>
                 <div class="row">
-                    <i class="two columns"><p>This is some stuff</p></i>
+                    <i class="two columns"><p>@Html.ActionLink("View Orders with Order Details", "FullOrders", "OrderDetails")</i>
                     <i class="two columns"><p>This is some more stuff</p></i>
                 </div>
             </div>
