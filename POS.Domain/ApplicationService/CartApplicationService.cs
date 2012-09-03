@@ -8,7 +8,7 @@ using POS.Domain.Model;
 
 namespace POS.Domain.ApplicationService
 {
-    public class CartApplicationService
+    public class CartApplicationService : ICartApplicationService
     {
         private IOrderProcessor orderRepository;
 

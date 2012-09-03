@@ -10,6 +10,8 @@ using POS.Models;
 
 namespace POS.Tests.WebUi.Controllers
 {
+    using POS.Domain.ApplicationService;
+
     /// <summary>
     ///This is a test class for CartController and is intended
     ///to contain all CartController Unit Tests
@@ -141,7 +143,7 @@ namespace POS.Tests.WebUi.Controllers
         /// <summary>
         /// Tests that a user cannot get to checkout with Cart that has zero Products in it
         /// </summary>
-        /*[TestMethod]
+        [TestMethod]
         public void CannotCheckoutEmptyCart()
         {
             // Arrange - create a mock order processor
@@ -152,24 +154,24 @@ namespace POS.Tests.WebUi.Controllers
             var shippingDetails = new ShippingDetails();
 
             // Arrange - create an instance of the controller
-            var controller = new CartController(null, mock.Object);
+            var controller = new CartController(null, null);
 
             // Action
             ViewResult result = controller.Checkout(cart, shippingDetails);
 
             // Assert - check that the order hasn't been passed on to the processor
-            mock.Verify(m => m.ProcessOrder(It.IsAny<Cart>(), It.IsAny<ShippingDetails>()),
+            mock.Verify(m => m.CreateOrder(It.IsAny<Order>()),
                         Times.Never());
             // Assert - check that the method is returning the default view
             Assert.AreEqual("", result.ViewName);
             // Assert - check that we are passing an invalid model to the view
             Assert.AreEqual(false, result.ViewData.ModelState.IsValid);
-        }*/
+        }
 
         /// <summary>
         /// Tests that when an error is injected into the ViewModel (to simulate a problem reported by the model binder) the user cannot Checkout (i.e. when the users provides invalid shipping details)
         /// </summary>
-        /*[TestMethod]
+        [TestMethod]
         public void CannotCheckoutInvalidShippingDetails()
         {
             // Arrange - create a mock order processor
@@ -178,7 +180,7 @@ namespace POS.Tests.WebUi.Controllers
             var cart = new Cart();
             cart.AddItem(new Product(), 1);
             // Arrange - create an instance of the controller
-            var controller = new CartController(null, mock.Object);
+            var controller = new CartController(null, null);
             // Arrange - add an error to the model
             controller.ModelState.AddModelError("error", "error");
 
@@ -186,39 +188,51 @@ namespace POS.Tests.WebUi.Controllers
             ViewResult result = controller.Checkout(cart, new ShippingDetails());
 
             // Assert - check that the order hasn't been passed on to the processor
-            mock.Verify(m => m.ProcessOrder(It.IsAny<Cart>(), It.IsAny<ShippingDetails>()),
+            mock.Verify(m => m.CreateOrder(It.IsAny<Order>()),
                         Times.Never());
             // Assert - check that the method is returning the default view
             Assert.AreEqual("", result.ViewName);
             // Assert - check that we are passing an invalid model to the view
             Assert.AreEqual(false, result.ViewData.ModelState.IsValid);
-        }*/
+        }
 
         /// <summary>
         /// Tests that, when given an appropriate cart (one with at least one Product and no errors), a user can complete order checkout.
         /// </summary>
-        /*[TestMethod]
+        [TestMethod]
         public void CanCheckoutAndSubmitOrder()
         {
             // Arrange - create a mock order processor
-            var mock = new Mock<IOrderProcessor>();
+            var mockRepository = new Mock<IProductRepository>();
+            var what = new Mock<ICartApplicationService>();
             // Arrange - create a cart with an item
             var cart = new Cart();
-            cart.AddItem(new Product {ProductId = 1, Name = "P1", Price = 100M, EstablishmentId = 1}, 1);
+            var shippingDetails = new ShippingDetails
+                {
+                    Name = "Jason",
+                    Line1 = "123 Fake",
+                    City = "Corpus Christi",
+                    State = "Texas",
+                    Zip = "78414",
+                    Country = "United States",
+                    GiftWrap = false
+                };
+            cart.AddItem(new Product {ProductId = 1, Name = "P1", Price = 100M, EstablishmentId = 1, CategoryId = 1, Description = "none"}, 1);
             // Arrange - create an instance of the controller
-            var controller = new CartController(null, mock.Object);
+
+            var controller = new CartController(mockRepository.Object, what.Object);
 
             // Action - try to checkout
-            ViewResult result = controller.Checkout(cart, new ShippingDetails());
+            var result = controller.Checkout(cart, shippingDetails);
 
             // Assert - check that the order has been passed on to the processor
-            mock.Verify(m => m.ProcessOrder(It.IsAny<Cart>(), It.IsAny<ShippingDetails>()),
+            what.Verify(m => m.Process(It.IsAny<Cart>(), It.IsAny<ShippingDetails>()),
                         Times.Once());
             // Assert - check that the method is returning the Completed view
             Assert.AreEqual("Completed", result.ViewName);
             // Assert - check that we are passing a valid model to the view
             Assert.AreEqual(true, result.ViewData.ModelState.IsValid);
-        }*/
+        }
 
         /// <summary>
         /// The URL the user can follow to return to the catalogue should be correctly passed to the Index action method
