@@ -1,0 +1,47 @@
+﻿@model IEnumerable<POS.Domain.Model.Order>
+
+@{
+    ViewBag.Title = "title";
+}
+
+<h2>Orders</h2>
+
+<table>
+    <tr>
+        <th>
+            Order Number:
+        </th>
+        <th>
+            Sold At:
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                Order #: @this.Html.DisplayFor(modelItem => item.OrderId)
+            </td>
+            <td>
+                Location: @Html.DisplayFor(modelItem => item.Establishment.Name)
+            </td>
+        </tr>
+        if (item.OrderDetails != null)
+        {
+            foreach (var subItem in item.OrderDetails)
+            {
+                    <tr>
+                        <td>
+                            Quantity: @this.Html.DisplayFor(modelItem => subItem.Quantity)
+                        </td>
+                        <td>
+                            Name: @this.Html.DisplayFor(modelItem => subItem.ProductName)
+                        </td>
+                        <td>
+                            Price per Product: @this.Html.DisplayFor(modelItem => subItem.UnitPrice)
+                        </td>
+                    </tr>
+            }
+        }
+    }
+</table>

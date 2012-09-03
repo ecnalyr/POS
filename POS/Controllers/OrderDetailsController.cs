@@ -24,6 +24,15 @@ namespace POS.Controllers
         }
 
         //
+        // GET: /FullOrders/
+
+        public ViewResult FullOrders()
+        {
+            var orders = db.Orders.Include(o => o.OrderDetails);
+            return View(orders);
+        }
+
+        //
         // GET: /OrderDetails/Details/5
 
         public ViewResult Details(int id)
