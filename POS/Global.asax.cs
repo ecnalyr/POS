@@ -70,6 +70,7 @@ namespace POS
 
         protected void Application_Start()
         {
+
             Database.SetInitializer<EfDbContext>(new EfDbContextInitializer()); // Resets database
 
             AreaRegistration.RegisterAllAreas();

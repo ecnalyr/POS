@@ -21,6 +21,11 @@ namespace POS.Infrastructure
 
         public DbSet<Establishment> Establishments { get; set; }
 
+        public DbSet<Order> Orders { get; set; }
+
+        public DbSet<OrderDetail> OrderDetails { get; set; }
+
+
         #endregion
     }
 }

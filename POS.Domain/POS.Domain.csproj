@@ -55,13 +55,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\ICartApplicationService.cs" />
     <Compile Include="Abstract\IEstablishmentRepository.cs" />
     <Compile Include="Abstract\IOrderProcessor.cs" />
     <Compile Include="Abstract\IProductRepository.cs" />
-    <Compile Include="Concrete\EmailOrderProcessor.cs" />
+    <Compile Include="Abstract\IRepository.cs" />
+    <Compile Include="ApplicationService\CartApplicationService.cs" />
     <Compile Include="Model\Cart.cs" />
     <Compile Include="Model\Category.cs" />
     <Compile Include="Model\Establishment.cs" />
+    <Compile Include="Model\Order.cs" />
     <Compile Include="Model\ParentCategory.cs" />
     <Compile Include="Model\Product.cs" />
     <Compile Include="Model\ShippingDetails.cs" />
@@ -82,6 +85,9 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Concrete\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
