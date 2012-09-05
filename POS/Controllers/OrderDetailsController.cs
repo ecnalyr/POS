@@ -7,6 +7,8 @@ using System.Web;
 using System.Web.Mvc;
 using POS.Domain.Model;
 using POS.Infrastructure;
+using POS.Models;
+using Telerik.Web.Mvc;
 
 namespace POS.Controllers
 { 
@@ -14,8 +16,6 @@ namespace POS.Controllers
     {
         private EfDbContext db = new EfDbContext();
 
-        //
-        // GET: /OrderDetails/
 
         public ViewResult Index()
         {
@@ -23,8 +23,6 @@ namespace POS.Controllers
             return View(orderdetails.ToList());
         }
 
-        //
-        // GET: /FullOrders/
 
         public ViewResult FullOrders()
         {
@@ -32,8 +30,78 @@ namespace POS.Controllers
             return View(orders);
         }
 
-        //
-        // GET: /OrderDetails/Details/5
+        public ActionResult Master(bool? ajax, bool? scrolling, bool? paging, bool? filtering, bool? sorting,
+            bool? grouping, bool? showFooter)
+        {
+            var model = from o in db.OrderDetails
+                        select new MasterViewModel
+                        {
+                            OrderId = o.OrderDetailId,
+                            ProductName = o.ProductName,
+                            Price = o.UnitPrice,
+                            ProductQuantity = o.Quantity,
+                            EstablishmentName = o.Order.Establishment.Name
+                        };
+            ViewData["ajax"] = ajax ?? true;
+            ViewData["scrolling"] = scrolling ?? true;
+            ViewData["paging"] = paging ?? true;
+            ViewData["filtering"] = filtering ?? true;
+            ViewData["grouping"] = grouping ?? true;
+            ViewData["sorting"] = sorting ?? true;
+            ViewData["showFooter"] = showFooter ?? true;
+            return View(model);
+        }
+        [GridAction]
+        public ActionResult _Master()
+        {
+            var model = from o in db.OrderDetails
+                        select new MasterViewModel
+                            {
+                                OrderId = o.OrderDetailId,
+                                ProductName = o.ProductName,
+                                Price = o.UnitPrice,
+                                ProductQuantity = o.Quantity,
+                                EstablishmentName = o.Order.Establishment.Name
+                            };
+            return View(new GridModel(model));
+        }
+
+        public ActionResult EstablishmentSalesReport(int id, bool? ajax, bool? scrolling, bool? paging, bool? filtering, bool? sorting,
+    bool? grouping, bool? showFooter)
+        {
+            var model = from o in db.OrderDetails where o.Order.EstablishmentId == id
+                        select new MasterViewModel
+                        {
+                            OrderId = o.OrderDetailId,
+                            ProductName = o.ProductName,
+                            Price = o.UnitPrice,
+                            ProductQuantity = o.Quantity,
+                            EstablishmentName = o.Order.Establishment.Name
+                        };
+            ViewData["ajax"] = ajax ?? true;
+            ViewData["scrolling"] = scrolling ?? true;
+            ViewData["paging"] = paging ?? true;
+            ViewData["filtering"] = filtering ?? true;
+            ViewData["grouping"] = grouping ?? true;
+            ViewData["sorting"] = sorting ?? true;
+            ViewData["showFooter"] = showFooter ?? true;
+            return View(model);
+        }
+        [GridAction]
+        public ActionResult _EstablishmentSalesReport(int id)
+        {
+            var model = from o in db.OrderDetails where o.Order.EstablishmentId == id
+                        select new MasterViewModel
+                        {
+                            OrderId = o.OrderDetailId,
+                            ProductName = o.ProductName,
+                            Price = o.UnitPrice,
+                            ProductQuantity = o.Quantity,
+                            EstablishmentName = o.Order.Establishment.Name
+                        };
+            return View(new GridModel(model));
+        }
+
 
         public ViewResult Details(int id)
         {

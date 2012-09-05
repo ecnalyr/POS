@@ -9,6 +9,7 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+<h4> Navigate to /OrderDetails/EstablishmentSalesReport/id where id is = the id of the Esablishment who's sales report you would like to see.</h4>
 <table>
     <tr>
         <th>
@@ -49,3 +50,11 @@
 }
 
 </table>
+
+@{
+ 
+  var grid = new WebGrid(Model, defaultSort:"Name");
+ 
+}
+ 
+@grid.GetHtml()

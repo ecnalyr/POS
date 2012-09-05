@@ -30,18 +30,20 @@
         {
             foreach (var subItem in item.OrderDetails)
             {
-                    <tr>
-                        <td>
-                            Quantity: @this.Html.DisplayFor(modelItem => subItem.Quantity)
-                        </td>
-                        <td>
-                            Name: @this.Html.DisplayFor(modelItem => subItem.ProductName)
-                        </td>
-                        <td>
-                            Price per Product: @this.Html.DisplayFor(modelItem => subItem.UnitPrice)
-                        </td>
-                    </tr>
+                <tr>
+                    <td>
+                        Quantity: @this.Html.DisplayFor(modelItem => subItem.Quantity)
+                    </td>
+                    <td>
+                        Name: @this.Html.DisplayFor(modelItem => subItem.ProductName)
+                    </td>
+                    <td>
+                        Price per Product: @this.Html.DisplayFor(modelItem => subItem.UnitPrice)
+                    </td>
+                </tr>
             }
         }
     }
 </table>
+
+

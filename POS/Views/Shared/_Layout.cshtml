@@ -1,12 +1,15 @@
-﻿<!DOCTYPE html>
+﻿@using Telerik.Web.Mvc.UI
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <title>@ViewBag.Title</title>
     <!--<link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />-->
     <link href="@Url.Content("~/Content/imports.css")" rel="stylesheet" type="text/css" />
-    <script src="@Url.Content("~/Scripts/jquery-1.7.2.min.js")" type="text/javascript"></script>
     <script src="@Url.Content("~/Scripts/modernizr-2.5.3.js")" type="text/javascript"></script>
+    @Html.Telerik().StyleSheetRegistrar().DefaultGroup(group => group.Add("telerik.common.css").Add("telerik.vista.css"));
+    @RenderSection("HeadContent", required:false)
+    @Html.Telerik().ScriptRegistrar()
 </head>
     <body style="background: #ebffef;">
         <section class="drawer" id="fromtop">
@@ -60,14 +63,14 @@
                 @RenderBody()
             </section>
             <footer>
-            <div class="container">
-                <article class="row drawertoggle">
-                    <p class="three columns alpha"><a href="#" class="toggle" data-for=".drawer#fromtop">Open Drawer Up Top</a></p>
-                </article>
-            </div>
+                <div class="container">
+                    <article class="row drawertoggle">
+                        <p class="three columns alpha"><a href="#" class="toggle" data-for=".drawer#fromtop">Open Drawer Up Top</a></p>
+                    </article>
+                </div>
             </footer>
         </div>
-
+        
     </body>
     <script src="@Url.Content("~/Scripts/gumbyScripts/libs/gumby.min.js")" type="text/javascript"></script>
     <script src="@Url.Content("~/Scripts/gumbyScripts/plugins.js")" type="text/javascript"></script>
