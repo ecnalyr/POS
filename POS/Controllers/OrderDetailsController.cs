@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Data;
 using System.Data.Entity;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using POS.Domain.Model;
 using POS.Infrastructure;
@@ -36,11 +33,14 @@ namespace POS.Controllers
             var model = from o in db.OrderDetails
                         select new MasterViewModel
                         {
-                            OrderId = o.OrderDetailId,
+                            OrderId = o.Order.OrderId,
                             ProductName = o.ProductName,
                             Price = o.UnitPrice,
                             ProductQuantity = o.Quantity,
-                            EstablishmentName = o.Order.Establishment.Name
+                            EstablishmentName = o.Order.Establishment.Name,
+                            TotalCostOfOrder = o.Order.TotalCost,
+                            TimeProcessed = o.Order.TimeProcessed,
+                            CustomerName = o.Order.CustomerName
                         };
             ViewData["ajax"] = ajax ?? true;
             ViewData["scrolling"] = scrolling ?? true;
@@ -57,11 +57,14 @@ namespace POS.Controllers
             var model = from o in db.OrderDetails
                         select new MasterViewModel
                             {
-                                OrderId = o.OrderDetailId,
+                                OrderId = o.Order.OrderId,
                                 ProductName = o.ProductName,
                                 Price = o.UnitPrice,
                                 ProductQuantity = o.Quantity,
-                                EstablishmentName = o.Order.Establishment.Name
+                                EstablishmentName = o.Order.Establishment.Name,
+                                TotalCostOfOrder = o.Order.TotalCost,
+                                TimeProcessed = o.Order.TimeProcessed,
+                                CustomerName = o.Order.CustomerName
                             };
             return View(new GridModel(model));
         }
@@ -72,7 +75,7 @@ namespace POS.Controllers
             var model = from o in db.OrderDetails where o.Order.EstablishmentId == id
                         select new MasterViewModel
                         {
-                            OrderId = o.OrderDetailId,
+                            OrderId = o.Order.OrderId,
                             ProductName = o.ProductName,
                             Price = o.UnitPrice,
                             ProductQuantity = o.Quantity,
@@ -93,7 +96,7 @@ namespace POS.Controllers
             var model = from o in db.OrderDetails where o.Order.EstablishmentId == id
                         select new MasterViewModel
                         {
-                            OrderId = o.OrderDetailId,
+                            OrderId = o.Order.OrderId,
                             ProductName = o.ProductName,
                             Price = o.UnitPrice,
                             ProductQuantity = o.Quantity,

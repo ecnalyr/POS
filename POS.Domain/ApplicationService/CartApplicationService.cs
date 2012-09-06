@@ -40,7 +40,8 @@ namespace POS.Domain.ApplicationService
                         Quantity = item.Quantity,
                         UnitPrice = item.Product.Price
                     };
-                    // I could update the order's total cost here if I wanted
+                    order.TotalCost += orderDetail.UnitPrice*orderDetail.Quantity;
+                    //TODO: Make Unit Test
                     orderDetailsList.Add(orderDetail);
                 }
             }
@@ -55,6 +56,8 @@ namespace POS.Domain.ApplicationService
 
             order.OrderDetails = orderDetailsList;
             order.EstablishmentId = establishmentId;
+            order.CustomerName = shippingDetails.Name;
+            order.TimeProcessed = DateTime.Now;
             return order;
         }
     }

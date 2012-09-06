@@ -20,11 +20,12 @@
                             @Html.Partial("_LogOnPartial")
                         </div>
                     </i>
-                    <i class="two columns"><p>@Html.ActionLink("View Orders' Order Details", "Index", "OrderDetails")</p></i>
+                    <i class="two columns"><p>@Html.ActionLink("OrderDetails Index", "Index", "OrderDetails")</p></i>
+                    <i class="two columns"><p>@Html.ActionLink("OrderDetailsFullOrders", "FullOrders", "OrderDetails")</i>
                 </div>
                 <div class="row">
-                    <i class="two columns"><p>@Html.ActionLink("View Orders with Order Details", "FullOrders", "OrderDetails")</i>
-                    <i class="two columns"><p>This is some more stuff</p></i>
+                    <i class="two columns"><p>@Html.ActionLink("OrderDetailsMaster", "Master", "OrderDetails")</i>
+                    <i class="two columns"><p>@Html.ActionLink("EstablishmentSalesReport (must append an int)", "EstablishmentSalesReport", "OrderDetails")</i>
                 </div>
             </div>
         </section>
@@ -56,6 +57,11 @@
                     </li>
                 </ul>
             </nav>
+            <div class="container">
+                    <article class="row drawertoggle">
+                        <p class="three columns alpha"><a href="#" class="toggle" data-for=".drawer#fromtop">Open Drawer Up Top</a></p>
+                    </article>
+            </div>
         </div>
 
         <div class="page">
@@ -63,11 +69,7 @@
                 @RenderBody()
             </section>
             <footer>
-                <div class="container">
-                    <article class="row drawertoggle">
-                        <p class="three columns alpha"><a href="#" class="toggle" data-for=".drawer#fromtop">Open Drawer Up Top</a></p>
-                    </article>
-                </div>
+                
             </footer>
         </div>
         

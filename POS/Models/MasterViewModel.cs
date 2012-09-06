@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace POS.Models
 {
@@ -16,5 +13,11 @@ namespace POS.Models
         public int ProductQuantity { get; set; }
 
         public string EstablishmentName { get; set; }
+
+        public decimal TotalCostOfOrder { get; set; }
+
+        public DateTime TimeProcessed { get; set; }
+
+        public string CustomerName { get; set; }
     }
 }

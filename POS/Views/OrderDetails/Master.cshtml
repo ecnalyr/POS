@@ -15,6 +15,9 @@
             columns.Bound(o => o.Price).Width(75);
             columns.Bound(o => o.ProductQuantity).Width(75);
             columns.Bound(o => o.EstablishmentName).Width(100);
+            columns.Bound(o => o.TotalCostOfOrder).Width(75);
+            columns.Bound(o => o.TimeProcessed).Width(75);
+            columns.Bound(o => o.CustomerName).Width(100);
 
         })
         .DataBinding(dataBinding => 
