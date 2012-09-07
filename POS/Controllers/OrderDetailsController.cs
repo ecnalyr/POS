@@ -37,6 +37,7 @@ namespace POS.Controllers
                             ProductName = o.ProductName,
                             Price = o.UnitPrice,
                             ProductQuantity = o.Quantity,
+                            TotalLineCost = o.UnitPrice * o.Quantity,
                             EstablishmentName = o.Order.Establishment.Name,
                             TotalCostOfOrder = o.Order.TotalCost,
                             TimeProcessed = o.Order.TimeProcessed,
@@ -61,6 +62,7 @@ namespace POS.Controllers
                                 ProductName = o.ProductName,
                                 Price = o.UnitPrice,
                                 ProductQuantity = o.Quantity,
+                                TotalLineCost = o.UnitPrice * o.Quantity,
                                 EstablishmentName = o.Order.Establishment.Name,
                                 TotalCostOfOrder = o.Order.TotalCost,
                                 TimeProcessed = o.Order.TimeProcessed,
@@ -79,6 +81,7 @@ namespace POS.Controllers
                             ProductName = o.ProductName,
                             Price = o.UnitPrice,
                             ProductQuantity = o.Quantity,
+                            TotalLineCost = o.UnitPrice * o.Quantity,
                             EstablishmentName = o.Order.Establishment.Name
                         };
             ViewData["ajax"] = ajax ?? true;
@@ -100,6 +103,7 @@ namespace POS.Controllers
                             ProductName = o.ProductName,
                             Price = o.UnitPrice,
                             ProductQuantity = o.Quantity,
+                            TotalLineCost = o.UnitPrice * o.Quantity,
                             EstablishmentName = o.Order.Establishment.Name
                         };
             return View(new GridModel(model));

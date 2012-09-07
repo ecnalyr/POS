@@ -12,6 +12,8 @@ namespace POS.Models
 
         public int ProductQuantity { get; set; }
 
+        public decimal TotalLineCost { get; set; }
+
         public string EstablishmentName { get; set; }
 
         public decimal TotalCostOfOrder { get; set; }

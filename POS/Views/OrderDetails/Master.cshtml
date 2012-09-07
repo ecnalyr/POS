@@ -10,9 +10,16 @@
         .Scrollable(scrolling => scrolling.Height("auto"))
         .Columns(columns =>
         {
-            columns.Bound(o => o.OrderId).Width(75);
+            columns.Bound(o => o.OrderId).Width(75).Visible(false);
             columns.Bound(o => o.ProductName).Width(100);
             columns.Bound(o => o.Price).Width(75);
+            columns.Bound(o => o.TotalLineCost).Width(75)
+                .Aggregate(aggregates => aggregates.Sum())
+                .Format("{0:c}")
+                .FooterTemplate(@<text>Total Sum: @item.Sum.Format("{0:c}")</text>)
+                .GroupFooterTemplate(@<text>Total Sum: @item.Sum.Format("{0:c}")</text>)
+                .ClientFooterTemplate("Total Sum: <#= $.telerik.formatString('{0:c}', Sum) #>")
+                .ClientGroupFooterTemplate("Sum: <#= $.telerik.formatString('{0:c}', Sum) #>");
             columns.Bound(o => o.ProductQuantity).Width(75);
             columns.Bound(o => o.EstablishmentName).Width(100);
             columns.Bound(o => o.TotalCostOfOrder).Width(75);
@@ -31,4 +38,5 @@
         .Filterable(filtering => filtering.Enabled((bool)ViewData["filtering"]))
         .Groupable(grouping => grouping.Enabled((bool)ViewData["grouping"]))
         .Footer((bool)ViewData["showFooter"])
+        .Groupable(settings => settings.Groups(groups => groups.Add(o => o.OrderId)).Visible(true))
 ) 
