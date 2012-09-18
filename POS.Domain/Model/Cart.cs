@@ -91,5 +91,31 @@ namespace POS.Domain.Model
         public Product Product { get; set; }
 
         public int Quantity { get; set; }
+
+        public LineItemPromo LineItemPromo { get; set; }
+    }
+
+    /// <summary>
+    /// Apply a promotion to a line item.  These promos only offer a set percent off the line.
+    /// </summary>
+    public class LineItemPromo
+    {
+        public int LineItemPromoId { get; set; }
+
+        public int PromoId { get; set; }
+
+        public virtual Promo Promo { get; set; }
+    }
+
+    /// <summary>
+    /// Apply a promotion to a receipt.  This promo can be used toward a receipt total.
+    /// </summary>
+    public class Promo
+    {
+        public int PromoId { get; set; }
+
+        public string Description { get; set; }
+
+        public float PercentOff { get; set; }
     }
 }

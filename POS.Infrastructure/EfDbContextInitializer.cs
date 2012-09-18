@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using POS.Domain.Model;
 
@@ -44,17 +45,62 @@ namespace POS.Infrastructure
                 };
             estabslishments.ForEach(s => context.Establishments.Add(s));
 
-            var orders = new List<Order>
+            var promos = new List<Promo>
                 {
-
+                    new Promo {Description = "Fifty Percent Off", PercentOff = (float) .50},
+                    new Promo {Description = "Seventy-Five Percent Off", PercentOff = (float) .75}
                 };
-            orders.ForEach(s => context.Orders.Add(s));
+            promos.ForEach(s => context.Promos.Add(s));
+
+            context.SaveChanges();
+
+            var lineItemPromos = new List<LineItemPromo>
+                {
+                    new LineItemPromo {PromoId = 1},
+                    new LineItemPromo {PromoId = 2}
+                };
+            lineItemPromos.ForEach(s => context.LineItemPromos.Add(s));
+
+            context.SaveChanges();
 
             var orderDetails = new List<OrderDetail>
                 {
+                    /*new OrderDetail { OrderId = 1, Quantity = 2, ProductName = "Basketball", UnitPrice = 14, LineItemPromoId = 2},
+                    new OrderDetail { OrderId = 1, Quantity = 1, ProductName = "Tennis Racket", UnitPrice = 47, LineItemPromoId = 1},
+                    new OrderDetail { OrderId = 1, Quantity = 3, ProductName = "Tennis Ball", UnitPrice = 6},
+                    new OrderDetail { OrderId = 2, Quantity = 2, ProductName = "Basketball", UnitPrice = 14},
+                    new OrderDetail { OrderId = 2, Quantity = 1, ProductName = "Tennis Racket", UnitPrice = 47},
+                    new OrderDetail { OrderId = 2, Quantity = 3, ProductName = "Tennis Ball", UnitPrice = 6},
+                    new OrderDetail { OrderId = 3, Quantity = 1, ProductName = "Basketball", UnitPrice = 14}*/
 
                 };
             orderDetails.ForEach(s => context.OrderDetails.Add(s));
+
+            var orders = new List<Order>
+                {       
+                    new Order { OrderDetails = new List<OrderDetail>()
+                        {
+                            new OrderDetail { OrderId = 1, Quantity = 2, ProductName = "Basketball", UnitPrice = 14, LineItemPromoId = 2},
+                            new OrderDetail { OrderId = 1, Quantity = 1, ProductName = "Tennis Racket", UnitPrice = 47, LineItemPromoId = 1},
+                            new OrderDetail { OrderId = 1, Quantity = 3, ProductName = "Tennis Ball", UnitPrice = 6}
+                        },
+                    EstablishmentId = 1, TotalCost = (decimal) 62.5, SalesTax = (decimal) 5.15625, CustomerName = "Albert", TimeProcessed = DateTime.Now},
+
+                    new Order { OrderDetails = new List<OrderDetail>()
+                        {
+                            new OrderDetail { OrderId = 2, Quantity = 2, ProductName = "Basketball", UnitPrice = 14},
+                            new OrderDetail { OrderId = 2, Quantity = 1, ProductName = "Tennis Racket", UnitPrice = 47},
+                            new OrderDetail { OrderId = 2, Quantity = 3, ProductName = "Tennis Ball", UnitPrice = 6},
+                        },
+                    EstablishmentId = 1, TotalCost = 93, SalesTax = (decimal) 7.6725, CustomerName = "Henry", TimeProcessed = DateTime.Now},
+
+                    new Order { OrderDetails = new List<OrderDetail>()
+                        {
+                            new OrderDetail { OrderId = 3, Quantity = 1, ProductName = "Basketball", UnitPrice = 14}
+                        },
+                    EstablishmentId = 1, TotalCost = 14, SalesTax = (decimal) 1.155, CustomerName = "Thomas", TimeProcessed = DateTime.Now},
+                };
+            orders.ForEach(s => context.Orders.Add(s));
 
             context.SaveChanges();
         }

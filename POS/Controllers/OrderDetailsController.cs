@@ -41,7 +41,9 @@ namespace POS.Controllers
                             EstablishmentName = o.Order.Establishment.Name,
                             TotalCostOfOrder = o.Order.TotalCost,
                             TimeProcessed = o.Order.TimeProcessed,
-                            CustomerName = o.Order.CustomerName
+                            CustomerName = o.Order.CustomerName,
+                            LineItemPromo = o.LineItemPromo.Promo.Description,
+                            TotalLineCostAfterPromo = o.UnitPriceAfterPromo
                         };
             ViewData["ajax"] = ajax ?? true;
             ViewData["scrolling"] = scrolling ?? true;
@@ -66,7 +68,9 @@ namespace POS.Controllers
                                 EstablishmentName = o.Order.Establishment.Name,
                                 TotalCostOfOrder = o.Order.TotalCost,
                                 TimeProcessed = o.Order.TimeProcessed,
-                                CustomerName = o.Order.CustomerName
+                                CustomerName = o.Order.CustomerName,
+                                LineItemPromo = o.LineItemPromo.Promo.Description,
+                                TotalLineCostAfterPromo = o.UnitPriceAfterPromo
                             };
             return View(new GridModel(model));
         }

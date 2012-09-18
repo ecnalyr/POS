@@ -21,5 +21,9 @@ namespace POS.Models
         public DateTime TimeProcessed { get; set; }
 
         public string CustomerName { get; set; }
+
+        public string LineItemPromo { get; set; }
+
+        public decimal TotalLineCostAfterPromo { get; set; }
     }
 }
