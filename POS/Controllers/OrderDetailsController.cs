@@ -1,4 +1,6 @@
-﻿using System.Data;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
@@ -6,6 +8,7 @@ using POS.Domain.Model;
 using POS.Infrastructure;
 using POS.Models;
 using Telerik.Web.Mvc;
+using POS.CustomExtensions;
 
 namespace POS.Controllers
 { 
@@ -26,6 +29,166 @@ namespace POS.Controllers
             var orders = db.Orders.Include(o => o.OrderDetails);
             return View(orders);
         }
+
+        public ActionResult DeeperLook(bool? ajax, bool? scrolling, bool? paging, bool? filtering, bool? sorting,
+            bool? grouping, bool? showFooter)
+        {
+            //Total Sales, Gross Revenue, Line Item Promotion Total
+            var model = new List<DeeperLookViewModel>();
+
+            var orders = db.Orders.Include(o => o.OrderDetails);
+            var orderTotalList = orders.Select(order => order.TotalCost).ToList();
+            var orderRevenueList = orders.Select(order => order.TotalCost + order.SalesTax).ToList();
+            var lineItemPromoTotalList = (from order in orders from line in order.OrderDetails select (line.UnitPrice - line.UnitPriceAfterPromo) * line.Quantity).ToList();
+
+            var totalSales = new DeeperLookViewModel
+                {
+                    Stat = "Total Sales",
+                    Average = (float) orderTotalList.Average(),
+                    Median = (float) orderTotalList.Median()
+                };
+            model.Add(totalSales);
+
+            var grossRevenue = new DeeperLookViewModel
+                {
+                    Stat = "Gross Revenue",
+                    Average = (float) orderRevenueList.Average(),
+                    Median = (float) orderRevenueList.Median()
+                };
+            model.Add(grossRevenue);
+
+            var lineItemPromoTotal = new DeeperLookViewModel
+                {
+                    Stat = "Line Item Promo Total",
+                    Average = (float) lineItemPromoTotalList.Average(),
+                    Median = (float) lineItemPromoTotalList.Median()
+                };
+            model.Add(lineItemPromoTotal);
+
+            ViewData["ajax"] = ajax ?? true;
+            ViewData["scrolling"] = scrolling ?? true;
+            ViewData["paging"] = paging ?? true;
+            ViewData["filtering"] = filtering ?? true;
+            ViewData["grouping"] = grouping ?? true;
+            ViewData["sorting"] = sorting ?? true;
+            ViewData["showFooter"] = showFooter ?? true;
+            return View(model);
+        }
+
+        [GridAction]
+        public ActionResult _DeeperLook()
+        {
+            var model = new List<DeeperLookViewModel>();
+
+            var orders = db.Orders.Include(o => o.OrderDetails);
+            var orderTotalList = orders.Select(order => order.TotalCost).ToList();
+            var orderRevenueList = orders.Select(order => order.TotalCost + order.SalesTax).ToList();
+            var lineItemPromoTotalList = (from order in orders from line in order.OrderDetails select (line.UnitPrice - line.UnitPriceAfterPromo) * line.Quantity).ToList();
+
+            var totalSales = new DeeperLookViewModel
+            {
+                Stat = "Total Sales",
+                Average = (float)orderTotalList.Average(),
+                Median = (float)orderTotalList.Median()
+            };
+            model.Add(totalSales);
+
+            var grossRevenue = new DeeperLookViewModel
+            {
+                Stat = "Gross Revenue",
+                Average = (float)orderRevenueList.Average(),
+                Median = (float)orderRevenueList.Median()
+            };
+            model.Add(grossRevenue);
+
+            var lineItemPromoTotal = new DeeperLookViewModel
+            {
+                Stat = "Line Item Promo Total",
+                Average = (float)lineItemPromoTotalList.Average(),
+                Median = (float)lineItemPromoTotalList.Median()
+            };
+            model.Add(lineItemPromoTotal);
+            return View(new GridModel(model));
+        }
+
+
+        public ActionResult GrossRevHourly(bool? ajax, bool? scrolling, bool? paging, bool? filtering, bool? sorting,
+            bool? grouping, bool? showFooter)
+        {
+            //GrossRevHourly
+            var model = new List<DeeperLookViewModel>();
+
+            var orders = db.Orders.Include(o => o.OrderDetails);
+            var oneHourAgo = DateTime.Now.AddHours(-1.00);
+            
+            var ordersPlacedInTheLastHour = orders.Where(order => order.TimeProcessed > oneHourAgo).ToList();
+            var ordersPlaceInTheLastHourRevenueList = ordersPlacedInTheLastHour.Select(order => order.TotalCost + order.SalesTax).ToList();
+
+            var ordersPlacedBeforeOneHourAgo =
+                orders.Where(order => order.TimeProcessed < oneHourAgo).ToList();
+            var ordersPlacedBeforeOneHourAgoRevenueList = ordersPlacedBeforeOneHourAgo.Select(order => order.TotalCost + order.SalesTax).ToList();
+
+            var totalSalesWithinLastHour = new DeeperLookViewModel
+            {
+                Stat = "Orders Placed In The Last Hour",
+                Average = (float)ordersPlaceInTheLastHourRevenueList.Average(),
+                Median = (float)ordersPlaceInTheLastHourRevenueList.Median()
+            };
+            model.Add(totalSalesWithinLastHour);
+
+            var totalSalesBeforeLastHour = new DeeperLookViewModel
+            {
+                Stat = "Orders Placed Before The Last Hour",
+                Average = (float)ordersPlacedBeforeOneHourAgoRevenueList.Average(),
+                Median = (float)ordersPlacedBeforeOneHourAgoRevenueList.Median()
+            };
+            model.Add(totalSalesBeforeLastHour);
+
+            ViewData["ajax"] = ajax ?? true;
+            ViewData["scrolling"] = scrolling ?? true;
+            ViewData["paging"] = paging ?? true;
+            ViewData["filtering"] = filtering ?? true;
+            ViewData["grouping"] = grouping ?? true;
+            ViewData["sorting"] = sorting ?? true;
+            ViewData["showFooter"] = showFooter ?? true;
+            return View(model);
+        }
+
+        [GridAction]
+        public ActionResult _GrossRevHourly()
+        {
+            //GrossRevHourly
+            var model = new List<DeeperLookViewModel>();
+
+            var orders = db.Orders.Include(o => o.OrderDetails);
+            var oneHourAgo = DateTime.Now.AddHours(-1.00);
+
+            var ordersPlacedInTheLastHour = orders.Where(order => order.TimeProcessed > oneHourAgo).ToList();
+            var ordersPlaceInTheLastHourRevenueList = ordersPlacedInTheLastHour.Select(order => order.TotalCost + order.SalesTax).ToList();
+            
+            var ordersPlacedBeforeOneHourAgo =
+                orders.Where(order => order.TimeProcessed < oneHourAgo).ToList();
+            var ordersPlacedBeforeOneHourAgoRevenueList = ordersPlacedBeforeOneHourAgo.Select(order => order.TotalCost + order.SalesTax).ToList();
+
+            var totalSalesWithinLastHour = new DeeperLookViewModel
+            {
+                Stat = "Orders Placed In The Last Hour",
+                Average = (float)ordersPlaceInTheLastHourRevenueList.Average(),
+                Median = (float)ordersPlaceInTheLastHourRevenueList.Median()
+            };
+            model.Add(totalSalesWithinLastHour);
+
+            var totalSalesBeforeLastHour = new DeeperLookViewModel
+            {
+                Stat = "Orders Placed Before The Last Hour",
+                Average = (float)ordersPlacedBeforeOneHourAgoRevenueList.Average(),
+                Median = (float)ordersPlacedBeforeOneHourAgoRevenueList.Median()
+            };
+            model.Add(totalSalesBeforeLastHour);
+
+            return View(new GridModel(model));
+        }
+
 
         public ActionResult Master(bool? ajax, bool? scrolling, bool? paging, bool? filtering, bool? sorting,
             bool? grouping, bool? showFooter)
@@ -198,5 +361,7 @@ namespace POS.Controllers
             db.Dispose();
             base.Dispose(disposing);
         }
+
+        public decimal totalCostAverage { get; set; }
     }
 }

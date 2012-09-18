@@ -1,0 +1,65 @@
+﻿@using POS.Models
+@using Telerik.Web.Mvc.UI
+@model IEnumerable<POS.Models.DeeperLookViewModel>
+@{
+    ViewBag.Title = "Deeper Look";
+}
+
+<h2>Deeper Look</h2>
+@(Html.Telerik().Grid(Model)
+        .Name("Grid")
+        .Scrollable(scrolling => scrolling.Height("auto"))
+        .Columns(columns =>
+        {
+            columns.Bound(o => o.Stat).Width(100);
+            columns.Bound(o => o.Average).Width(75);
+            columns.Bound(o => o.Median).Width(75);
+        })
+        .ClientEvents(events => events.OnRowDataBound("hourly_onRowDataBound"))
+        .DetailView(details => details.ClientTemplate(
+            Html.Telerik().Grid<DeeperLookViewModel>()
+                .Name("Stat_<#= DeeperLookViewModelId #>")
+                .Columns(columns =>
+                {
+                    columns.Bound(o => o.Stat).Width(1000);
+                    columns.Bound(o => o.Average).Width(75);
+                    columns.Bound(o => o.Median).Width(75);
+                })
+                .DataBinding(dataBinding => dataBinding.Ajax().Select("_GrossRevHourly", "OrderDetails"))
+                .DataBinding(dataBinding =>
+                {
+                    dataBinding.Server().Select("GrossRevHourly", "OrderDetails", new { ajax = ViewData["ajax"] });
+                    dataBinding.Ajax().Select("_GrossRevHourly", "OrderDetails").Enabled((bool)ViewData["ajax"]);
+                })
+                .Pageable()
+                .Sortable()
+                .Filterable()
+                .ToHtmlString()
+                ))
+        .DataBinding(dataBinding =>
+        {
+            dataBinding.Server().Select("DeeperLook", "OrderDetails", new { ajax = ViewData["ajax"] });
+            dataBinding.Ajax().Select("_DeeperLook", "OrderDetails").Enabled((bool)ViewData["ajax"]);
+        })
+        .Scrollable(scrolling => scrolling.Enabled((bool)ViewData["scrolling"]))
+        .Sortable(sorting => sorting.Enabled((bool)ViewData["sorting"]))
+        .Pageable(paging => paging.Enabled((bool)ViewData["paging"]))
+        .Filterable(filtering => filtering.Enabled((bool)ViewData["filtering"]))
+        .Groupable(grouping => grouping.Enabled((bool)ViewData["grouping"]))
+)
+      
+      
+<script type="text/javascript">
+
+          function expandFirstRow(grid, row) {
+              if (grid.$rows().index(row) == 0) {
+                  grid.expandRow(row);
+              }
+          }
+
+          function hourly_onRowDataBound(e) {
+              var grid = $(this).data('tGrid');
+              expandFirstRow(grid, e.row);
+          }
+          
+</script> 
