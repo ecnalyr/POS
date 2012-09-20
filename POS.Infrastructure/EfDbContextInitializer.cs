@@ -84,7 +84,7 @@ namespace POS.Infrastructure
                             new OrderDetail { OrderId = 1, Quantity = 1, ProductName = "Tennis Racket", UnitPrice = 47, LineItemPromoId = 1},
                             new OrderDetail { OrderId = 1, Quantity = 3, ProductName = "Tennis Ball", UnitPrice = 6}
                         },
-                    EstablishmentId = 1, TotalCost = (decimal) 62.5, SalesTax = (decimal) 5.15625, CustomerName = "Albert", TimeProcessed = DateTime.Now},
+                    EstablishmentId = 1, TotalCost = (decimal) 62.5, SalesTax = (decimal) 5.15625, CustomerName = "Albert", TimeProcessed = DateTime.Now.AddHours(-3.00)},
 
                     new Order { OrderDetails = new List<OrderDetail>()
                         {

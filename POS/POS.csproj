@@ -505,6 +505,7 @@
     <Content Include="Views\OrderDetails\Master.cshtml" />
     <Content Include="Views\OrderDetails\EstablishmentSalesReport.cshtml" />
     <Content Include="Views\OrderDetails\DeeperLook.cshtml" />
+    <Content Include="Views\OrderDetails\DeeperLook2.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

@@ -6,9 +6,8 @@
 }
 
 <h2>Deeper Look</h2>
-@(Html.Telerik().Grid(Model)
-        .Name("Grid")
-        .Scrollable(scrolling => scrolling.Height("auto"))
+@(Html.Telerik().Grid<DeeperLookViewModel>()
+            .Name("Stats")
         .Columns(columns =>
         {
             columns.Bound(o => o.Stat).Width(100);
@@ -18,34 +17,25 @@
         .ClientEvents(events => events.OnRowDataBound("hourly_onRowDataBound"))
         .DetailView(details => details.ClientTemplate(
             Html.Telerik().Grid<DeeperLookViewModel>()
-                .Name("Stat_<#= DeeperLookViewModelId #>")
+                .Name("DeeperStat_<#= DeeperLookViewModelId #>")
                 .Columns(columns =>
                 {
                     columns.Bound(o => o.Stat).Width(1000);
                     columns.Bound(o => o.Average).Width(75);
                     columns.Bound(o => o.Median).Width(75);
                 })
-                .DataBinding(dataBinding => dataBinding.Ajax().Select("_GrossRevHourly", "OrderDetails"))
-                .DataBinding(dataBinding =>
-                {
-                    dataBinding.Server().Select("GrossRevHourly", "OrderDetails", new { ajax = ViewData["ajax"] });
-                    dataBinding.Ajax().Select("_GrossRevHourly", "OrderDetails").Enabled((bool)ViewData["ajax"]);
-                })
+                //.DataBinding(dataBinding => dataBinding.Ajax().Select("_GrossRevHourly", "OrderDetails", new { id = "<#= DeeperLookViewModelId #>" }))
+                    .DataBinding(dataBinding => dataBinding.Ajax().Select("_DeeperStat", "OrderDetails", new { id = "<#= DeeperLookViewModelId #>" }))
                 .Pageable()
                 .Sortable()
+                .Scrollable(scrolling => scrolling.Height(50))
                 .Filterable()
                 .ToHtmlString()
                 ))
-        .DataBinding(dataBinding =>
-        {
-            dataBinding.Server().Select("DeeperLook", "OrderDetails", new { ajax = ViewData["ajax"] });
-            dataBinding.Ajax().Select("_DeeperLook", "OrderDetails").Enabled((bool)ViewData["ajax"]);
-        })
-        .Scrollable(scrolling => scrolling.Enabled((bool)ViewData["scrolling"]))
-        .Sortable(sorting => sorting.Enabled((bool)ViewData["sorting"]))
-        .Pageable(paging => paging.Enabled((bool)ViewData["paging"]))
-        .Filterable(filtering => filtering.Enabled((bool)ViewData["filtering"]))
-        .Groupable(grouping => grouping.Enabled((bool)ViewData["grouping"]))
+        .DataBinding(dataBinding => dataBinding.Ajax().Select("_DeeperLook", "OrderDetails").Enabled((bool)ViewData["ajax"]))
+        .Pageable(paging => paging.PageSize(5))
+        .Scrollable(scrolling => scrolling.Height(580))
+        .Sortable()
 )
       
       
@@ -58,6 +48,11 @@
           }
 
           function hourly_onRowDataBound(e) {
+              var grid = $(this).data('tGrid');
+              expandFirstRow(grid, e.row);
+          }
+
+          function deeperStats_onRowDataBound(e) {
               var grid = $(this).data('tGrid');
               expandFirstRow(grid, e.row);
           }

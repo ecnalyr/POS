@@ -102,7 +102,7 @@ namespace POS.Domain.Model
     {
         public int LineItemPromoId { get; set; }
 
-        public int PromoId { get; set; }
+        public int? PromoId { get; set; }
 
         public virtual Promo Promo { get; set; }
     }
