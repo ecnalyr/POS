@@ -175,18 +175,18 @@ namespace POS.Controllers
                 var oneHourAgo = DateTime.Now.AddHours(-1.00);
 
                 var ordersPlacedInTheLastHour = orders.Where(order => order.TimeProcessed > oneHourAgo).ToList();
-                var ordersPlacedInTheLastHourRevenueList = ordersPlacedInTheLastHour.Select(order => order.TotalCost).ToList();
+                var ordersPlacedInTheLastHourGrossSalesList = ordersPlacedInTheLastHour.Select(order => order.TotalCost).ToList();
 
                 var ordersPlacedBeforeOneHourAgo =
                     orders.Where(order => order.TimeProcessed < oneHourAgo).ToList();
-                var ordersPlacedBeforeOneHourAgoRevenueList = ordersPlacedBeforeOneHourAgo.Select(order => order.TotalCost).ToList();
+                var ordersPlacedBeforeOneHourAgoGrossSalesList = ordersPlacedBeforeOneHourAgo.Select(order => order.TotalCost).ToList();
 
                 var totalSalesWithinLastHour = new DeeperLookViewModel
                 {
                     DeeperLookViewModelId = 1,
                     Stat = "Orders Placed In The Last Hour",
-                    Average = (float)ordersPlacedInTheLastHourRevenueList.Average(),
-                    Median = (float)ordersPlacedInTheLastHourRevenueList.Median()
+                    Average = (float)ordersPlacedInTheLastHourGrossSalesList.Average(),
+                    Median = (float)ordersPlacedInTheLastHourGrossSalesList.Median()
                 };
                 model.Add(totalSalesWithinLastHour);
 
@@ -194,8 +194,8 @@ namespace POS.Controllers
                 {
                     DeeperLookViewModelId = 2,
                     Stat = "Orders Placed Before The Last Hour",
-                    Average = (float)ordersPlacedBeforeOneHourAgoRevenueList.Average(),
-                    Median = (float)ordersPlacedBeforeOneHourAgoRevenueList.Median()
+                    Average = (float)ordersPlacedBeforeOneHourAgoGrossSalesList.Average(),
+                    Median = (float)ordersPlacedBeforeOneHourAgoGrossSalesList.Median()
                 };
                 model.Add(totalSalesBeforeLastHour);
             }
@@ -237,36 +237,64 @@ namespace POS.Controllers
                 var orders = db.Orders.Include(o => o.OrderDetails);
                 var oneHourAgo = DateTime.Now.AddHours(-1.00);
 
-                var ordersPlacedInTheLastHourRevenueList = (from order in orders
+                var ordersPlacedInTheLastHourLinePromoTotalList = (from order in orders
                                                             where order.TimeProcessed >= oneHourAgo
                                                             from orderDetail in order.OrderDetails
                                                             where orderDetail.LineItemPromoId != null
-                                                            select (orderDetail.LineItemPromo.Promo.PercentOff*(double) orderDetail.UnitPrice)*orderDetail.Quantity).ToList();
+                                                                   select (orderDetail.LineItemPromo.Promo.PercentOff * (double)orderDetail.UnitPrice) * orderDetail.Quantity).ToList().DefaultIfEmpty();
 
-                var ordersPlacedBeforeOneHourAgoRevenueList = (from order in orders
+                var ordersPlacedBeforeOneHourAgoLinePromoTotalList = (from order in orders
                                                             where order.TimeProcessed < oneHourAgo
                                                             from orderDetail in order.OrderDetails
                                                             where orderDetail.LineItemPromoId != null
-                                                            select (orderDetail.LineItemPromo.Promo.PercentOff * (double)orderDetail.UnitPrice) * orderDetail.Quantity).ToList();
+                                                                      select (orderDetail.LineItemPromo.Promo.PercentOff * (double)orderDetail.UnitPrice) * orderDetail.Quantity).ToList().DefaultIfEmpty();
 
-
-                var totalSalesWithinLastHour = new DeeperLookViewModel
+                if (ordersPlacedInTheLastHourLinePromoTotalList.FirstOrDefault() != null)
                 {
-                    DeeperLookViewModelId = 1,
-                    Stat = "Orders Placed In The Last Hour",
-                    Average = (float)ordersPlacedInTheLastHourRevenueList.Average(),
-                    Median = (float)ordersPlacedInTheLastHourRevenueList.Median()
-                };
-                model.Add(totalSalesWithinLastHour);
-
-                var totalSalesBeforeLastHour = new DeeperLookViewModel
+                    var totalSalesWithinLastHour = new DeeperLookViewModel
+                    {
+                        DeeperLookViewModelId = 1,
+                        Stat = "Orders Placed In The Last Hour",
+                        Average = (float)ordersPlacedInTheLastHourLinePromoTotalList.Average(),
+                        Median = (float)ordersPlacedInTheLastHourLinePromoTotalList.Median()
+                    };
+                    model.Add(totalSalesWithinLastHour);
+                }
+                else
                 {
-                    DeeperLookViewModelId = 2,
-                    Stat = "Orders Placed Before The Last Hour",
-                    Average = (float)ordersPlacedBeforeOneHourAgoRevenueList.Average(),
-                    Median = (float)ordersPlacedBeforeOneHourAgoRevenueList.Median()
-                };
-                model.Add(totalSalesBeforeLastHour);
+                    var totalSalesWithinLastHour = new DeeperLookViewModel
+                    {
+                        DeeperLookViewModelId = 1,
+                        Stat = "Orders Placed In The Last Hour",
+                        Average = 0,
+                        Median = 0
+                    };
+                    model.Add(totalSalesWithinLastHour);
+                }
+                
+                if (ordersPlacedBeforeOneHourAgoLinePromoTotalList.FirstOrDefault() != null)
+                {
+                    var totalSalesBeforeLastHour = new DeeperLookViewModel
+                    {
+                        DeeperLookViewModelId = 2,
+                        Stat = "Orders Placed Before The Last Hour",
+                        Average = (float)ordersPlacedBeforeOneHourAgoLinePromoTotalList.Average(),
+                        Median = (float)ordersPlacedBeforeOneHourAgoLinePromoTotalList.Median()
+                    };
+                    model.Add(totalSalesBeforeLastHour);
+                }
+                else
+                {
+                    var totalSalesBeforeLastHour = new DeeperLookViewModel
+                    {
+                        DeeperLookViewModelId = 2,
+                        Stat = "Orders Placed Before The Last Hour",
+                        Average = 0,
+                        Median = 0
+                    };
+                    model.Add(totalSalesBeforeLastHour);
+                }
+                
             }
 
 

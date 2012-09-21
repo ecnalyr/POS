@@ -14,5 +14,12 @@ namespace POS.Models
         public float Average { get; set; }
 
         public float Median { get; set; }
+
+        public DeeperLookViewModel()
+        {
+            Stat = "Stat";
+            Average = 0;
+            Median = 0;
+        }
     }
 }

@@ -11,8 +11,8 @@
         .Columns(columns =>
         {
             columns.Bound(o => o.Stat).Width(100);
-            columns.Bound(o => o.Average).Width(75);
-            columns.Bound(o => o.Median).Width(75);
+            columns.Bound(o => o.Average).Width(75).Format("{0:C}");
+            columns.Bound(o => o.Median).Width(75).Format("{0:C}");
         })
         .ClientEvents(events => events.OnRowDataBound("hourly_onRowDataBound"))
         .DetailView(details => details.ClientTemplate(
@@ -20,21 +20,22 @@
                 .Name("DeeperStat_<#= DeeperLookViewModelId #>")
                 .Columns(columns =>
                 {
-                    columns.Bound(o => o.Stat).Width(1000);
-                    columns.Bound(o => o.Average).Width(75);
-                    columns.Bound(o => o.Median).Width(75);
+                    columns.Bound(o => o.Stat).Width(90);
+                    columns.Bound(o => o.Average).Width(75).Format("{0:C}");
+                    columns.Bound(o => o.Median).Width(75).Format("{0:C}");
                 })
-                //.DataBinding(dataBinding => dataBinding.Ajax().Select("_GrossRevHourly", "OrderDetails", new { id = "<#= DeeperLookViewModelId #>" }))
-                    .DataBinding(dataBinding => dataBinding.Ajax().Select("_DeeperStat", "OrderDetails", new { id = "<#= DeeperLookViewModelId #>" }))
+                .DataBinding(dataBinding => dataBinding.Ajax().Select("_DeeperStat", "OrderDetails", new { id = "<#= DeeperLookViewModelId #>" }))
                 .Pageable()
                 .Sortable()
-                .Scrollable(scrolling => scrolling.Height(50))
+                .Scrollable(scrolling => scrolling.Height("auto"))
+                .Scrollable(scrolling => scrolling.Enabled(false))
                 .Filterable()
                 .ToHtmlString()
                 ))
         .DataBinding(dataBinding => dataBinding.Ajax().Select("_DeeperLook", "OrderDetails").Enabled((bool)ViewData["ajax"]))
         .Pageable(paging => paging.PageSize(5))
-        .Scrollable(scrolling => scrolling.Height(580))
+        .Scrollable(scrolling => scrolling.Height("auto"))
+        .Scrollable(scrolling => scrolling.Enabled(false))
         .Sortable()
 )
       
