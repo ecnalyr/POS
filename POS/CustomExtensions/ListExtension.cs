@@ -23,18 +23,15 @@ namespace POS.CustomExtensions
             {
                 throw new InvalidOperationException("Empty collection");
             }
-            else if (count % 2 == 0)
+            if (count % 2 == 0)
             {
                 // count is even, average two middle elements
                 decimal a = temp[count / 2 - 1];
                 decimal b = temp[count / 2];
                 return (a + b) / 2m;
             }
-            else
-            {
-                // count is odd, return the middle element
-                return temp[count / 2];
-            }
+            // count is odd, return the middle element
+            return temp[count / 2];
         }
 
         //TODO: Make a unit test
@@ -55,18 +52,15 @@ namespace POS.CustomExtensions
             {
                 throw new InvalidOperationException("Empty collection");
             }
-            else if (count % 2 == 0)
+            if (count % 2 == 0)
             {
                 // count is even, average two middle elements
                 decimal a = (decimal) temp[count / 2 - 1];
                 decimal b = (decimal) temp[count / 2];
                 return (a + b) / 2m;
             }
-            else
-            {
-                // count is odd, return the middle element
-                return (decimal) temp[count / 2];
-            }
+            // count is odd, return the middle element
+            return (decimal) temp[count / 2];
         }
     }
 }

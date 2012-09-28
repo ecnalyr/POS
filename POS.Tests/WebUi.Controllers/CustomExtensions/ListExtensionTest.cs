@@ -1,21 +1,16 @@
-﻿using System.Diagnostics;
-using System.Linq;
-using POS.CustomExtensions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting.Web;
+﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using POS.CustomExtensions;
 
-namespace POS.Tests
+namespace POS.Tests.WebUi.Controllers.CustomExtensions
 {
-    
-    
     /// <summary>
     ///This is a test class for ListExtensionTest and is intended
     ///to contain all ListExtensionTest Unit Tests
     ///</summary>
-    [TestClass()]
+    [TestClass]
     public class ListExtensionTest
     {
         /// <summary>
@@ -32,7 +27,7 @@ namespace POS.Tests
                     9,
                     10
                 };
-            Decimal expected = new Decimal(5);
+            var expected = new Decimal(5);
             Decimal actual;
             actual = source.Median();
             Assert.AreEqual(expected, actual);
@@ -53,7 +48,7 @@ namespace POS.Tests
                     10,
                     11
                 };
-            Decimal expected = new Decimal(7);
+            var expected = new Decimal(7);
             Decimal actual;
             actual = source.Median();
             Assert.AreEqual(expected, actual);
@@ -73,7 +68,7 @@ namespace POS.Tests
                     9.99,
                     10.10
                 };
-            Decimal expected = new Decimal(5.55);
+            var expected = new Decimal(5.55);
             Decimal actual;
             actual = source.Median();
             Assert.AreEqual(expected, actual);
@@ -94,7 +89,7 @@ namespace POS.Tests
                     10.10,
                     11.11
                 };
-            Decimal expected = new Decimal(7.77);
+            var expected = new Decimal(7.77);
             Decimal actual;
             actual = source.Median();
             Assert.AreEqual(expected, actual);
@@ -114,7 +109,7 @@ namespace POS.Tests
                     9,
                     10
                 };
-            Decimal expected = new Decimal(5); // this is both the first item in the list and the median
+            var expected = new Decimal(5); // this is both the first item in the list and the median
             Decimal firstItemInList;
             Decimal medianResult;
             medianResult = source.Median();
