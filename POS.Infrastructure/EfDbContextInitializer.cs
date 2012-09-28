@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using POS.Domain.Model;
+using System.Web.Security;
+using POS.Infrastructure.Membership;
 
 namespace POS.Infrastructure
 {
@@ -9,6 +11,10 @@ namespace POS.Infrastructure
     {
         protected override void Seed(EfDbContext context)
         {
+            WebSecurity.Register("Admin", "pas5word", "demo@demo.com", true, "Demo", "Demo");
+            Roles.CreateRole("Admin");
+            Roles.AddUserToRole("Demo", "Admin");
+
             var parentCategories = new List<ParentCategory>
                                        {
                                            new ParentCategory {Name = "SportsEquipment"},

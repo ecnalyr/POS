@@ -1,6 +1,7 @@
 ﻿using System.Data.Entity;
 using POS.Domain.Model;
 
+
 namespace POS.Infrastructure
 {
     #region
@@ -28,6 +29,10 @@ namespace POS.Infrastructure
         public DbSet<Promo> Promos { get; set; }
 
         public DbSet<LineItemPromo> LineItemPromos { get; set; }
+
+        public DbSet<User> Users { get; set; }
+
+        public DbSet<Role> Roles { get; set; }
         
         #endregion
     }

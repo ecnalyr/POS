@@ -1,4 +1,5 @@
-﻿using System;
+﻿/*
+using System;
 using System.Web.Mvc;
 using System.Web.Security;
 using POS.Models;
@@ -79,7 +80,7 @@ namespace POS.Controllers
 
                 if (createStatus == MembershipCreateStatus.Success)
                 {
-                    FormsAuthentication.SetAuthCookie(model.UserName, false /* createPersistentCookie */);
+                    FormsAuthentication.SetAuthCookie(model.UserName, false /* createPersistentCookie #1#);
                     return RedirectToAction("Index", "Home");
                 }
                 else
@@ -116,7 +117,7 @@ namespace POS.Controllers
                 bool changePasswordSucceeded;
                 try
                 {
-                    MembershipUser currentUser = Membership.GetUser(User.Identity.Name, true /* userIsOnline */);
+                    MembershipUser currentUser = Membership.GetUser(User.Identity.Name, true /* userIsOnline #1#);
                     changePasswordSucceeded = currentUser.ChangePassword(model.OldPassword, model.NewPassword);
                 }
                 catch (Exception)
@@ -187,3 +188,4 @@ namespace POS.Controllers
         #endregion
     }
 }
+*/

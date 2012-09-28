@@ -112,7 +112,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="HtmlHelpers\HtmlHelpers.cs" />
-    <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\CartIndexViewModel.cs" />
     <Compile Include="Models\DeeperLookViewModel.cs" />
     <Compile Include="Models\MasterViewModel.cs" />

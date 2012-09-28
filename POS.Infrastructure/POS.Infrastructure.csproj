@@ -35,8 +35,11 @@
       <HintPath>..\POS\bin\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -50,6 +53,10 @@
     <Compile Include="EfOrderRepository.cs" />
     <Compile Include="EfProductRepository.cs" />
     <Compile Include="EFRepository.cs" />
+    <Compile Include="Membership\CodeFirstMembershipProvider.cs" />
+    <Compile Include="Membership\CodeFirstRoleProvider.cs" />
+    <Compile Include="Membership\Crypto.cs" />
+    <Compile Include="Membership\WebSecurity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
