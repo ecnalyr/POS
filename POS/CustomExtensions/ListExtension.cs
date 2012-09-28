@@ -42,6 +42,7 @@ namespace POS.CustomExtensions
         /// Computes the median of a sequence of System.Double values
         /// </summary>
         /// <param name="source">A sequence of System.Double values to calculate the median of.</param>
+        /// <param name="enumerable"> </param>
         /// <returns>The median of the sequence of the values</returns>
         public static decimal Median(this IEnumerable<double> source)
         {

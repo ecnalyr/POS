@@ -233,7 +233,7 @@ namespace POS.Controllers
             if (id == 3)
             {
                 // Do promo numbers
-                ///TotalPromoHourly id =3
+                //TotalPromoHourly id =3
                 var orders = db.Orders.Include(o => o.OrderDetails);
                 var oneHourAgo = DateTime.Now.AddHours(-1.00);
 
