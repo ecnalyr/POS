@@ -1,0 +1,5 @@
+<StyleCopSettings Version="105">
+  <GlobalSettings>
+    <IntegerProperty Name="DaysToCheckForUpdates">1</IntegerProperty>
+  </GlobalSettings>
+</StyleCopSettings>

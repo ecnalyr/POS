@@ -105,6 +105,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\EstablishmentController.cs" />
     <Compile Include="Controllers\ControllerBase.cs" />
+    <Compile Include="Controllers\MembershipController.cs" />
     <Compile Include="Controllers\OrderDetailsController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="CustomExtensions\ListExtension.cs" />
@@ -115,6 +116,7 @@
     <Compile Include="Models\CartIndexViewModel.cs" />
     <Compile Include="Models\DeeperLookViewModel.cs" />
     <Compile Include="Models\MasterViewModel.cs" />
+    <Compile Include="Models\Membership.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -391,10 +393,10 @@
     <Content Include="Scripts\MicrosoftMvcValidation.js" />
     <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Account\ChangePassword.cshtml" />
-    <Content Include="Views\Account\ChangePasswordSuccess.cshtml" />
-    <Content Include="Views\Account\LogOn.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Membership\ChangePassword.cshtml" />
+    <Content Include="Views\Membership\ChangePasswordSuccess.cshtml" />
+    <Content Include="Views\Membership\LogOn.cshtml" />
+    <Content Include="Views\Membership\Register.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_LogOnPartial.cshtml" />
