@@ -48,7 +48,7 @@ namespace POS.Domain.ApplicationService
             catch (Exception)
             {
                 // TODO: Add HttpException handling in place of Exception below
-                throw new Exception("Erorr building list of roder details -> cart.Lines was probably null.");
+                throw new Exception("Erorr building list of oder details -> cart.Lines was probably null.");
             }
 
             var firstCartLineProduct = cart.Lines.FirstOrDefault();

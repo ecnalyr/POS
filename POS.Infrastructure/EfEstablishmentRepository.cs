@@ -6,7 +6,7 @@ using POS.Domain.Model;
 
 namespace POS.Infrastructure
 {
-    public class EfEstablishmentRepository : IEstablishmentRepository
+    public class EfEstablishmentRepository : GenericRepository<EfDbContext, Establishment>, IEstablishmentRepository
     {
         #region Fields
 

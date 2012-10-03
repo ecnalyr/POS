@@ -57,6 +57,7 @@
   <ItemGroup>
     <Compile Include="Abstract\ICartApplicationService.cs" />
     <Compile Include="Abstract\IEstablishmentRepository.cs" />
+    <Compile Include="Abstract\IGenericRepository.cs" />
     <Compile Include="Abstract\IOrderProcessor.cs" />
     <Compile Include="Abstract\IProductRepository.cs" />
     <Compile Include="Abstract\IRepository.cs" />

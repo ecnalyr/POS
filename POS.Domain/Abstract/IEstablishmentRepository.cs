@@ -4,7 +4,7 @@ using POS.Domain.Model;
 
 namespace POS.Domain.Abstract
 {
-    public interface IEstablishmentRepository : IDisposable
+    public interface IEstablishmentRepository : IGenericRepository<Establishment>
     {
         #region Public Properties
 

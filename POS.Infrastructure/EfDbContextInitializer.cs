@@ -12,8 +12,13 @@ namespace POS.Infrastructure
         protected override void Seed(EfDbContext context)
         {
             WebSecurity.Register("Admin", "pas5word", "demo@demo.com", true, "Demo", "Demo");
+            WebSecurity.Register("Server1", "pas5word", "server1@demo.com", true, "Eleanor", "Rigsby");
+            WebSecurity.Register("Server2", "pas5word", "server2@demo.com", true, "Pattie", "Boyd");
+            WebSecurity.Register("Server3", "pas5word", "server3@demo.com", true, "Rosanna", "Arquette");
             Roles.CreateRole("Admin");
+            Roles.CreateRole("Server");
             Roles.AddUserToRole("Demo", "Admin");
+            Roles.AddUsersToRole(new[] {"Server1", "Server2", "Server3"}, "Server");
 
             var parentCategories = new List<ParentCategory>
                                        {
@@ -90,7 +95,7 @@ namespace POS.Infrastructure
                             new OrderDetail { OrderId = 1, Quantity = 1, ProductName = "Tennis Racket", UnitPrice = 47, LineItemPromoId = 1},
                             new OrderDetail { OrderId = 1, Quantity = 3, ProductName = "Tennis Ball", UnitPrice = 6}
                         },
-                    EstablishmentId = 1, TotalCost = (decimal) 62.5, SalesTax = (decimal) 5.15625, CustomerName = "Albert", TimeProcessed = DateTime.Now.AddHours(-3.00)},
+                    EstablishmentId = 1, TotalCost = (decimal) 62.5, SalesTax = (decimal) 5.15625, CustomerName = "Albert", ServerId = 2, ServerTip = (decimal) 1.50, TimeProcessed = DateTime.Now.AddHours(-3.00)},
 
                     new Order { OrderDetails = new List<OrderDetail>()
                         {
@@ -98,13 +103,13 @@ namespace POS.Infrastructure
                             new OrderDetail { OrderId = 2, Quantity = 1, ProductName = "Tennis Racket", UnitPrice = 47},
                             new OrderDetail { OrderId = 2, Quantity = 3, ProductName = "Tennis Ball", UnitPrice = 6},
                         },
-                    EstablishmentId = 1, TotalCost = 93, SalesTax = (decimal) 7.6725, CustomerName = "Henry", TimeProcessed = DateTime.Now},
+                    EstablishmentId = 1, TotalCost = 93, SalesTax = (decimal) 7.6725, CustomerName = "Henry", ServerId = 3, ServerTip = (decimal) 2.25, TimeProcessed = DateTime.Now},
 
                     new Order { OrderDetails = new List<OrderDetail>()
                         {
                             new OrderDetail { OrderId = 3, Quantity = 1, ProductName = "Basketball", UnitPrice = 14}
                         },
-                    EstablishmentId = 1, TotalCost = 14, SalesTax = (decimal) 1.155, CustomerName = "Thomas", TimeProcessed = DateTime.Now},
+                    EstablishmentId = 1, TotalCost = 14, SalesTax = (decimal) 1.155, CustomerName = "Thomas", ServerId = 4, ServerTip = (decimal) 3.76, TimeProcessed = DateTime.Now.AddHours(-0.50)},
                 };
             orders.ForEach(s => context.Orders.Add(s));
 

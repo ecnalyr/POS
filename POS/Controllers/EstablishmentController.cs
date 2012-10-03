@@ -48,6 +48,7 @@ namespace POS.Controllers
                 }
 
                 _establishmentRepository.SaveEstablishment(establishment);
+                // TODO: _establishmentRepository.Add(establishment);
                 TempData["message"] = string.Format("Establishment {0} has been saved", establishment.Name);
                 return RedirectToAction("Index");
             }

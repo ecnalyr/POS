@@ -13,6 +13,8 @@ namespace POS.Domain.Model
 
         public virtual Establishment Establishment { get; set; }
 
+        public decimal ServerTip { get; set; }
+
         public decimal TotalCost { get; set; }
 
         public Promo Promo { get; set; }
@@ -23,9 +25,15 @@ namespace POS.Domain.Model
 
         public string CustomerName { get; set; }
 
+        public int ServerId { get; set; }
+
+        public virtual User Server { get; set; }
+
         public Order()
         {
             TotalCost = 0;
+            ServerId = 2;
+            ServerTip = (decimal) 1.00;
         }
     }
 
