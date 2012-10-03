@@ -4,7 +4,7 @@ using POS.Domain.Model;
 
 namespace POS.Domain.Abstract
 {
-    public interface IOrderProcessor : IDisposable
+    public interface IOrderProcessor : IGenericRepository<Order>
     {
         #region Public Properties
 

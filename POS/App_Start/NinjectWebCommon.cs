@@ -17,6 +17,7 @@ namespace POS.App_Start
     using Ninject.Web.Common;
 
     using POS.Controllers;
+    using POS.Infrastructure.Membership;
 
     public static class NinjectWebCommon 
     {

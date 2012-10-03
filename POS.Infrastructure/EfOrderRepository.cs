@@ -6,7 +6,7 @@ using POS.Domain.Model;
 
 namespace POS.Infrastructure
 {
-    public class EfOrderRepository : IOrderProcessor
+    public class EfOrderRepository : GenericRepository<EfDbContext, Order>, IOrderProcessor
     {
         #region Fields
 

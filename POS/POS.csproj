@@ -108,6 +108,7 @@
     <Compile Include="Controllers\MembershipController.cs" />
     <Compile Include="Controllers\OrderDetailsController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\ServerReportController.cs" />
     <Compile Include="CustomExtensions\ListExtension.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -117,6 +118,7 @@
     <Compile Include="Models\DeeperLookViewModel.cs" />
     <Compile Include="Models\MasterViewModel.cs" />
     <Compile Include="Models\Membership.cs" />
+    <Compile Include="Models\ServerReportIndexViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -507,6 +509,7 @@
     <Content Include="Views\OrderDetails\EstablishmentSalesReport.cshtml" />
     <Content Include="Views\OrderDetails\DeeperLook.cshtml" />
     <Content Include="Views\OrderDetails\DeeperLook2.cshtml" />
+    <Content Include="Views\ServerReport\Index.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

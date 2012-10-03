@@ -79,6 +79,7 @@
     <Reference Include="WebActivator, Version=1.5.1.0, Culture=neutral, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ServerReportControllerTest.cs" />
     <Compile Include="WebUi.Controllers\MembershipControllerTest.cs" />
     <Compile Include="WebUi.Controllers\CustomExtensions\ListExtensionTest.cs" />
     <Compile Include="WebUi.Controllers\EstablishmentManagerControllerTest.cs" />

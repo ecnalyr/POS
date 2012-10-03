@@ -1,0 +1,69 @@
+﻿@model POS.Models.ServerReportIndexViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            EstablishmentId
+        </th>
+        <th>
+            ServerTip
+        </th>
+        <th>
+            TotalCost
+        </th>
+        <th>
+            SalesTax
+        </th>
+        <th>
+            TimeProcessed
+        </th>
+        <th>
+            CustomerName
+        </th>
+        <th>
+            ServerId
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.EstablishmentId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ServerTip)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalCost)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SalesTax)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TimeProcessed)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustomerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ServerId)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.OrderId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.OrderId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.OrderId })
+        </td>
+    </tr>
+}
+
+</table>

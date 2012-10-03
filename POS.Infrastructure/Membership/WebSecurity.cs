@@ -7,6 +7,8 @@ using System.Web.Security;
 
 namespace POS.Infrastructure.Membership
 {
+    using POS.Domain.Abstract;
+
     public sealed class WebSecurity
     {
         public static HttpContextBase Context
