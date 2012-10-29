@@ -1,13 +1,13 @@
 POS Read Me
 =============
-
-Open in Visual Studio 2010
+contact: ecnalyr@gmail.com
 
 Build Instructions
 ------------------
-1. Build POS.Infrastructure
-2. Build Pos
-3. You are finished.
+1. Open in Visual Studio 2010
+2. Build POS.Infrastructure
+3. Build Pos
+4. You are finished.
 
 Contributing
 ------------
