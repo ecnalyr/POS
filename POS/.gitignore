@@ -163,6 +163,6 @@ pip-log.txt
 .DS_Store
 
 ############
-## Just for POS #
+## Just for POS
 ############
 pos/pos/logs/
