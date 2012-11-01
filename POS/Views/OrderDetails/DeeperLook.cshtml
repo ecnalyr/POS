@@ -25,7 +25,6 @@
                     columns.Bound(o => o.Median).Width(75).Format("{0:C}");
                 })
                 .DataBinding(dataBinding => dataBinding.Ajax().Select("_DeeperStat", "OrderDetails", new { id = "<#= DeeperLookViewModelId #>" }))
-                .Pageable()
                 .Sortable()
                 .Scrollable(scrolling => scrolling.Height("auto"))
                 .Scrollable(scrolling => scrolling.Enabled(false))

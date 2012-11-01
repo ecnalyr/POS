@@ -26,7 +26,6 @@
 
         #endregion
 
-        // GET: /OrderDetails/Create
         #region Public Methods and Operators
 
         public ActionResult Create()
@@ -35,7 +34,6 @@
             return View();
         }
 
-        // POST: /OrderDetails/Create
         [HttpPost]
         public ActionResult Create(OrderDetail orderdetail)
         {
@@ -319,12 +317,12 @@
                 List<decimal> ordersPlacedInTheLastHourGrossSalesList =
                     ordersPlacedInTheLastHour.Select(order => order.TotalCost).ToList();
 
-                List<Order> ordersPlacedBeforeOneHourAgo =
+                /*List<Order> ordersPlacedBeforeOneHourAgo =
                     orders.Where(order => order.TimeProcessed < oneHourAgo).ToList();
                 List<decimal> ordersPlacedBeforeOneHourAgoGrossSalesList =
-                    ordersPlacedBeforeOneHourAgo.Select(order => order.TotalCost).ToList();
+                    ordersPlacedBeforeOneHourAgo.Select(order => order.TotalCost).ToList();*/
 
-                var totalSalesWithinLastHour = new DeeperLookViewModel
+                /*var totalSalesWithinLastHour = new DeeperLookViewModel
                     {
                         DeeperLookViewModelId = 1, 
                         Stat = "Orders Placed In The Last Hour", 
@@ -340,7 +338,49 @@
                         Average = (float)ordersPlacedBeforeOneHourAgoGrossSalesList.Average(), 
                         Median = (float)ordersPlacedBeforeOneHourAgoGrossSalesList.Median()
                     };
-                model.Add(totalSalesBeforeLastHour);
+                model.Add(totalSalesBeforeLastHour);*/
+
+                var calendarStartOfBusiness = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 05, 00, 00, DateTimeKind.Local);
+                DateTime todaysStartOfBusiness = calendarStartOfBusiness;
+                if (DateTime.Now < calendarStartOfBusiness)
+                {
+                    todaysStartOfBusiness = calendarStartOfBusiness.AddDays(-1);
+                }
+                        
+                DateTime endDate = todaysStartOfBusiness.AddDays(1);
+
+                var hourId = 1;
+                while (todaysStartOfBusiness != endDate)
+                {
+                    Console.WriteLine(todaysStartOfBusiness.ToString());
+
+                    // this will show orders from all hours -- not just hours in the past 24 hours
+                    List<Order> ordersPlacedDuringThisHour =
+                    orders.Where(order => order.TimeProcessed.Hour == todaysStartOfBusiness.Hour).ToList();
+                    List<decimal> ordersPlacedDuringThisHourList =
+                        ordersPlacedDuringThisHour.Select(order => order.TotalCost).ToList();
+                    float thisHourAverage = 0;
+                    float thisHourMedian = 0;
+                    if (ordersPlacedDuringThisHourList.Count() != 0)
+                    {
+                        thisHourAverage = (float)ordersPlacedDuringThisHourList.Average();
+                    }
+                    if (ordersPlacedDuringThisHourList.Count() != 0)
+                    {
+                        thisHourMedian = (float)ordersPlacedDuringThisHourList.Median();
+                    }
+
+                    var totalSales = new DeeperLookViewModel
+                    {
+                        DeeperLookViewModelId = hourId,
+                        Stat = "Orders Placed at hour " + todaysStartOfBusiness.Hour,
+                        Average = thisHourAverage,
+                        Median = thisHourMedian
+                    };
+                    model.Add(totalSales);
+                    todaysStartOfBusiness = todaysStartOfBusiness.AddHours(1);
+                    hourId++;
+                }
             }
 
             if (id == 2)
