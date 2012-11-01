@@ -26,6 +26,10 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PublishDatabaseSettings>&lt;Objects xmlns="http://schemas.microsoft.com/developer/msbuild/2003"&gt;&lt;ObjectGroup Name="EFDbContext-Deployment" Order="1"&gt;&lt;Destination Path="connectionString=&amp;quot%3bData Source=vserver01.cytanium.com%3bInitial Catalog=EcnalyrASPNETDB%3bUser Id=rylanceadmin%3bPassword=pas5word%3b&amp;quot%3b providerName=&amp;quot%3bSystem.Data.SqlClient&amp;quot%3bpas5word%3b" /&gt;&lt;Object Type="dbFullSql" Enabled="True"&gt;&lt;PreSource Path="Data Source=vserver01.cytanium.com%3bInitial Catalog=EcnalyrASPNETDB%3bUser Id=rylanceadmin%3bPassword=pas5word%3b" ScriptSchema="True" ScriptData="True" CopyAllFullTextCatalogs="False" DriDefaults="True" /&gt;&lt;Source Path="obj\Debug\AutoScripts\EFDbContext-Deployment_SchemaAndData.sql" Transacted="True" /&gt;&lt;/Object&gt;&lt;/ObjectGroup&gt;&lt;/Objects&gt;</PublishDatabaseSettings>
+    <FilesToIncludeForPublish>OnlyFilesToRunTheApp</FilesToIncludeForPublish>
+    <PackageAsSingleFile>false</PackageAsSingleFile>
+    <PublishDatabases>false</PublishDatabases>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -34,6 +38,19 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PublishDatabaseSettings>
+      <Objects>
+        <ObjectGroup Name="EFDbContext-Deployment" Order="1">
+          <Destination Path="SQL Server: Data Source=vserver01.cytanium.com%3bInitial Catalog=EcnalyrASPNETDB%3bUser Id=databaseadmin%3bPassword=pas5word%3b" />
+          <Object Type="dbFullSql" Enabled="True">
+            <PreSource Path="data source=.\SQLEXPRESS%3bIntegrated Security=SSPI%3bdatabase=pos%3bAttachDBFilename=|DataDirectory|pos.mdf%3bMultipleActiveResultSets=true%3bUser Instance=true" ScriptSchema="True" ScriptData="True" CopyAllFullTextCatalogs="False" DriDefaults="True" />
+            <Source Path="obj\Release\AutoScripts\EFDbContext-Deployment_SchemaAndData.sql" Transacted="True" />
+          </Object>
+        </ObjectGroup>
+      </Objects>
+    </PublishDatabaseSettings>
+    <PublishDatabases>false</PublishDatabases>
+    <PackageAsSingleFile>false</PackageAsSingleFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AntiXssLibrary">

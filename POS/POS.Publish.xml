@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<publishData>
+  <publishProfile publishUrl="https://vserver01.cytanium.com:8172/msdeploy.axd" deleteExistingFiles="False" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="rylancecs.com" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="True" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="rylancecs.com - Web Deploy" publishMethod="MSDeploy" replaceMatchingFiles="True" userName="databaseadmin" savePWD="True" userPWD="AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAKABZoLYLt0Sv6RhKIizCMwAAAAACAAAAAAAQZgAAAAEAACAAAAB96Bo6udMpNXwo6wToBiq+k9CL/iQ+VpuyWztgRbbEdwAAAAAOgAAAAAIAACAAAADoc8lmcftP7U7WyqnP2e36BMRdHGzm54lhmICIrDM78yAAAAAZMSy3SUce47bD+JMc3ZlLRItyzlp12NGOT/A4fSxdzUAAAAAp6Sl0/sG5fb8yO9MzyWuI9ORYxt6n4I63v5k1QUCAThvU/H1RLvgnzjtl5lKQwCOYdvi2bWJyOB8in6Fj0Ua8" SelectedForPublish="True" />
+</publishData>
